@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>History of Kazakhstan · Codex Steppae</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+<style>
+:root{
+  --parchment:#f6eeda;--parchment-2:#efe3c8;--parchment-3:#e5d6b4;
+  --ink:#2a2118;--ink-soft:#5b4a37;--ink-faint:#8a765c;
+  --gold:#b08d57;--gold-2:#d8b876;--wine:#6e2b2b;--forest:#3f5a44;
+  --line:rgba(90,74,56,.28);--line-strong:rgba(90,74,56,.5);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:'Cormorant Garamond',Georgia,serif;color:var(--ink);
+  background:radial-gradient(ellipse at 50% -10%, #fdf8ec 0%, var(--parchment) 35%, var(--parchment-2) 70%, var(--parchment-3) 100%);
+  min-height:100vh;position:relative;font-size:18px;line-height:1.55;}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  mix-blend-mode:multiply;}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;box-shadow:inset 0 0 200px rgba(90,70,40,.35)}
+.page{position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:32px 24px 60px}
+.masthead{text-align:center;padding:18px 0 26px;position:relative}
+.masthead .kicker{font-family:'Cinzel',serif;font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px}
+.masthead h1{font-family:'Cinzel',serif;font-weight:700;font-size:clamp(26px,4.4vw,46px);letter-spacing:.06em;margin:0 0 10px;color:var(--ink);text-transform:uppercase}
+.masthead .sub{font-style:italic;color:var(--ink-soft);font-size:clamp(15px,1.7vw,19px);margin:0}
+.rule{display:flex;align-items:center;justify-content:center;gap:14px;margin:22px auto 0;max-width:520px}
+.rule::before,.rule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.rule .gem{width:9px;height:9px;background:var(--gold);transform:rotate(45deg);box-shadow:0 0 0 3px var(--parchment), 0 0 0 4px var(--line)}
+.panel{position:relative;background:rgba(255,252,243,.55);border:1px solid var(--line);padding:26px 26px 24px;box-shadow:0 1px 0 rgba(255,255,255,.6) inset, 0 12px 30px -22px rgba(60,45,20,.6)}
+.panel::before,.panel::after{content:"";position:absolute;width:14px;height:14px;border:1px solid var(--gold);opacity:.85}
+.panel::before{top:-1px;left:-1px;border-right:0;border-bottom:0}
+.panel::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
+.panel h2{font-family:'Cinzel',serif;font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 18px;display:flex;align-items:center;gap:10px}
+.panel h2 .num{font-family:'Cinzel',serif;font-size:11px;border:1px solid var(--gold);color:var(--gold);width:22px;height:22px;display:grid;place-items:center;transform:rotate(45deg)}
+.panel h2 .num span{transform:rotate(-45deg);display:block}
+.btn{font-family:'Cinzel',serif;font-size:13px;letter-spacing:.18em;text-transform:uppercase;padding:13px 26px;border:1px solid var(--wine);background:transparent;color:var(--wine);cursor:pointer;transition:.22s;position:relative}
+.btn:hover{background:var(--wine);color:var(--parchment)}
+.btn.solid{background:var(--wine);color:var(--parchment)}
+.btn.solid:hover{background:#59201f;border-color:#59201f}
+.btn.gold{border-color:var(--gold);color:#7a5f34}
+.btn.gold:hover{background:var(--gold);color:#fff}
+.btn.ghost{border-color:var(--line-strong);color:var(--ink-soft)}
+.btn.ghost:hover{background:rgba(90,74,56,.1);color:var(--ink)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap}
+.hero{text-align:center;padding:44px 20px 40px}
+.hero .sigil{width:104px;height:104px;margin:0 auto 26px;position:relative;display:grid;place-items:center}
+.hero .sigil svg{width:100%;height:100%}
+.hero p.lead{max-width:640px;margin:0 auto 30px;font-size:clamp(16px,1.9vw,20px);color:var(--ink-soft);font-style:italic}
+.syllabus{margin:44px auto 0;max-width:900px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;text-align:left}
+.syllabus .item{border:1px solid var(--line);padding:11px 14px;font-size:15px;color:var(--ink-soft);display:flex;gap:12px;align-items:baseline;background:rgba(255,255,255,.28)}
+.syllabus .item b{font-family:'Cinzel',serif;font-size:12px;color:var(--gold);letter-spacing:.08em}
+.topic-card{text-align:center;padding:38px 30px 32px;position:relative;background:linear-gradient(180deg, rgba(255,253,246,.85), rgba(246,238,218,.65));border:1px solid var(--line-strong)}
+.topic-card::before{content:"";position:absolute;inset:8px;border:1px solid var(--line);pointer-events:none}
+.topic-label{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.topic-en{font-family:'Cinzel',serif;font-weight:600;font-size:clamp(19px,2.8vw,30px);line-height:1.35;margin:0 0 18px;color:var(--ink);letter-spacing:.01em}
+.topic-hint{max-width:720px;margin:0 auto 26px;font-style:italic;color:var(--ink-soft);font-size:clamp(15px,1.7vw,18px)}
+.topic-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2}
+.workspace{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:30px;align-items:start}
+@media(max-width:980px){.workspace{grid-template-columns:1fr}}
+.q-meta{display:flex;justify-content:space-between;align-items:center;font-family:'Cinzel',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:12px}
+.q-bar{height:3px;background:rgba(90,74,56,.15);margin-bottom:22px;overflow:hidden}
+.q-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-2));transition:.35s;width:0}
+.q-text{font-size:clamp(17px,1.9vw,20px);line-height:1.5;margin:0 0 22px;font-weight:500}
+.options{display:grid;gap:10px;margin-bottom:18px}
+.opt{text-align:left;padding:14px 18px;border:1px solid var(--line);background:rgba(255,255,255,.4);cursor:pointer;font:inherit;font-size:17px;color:var(--ink);transition:.18s;display:flex;gap:14px;align-items:baseline}
+.opt .lt{font-family:'Cinzel',serif;font-size:12px;color:var(--gold);min-width:16px}
+.opt:hover:not(:disabled){border-color:var(--gold);background:rgba(216,184,118,.16)}
+.opt:disabled{cursor:default}
+.opt.correct{border-color:var(--forest);background:rgba(63,90,68,.13);color:var(--forest);font-weight:600}
+.opt.wrong{border-color:var(--wine);background:rgba(110,43,43,.1);color:var(--wine)}
+.opt.correct .lt,.opt.wrong .lt{color:inherit}
+.explain{border-left:3px solid var(--gold);padding:12px 16px;background:rgba(216,184,118,.12);font-size:16px;color:var(--ink-soft);font-style:italic;margin-bottom:18px}
+.score-block{text-align:center;padding:20px 0}
+.score-block .big{font-family:'Cinzel',serif;font-size:52px;color:var(--wine);line-height:1;margin-bottom:10px}
+.score-block .pct{font-size:19px;color:var(--ink-soft);margin-bottom:22px}
+.drop{border:1.5px dashed var(--line-strong);padding:26px 20px;text-align:center;cursor:pointer;transition:.2s;background:rgba(255,255,255,.25);margin-bottom:14px}
+.drop:hover,.drop.over{border-color:var(--gold);background:rgba(216,184,118,.14)}
+.drop .ico{font-size:26px;color:var(--gold);display:block;margin-bottom:8px}
+.drop .t1{font-family:'Cinzel',serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:5px}
+.drop .t2{font-size:14px;color:var(--ink-faint);font-style:italic}
+.or{text-align:center;font-family:'Cinzel',serif;font-size:11px;letter-spacing:.3em;color:var(--ink-faint);margin:14px 0}
+textarea{width:100%;min-height:180px;padding:16px;font:inherit;font-size:16px;line-height:1.55;border:1px solid var(--line);background:rgba(255,255,255,.5);color:var(--ink);resize:vertical;outline:none;transition:.2s}
+textarea:focus{border-color:var(--gold);background:rgba(255,255,255,.75)}
+textarea::placeholder{color:var(--ink-faint);font-style:italic}
+.meta-row{display:flex;justify-content:space-between;align-items:center;margin:10px 0 16px;font-size:14px;color:var(--ink-faint);font-style:italic}
+.meta-row .warn{color:var(--wine);font-style:normal}
+.result{margin-top:22px;border-top:1px solid var(--line);padding-top:22px;display:none}
+.result.show{display:block;animation:fade .4s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.ring-wrap{display:flex;gap:24px;align-items:center;flex-wrap:wrap;margin-bottom:20px}
+.ring{width:118px;height:118px;flex-shrink:0;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:7;stroke-linecap:round}
+.ring .bg{stroke:rgba(90,74,56,.14)}
+.ring .fg{stroke:var(--gold);stroke-dasharray:326.7;stroke-dashoffset:326.7;transition:1s cubic-bezier(.4,0,.2,1)}
+.ring-holder{position:relative;width:118px;height:118px}
+.ring-holder .val{position:absolute;inset:0;display:grid;place-items:center;font-family:'Cinzel',serif;font-size:26px;color:var(--ink)}
+.verdict h3{font-family:'Cinzel',serif;font-size:17px;letter-spacing:.04em;margin:0 0 8px;color:var(--wine)}
+.verdict p{margin:0;color:var(--ink-soft);font-size:16px}
+.verdict p + p{margin-top:5px}
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
+.metric{border:1px solid var(--line);padding:11px 14px;background:rgba(255,255,255,.35)}
+.metric .k{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:4px}
+.metric .v{font-size:18px;font-weight:600}
+.metric .v.good{color:var(--forest)}
+.metric .v.bad{color:var(--wine)}
+.matches{font-size:15px;color:var(--ink-soft)}
+.matches h4{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-faint);margin:16px 0 10px}
+.matches ul{margin:0;padding-left:18px}
+.matches li{margin-bottom:9px}
+.matches li em{color:var(--wine);font-style:normal;background:rgba(110,43,43,.09);padding:1px 4px}
+.matches .src{display:block;font-size:13px;color:var(--ink-faint);margin-top:3px}
+.loader{display:none;text-align:center;padding:22px 0;color:var(--ink-soft);font-style:italic}
+.loader.show{display:block}
+.loader .bar{width:180px;height:2px;background:rgba(90,74,56,.15);margin:12px auto 0;overflow:hidden}
+.loader .bar i{display:block;height:100%;width:40%;background:var(--gold);animation:slide 1s ease-in-out infinite}
+@keyframes slide{0%{transform:translateX(-100%)}100%{transform:translateX(350%)}}
+.footer{text-align:center;margin-top:50px;padding-top:24px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-faint);font-style:italic}
+[hidden]{display:none !important}
+
+/* ---------- ENT TIMER MODE ---------- */
+.ent-timer{font-family:'Cinzel',serif;font-size:26px;color:var(--wine);text-align:center;letter-spacing:.08em;margin-bottom:6px}
+.ent-timer.warn{color:#a0522d}
+.ent-timer.crit{color:#8b0000;animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.55}}
+.progress-list{margin-top:20px}
+.progress-item{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-bottom:1px solid var(--line);font-size:16px}
+.progress-item:last-child{border-bottom:0}
+.progress-item .name{color:var(--ink-soft);font-size:15px}
+.progress-item .val{font-family:'Cinzel',serif;font-size:14px;color:var(--gold)}
+.progress-item .val.good{color:var(--forest)}
+.progress-item .val.bad{color:var(--wine)}
+.progress-bar-mini{height:4px;background:rgba(90,74,56,.15);margin-top:5px;overflow:hidden}
+.progress-bar-mini i{display:block;height:100%;background:var(--gold);transition:.4s}
+
+/* ---------- GRAMMAR ---------- */
+.grammar-block{margin-top:20px}
+.grammar-item{border-left:3px solid var(--gold);padding:10px 14px;margin-bottom:10px;background:rgba(216,184,118,.08)}
+.grammar-item .msg{font-size:16px;color:var(--ink)}
+.grammar-item .ctx{font-size:14px;color:var(--ink-faint);font-style:italic;margin-top:5px}
+.grammar-item .fix{font-size:14px;color:var(--forest);margin-top:5px}
+.grammar-item .fix b{font-style:normal}
+.grammar-tag{display:inline-block;font-family:'Cinzel',serif;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#fff;background:var(--gold);padding:2px 7px;margin-right:8px;vertical-align:middle}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="masthead">
+    <div class="kicker">Codex Steppae · Anno MMXXVI</div>
+    <h1>History of Kazakhstan</h1>
+    <p class="sub">Stone Age, Eneolithic and Bronze Age — ENT preparation and essay practice</p>
+    <div class="rule"><span class="gem"></span></div>
+  </header>
+
+  <section id="stage-landing">
+    <div class="panel">
+      <div class="hero">
+        <div class="sigil">
+          <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="60" cy="60" r="52" stroke="#b08d57"/>
+            <path d="M38 74 L60 38 L82 74 Z" stroke="#6e2b2b" stroke-width="1.4" fill="none"/>
+            <circle cx="60" cy="60" r="6" fill="#b08d57"/>
+          </svg>
+        </div>
+        <p class="lead">
+          Draw an essay topic, write your work in English — check it for plagiarism and grammar.
+          Beside it, a quiz on the same topic. Or enter ENT mode: 20 questions, 30 minutes, real exam simulation.
+        </p>
+        <div class="btn-row" style="justify-content:center">
+          <button class="btn solid" id="btnDraw">🎲 Draw essay topic</button>
+          <button class="btn gold" id="btnEnt">⏱ ENT mode (20 q · 30 min)</button>
+          <button class="btn ghost" id="btnProgress">📊 My progress</button>
+        </div>
+      </div>
+      <div class="syllabus" id="syllabusList"></div>
+    </div>
+  </section>
+
+  <section id="stage-topic" hidden>
+    <div class="topic-card">
+      <div class="topic-label">Essay Topic · English</div>
+      <h2 class="topic-en" id="topicTitle">—</h2>
+      <p class="topic-hint" id="topicHint">—</p>
+      <div class="topic-actions">
+        <button class="btn gold" id="btnReroll">🎲 Another topic</button>
+        <button class="btn ghost" id="btnHome">← Home</button>
+      </div>
+    </div>
+
+    <div class="workspace">
+      <div class="panel">
+        <h2><span class="num"><span>I</span></span> Knowledge Check</h2>
+        <div id="quizBody"></div>
+      </div>
+
+      <div class="panel">
+        <h2><span class="num"><span>II</span></span> Essay Check</h2>
+        <div class="drop" id="drop">
+          <span class="ico">📜</span>
+          <div class="t1">Drag & drop a file or click</div>
+          <div class="t2">.txt · .md · .docx</div>
+        </div>
+        <input type="file" id="fileInput" accept=".txt,.md,.docx" hidden>
+        <div class="or">— or paste the text —</div>
+        <textarea id="essayText" placeholder="Paste your essay here… (minimum ~40 words for a meaningful check)"></textarea>
+        <div class="meta-row">
+          <span id="wordCount">0 words · 0 characters</span>
+          <span id="minNote" class="warn"></span>
+        </div>
+        <div class="btn-row">
+          <button class="btn solid" id="btnCheck">🔍 Plagiarism check</button>
+          <button class="btn gold" id="btnGrammar">✎ Grammar check</button>
+          <button class="btn ghost" id="btnClear">Clear</button>
+        </div>
+        <div class="loader" id="loader">
+          <div>Analysing the text…</div>
+          <div class="bar"><i></i></div>
+        </div>
+        <div class="result" id="result"></div>
+        <div class="grammar-block" id="grammarBlock"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stage-ent" hidden>
+    <div class="panel">
+      <h2><span class="num"><span>III</span></span> ENT Simulation</h2>
+      <div class="ent-timer" id="entTimer">30:00</div>
+      <div id="entBody"></div>
+    </div>
+  </section>
+
+  <section id="stage-progress" hidden>
+    <div class="panel">
+      <h2><span class="num"><span>IV</span></span> My Progress</h2>
+      <div id="progressBody"></div>
+      <div class="btn-row" style="margin-top:20px">
+        <button class="btn ghost" id="btnProgressBack">← Home</button>
+        <button class="btn solid" id="btnResetProgress">Reset all progress</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    Codex Steppae · academic project<br>
+    <span style="font-size:13px">Plagiarism: local corpus · Grammar: LanguageTool API</span>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   1. DATA — 7 TOPICS × 20 QUESTIONS (English)
+   Each question: [text, [A,B,C,D], correctIndex, explanation]
+   ============================================================ */
+const TOPICS = [
+{id:"intro",title:"1. Introduction to the course “History of Kazakhstan”: goals, objectives, and significance.",
+hint:"Explain why studying the History of Kazakhstan matters. What are the goals and objectives of the course? What role does historical knowledge play in forming national identity?",
+q:[
+["What is the main goal of the course “History of Kazakhstan”?",["To study only the ancient period","To form a holistic knowledge of the country's history and national identity","To study only the 20th century","To study the history of other countries"],1,"The course provides a holistic understanding of the country's history and shapes national identity."],
+["Which of the following belongs to the objectives of the course?",["Rote memorisation of dates","Mastering methods of historical analysis and work with sources","Studying only maps","Writing essays only"],1,"A key objective is to teach how to work with historical sources and analyse processes."],
+["Why is the history of Kazakhstan important for modern society?",["It has no practical value","It shapes historical memory and civic identity","It is needed only for exams","It replaces other sciences"],1,"Knowledge of history shapes historical memory, patriotism and civic identity."],
+["Which principle underlies an objective study of history?",["Subjectivism","Historicism","Mythologisation","Idealisation"],1,"The principle of historicism requires examining phenomena in development and specific context."],
+["What is the most important source for studying the ancient history of Kazakhstan?",["Written documents","Archaeological finds","Fiction","Newsreels"],1,"For the earliest periods, archaeological materials are the primary source."],
+["What does the term “historiography” mean?",["The science of writing history","The history of historical science","The study of sources","The methodology of history"],1,"Historiography is the history of historical science — how history has been written."],
+["Which scholar contributed greatly to the study of ancient Kazakhstan?",["A. Margulan","N. Nazarbayev","A. Baitursynov","Ch. Valikhanov"],0,"Alkey Margulan was an outstanding archaeologist and researcher of the Bronze Age."],
+["What is a historical source?",["Any object carrying information about the past","Only a written document","Only an archaeological find","Only an oral tradition"],0,"A historical source is any object that carries information about the human past."],
+["Which science studies the past through material sources?",["Ethnography","Archaeology","Anthropology","Numismatics"],1,"Archaeology studies the past through material sources — tools, buildings, ornaments."],
+["What is the science of human origins and evolution?",["Anthropology","Ethnography","Archaeology","Palaeontology"],0,"Anthropology studies the origin, evolution and physical features of humans."],
+["What is the goal of historical education?",["To form historical thinking and civic position","To prepare only for exams","To know only dates","To study foreign languages"],0,"Historical education shapes historical thinking, civic position and respect for the past."],
+["Which period of Kazakhstan's history studies the earliest human sites?",["Ancient world","Middle Ages","Modern times","Contemporary times"],0,"The earliest sites belong to the ancient period."],
+["What is “historical memory”?",["Ability to memorise dates","The body of society's knowledge about its past","A school subject","A document archive"],1,"Historical memory is the body of knowledge and ideas about the past shared by a society."],
+["Why is it important to study the history of one's region?",["To know one's roots and be proud of the heritage","To get good grades","To argue with the teacher","To fill free time"],0,"Knowing local history helps understand one's roots and preserve heritage."],
+["What is a comparative-historical method?",["Description of events","Comparison of events and phenomena","Statistical analysis","Sociological survey"],1,"The comparative-historical method reveals the common and the specific in historical phenomena."],
+["What does the principle of objectivity in history mean?",["Relying on all sources and being unbiased","Relying on one source","Presenting only your own view","Ignoring facts"],0,"Objectivity requires relying on all available sources and avoiding bias."],
+["Which science studies the origin and evolution of humans?",["Anthropology","Ethnography","Archaeology","Palaeontology"],0,"Anthropology studies human origins, evolution and physical features."],
+["What is the “civilisational approach” to history?",["Isolated study of one country","Studying history in the context of world civilisations","Rote learning","Ignoring sources"],1,"The civilisational approach studies Kazakhstan's history as part of world civilisation."],
+["Which historian is known for studying Saka kurgans?",["A. Margulan","K. Akishev","A. Kunaev","D. Kunaev"],1,"Kemal Akishev is known for his research on Saka kurgans."],
+["Why is the History of Kazakhstan course included in the curriculum?",["To form national identity and historical consciousness","To fill the schedule","To replace world history","To teach foreign languages"],0,"The course forms national identity and historical consciousness."]
+]},
+{id:"periodization",title:"2. Periodization of the history of Kazakhstan.",
+hint:"Describe the main periodization of the history of Kazakhstan: ancient, medieval, modern and contemporary periods. Explain the criteria used for periodization.",
+q:[
+["Into which major periods is the history of Kazakhstan divided?",["Only ancient and contemporary","Ancient, medieval, modern and contemporary","Only medieval","Only contemporary"],1,"Traditionally divided into ancient, medieval, modern and contemporary."],
+["What marks the end of the ancient period?",["Formation of the Kazakh Khanate","Beginning of the Early Iron Age and nomadic civilisation","Accession to Russia","20th century"],1,"The ancient period ends with the Early Iron Age and nomadic civilisation."],
+["Which event starts the medieval period?",["The rise of the Botai culture","Formation of the Turkic Khaganate and early states","The Mongol conquest","Formation of the USSR"],1,"The medieval period starts with early states such as the Turkic Khaganate."],
+["Which criterion is most often used for periodization?",["Skin colour","Type of economy, society and form of statehood","Weather","Population size"],1,"The main criteria are economy, social organisation and statehood."],
+["What is the boundary between ancient and medieval periods?",["5th century AD","13th century","15th century","18th century"],0,"Conventionally placed at the 5th century AD — the Great Migration of Peoples."],
+["What is periodization of history?",["Dividing history into periods by certain criteria","Memorising dates","Studying one period","Describing events"],0,"A conventional division of the historical process into periods."],
+["Which period in Kazakhstan's history saw the formation of the Kazakh people?",["Ancient","Medieval","Contemporary","Modern"],1,"The formation of the Kazakh people is completed in the medieval period (14th–15th cc.)."],
+["What begins the contemporary period of Kazakhstan's history?",["Formation of the Kazakh Khanate","Formation of the USSR","October Revolution of 1917","Accession to Russia"],2,"The contemporary period begins with the October Revolution of 1917."],
+["Which period covers the history of Kazakhstan up to the 13th century?",["Ancient","Medieval","Modern","Contemporary"],0,"The ancient period covers everything up to the 13th century."],
+["What belongs to the modern period of Kazakhstan's history?",["Prehistory","Kazakh Khanate and accession to Russia","Soviet period","Independence"],1,"The modern period includes the Kazakh Khanate and accession to Russia."],
+["Which period is the longest in Kazakhstan's history?",["Ancient","Medieval","Modern","Contemporary"],0,"The ancient period covers hundreds of thousands of years."],
+["What starts the contemporary period?",["The October Revolution","The Mongol invasion","Accession to Russia","Formation of the Kazakh Khanate"],0,"The contemporary period starts with the October Revolution."],
+["What is chronology?",["The science of time and sequence of events","The science of the earth","The science of language","The science of numbers"],0,"Chronology studies time, sequence and dating of events."],
+["Which period of Kazakhstan's history is tied to Soviet modernisation?",["Ancient","Medieval","Modern","Contemporary"],3,"Soviet modernisation (industrialisation, collectivisation) belongs to the contemporary period."],
+["Why is periodization important for studying history?",["Helps systematise events and see patterns","To confuse students","To complicate exams","It is not important"],0,"Periodization helps systematise events and see patterns."],
+["What is a main criterion of periodization of ancient history?",["Material of tools","Religion","Language","Writing"],0,"Ancient history is divided into Stone, Bronze and Iron Ages by tool material."],
+["Which period covers the 13th–18th centuries?",["Ancient","Medieval","Modern","Contemporary"],1,"The medieval period in Kazakhstan covers the 5th–17th/18th centuries."],
+["Which period includes the era of the Kazakh Khanate?",["Ancient","Medieval","Modern","Contemporary"],1,"Formation of the Kazakh Khanate (1465) belongs to the late medieval period."],
+["What ends the medieval period in Kazakhstan's history?",["Accession to Russia","Formation of the Kazakh Khanate","The Mongol invasion","Independence"],0,"Accession to Russia marks the end of the medieval period and start of the modern one."],
+["Which period marks the beginning of independence in 1991?",["Modern","Contemporary","Medieval","Ancient"],1,"Independence (1991) falls within the contemporary period."]
+]},
+{id:"stone_age",title:"3. Stone Age in Kazakhstan: Paleolithic, Mesolithic, Neolithic, Eneolithic.",
+hint:"Describe the main stages of the Stone Age on the territory of Kazakhstan. Compare Paleolithic, Mesolithic, Neolithic and Eneolithic: climate, tools, economy, main sites.",
+q:[
+["How many main periods are distinguished in the Stone Age?",["Two","Three","Four","Five"],2,"Paleolithic, Mesolithic, Neolithic and Eneolithic — four periods."],
+["Which site belongs to the Paleolithic?",["Botai","Karaungur","Atbasar","Begazy"],1,"Karaungur — a Paleolithic site in southern Kazakhstan (Karatau ridge)."],
+["Which period is called the Copper-Stone Age?",["Paleolithic","Mesolithic","Neolithic","Eneolithic"],3,"The Eneolithic is transitional — copper used alongside stone."],
+["What was the key invention of the Mesolithic?",["The hand axe","The bow and arrow","Pottery","The plough"],1,"The bow and arrow was the key Mesolithic invention."],
+["What are microliths?",["Large stone tools","Miniature stone blades","Metal tools","Ceramic items"],1,"Microliths are miniature stone blades of the Mesolithic and Neolithic."],
+["Which site belongs to the Eneolithic?",["Karaungur","Botai","Atbasar","Shakpak-ata"],1,"Botai — an Eneolithic site in northern Kazakhstan."],
+["What is the longest period of the Stone Age?",["Paleolithic","Mesolithic","Neolithic","Eneolithic"],0,"The Paleolithic is the longest, starting ~2.6 million years ago."],
+["Which technique of stone working appears in the Neolithic?",["Knapping","Sawing, drilling, polishing","Casting","Forging"],1,"In the Neolithic sawing, drilling, polishing and grinding were mastered."],
+["Where in Kazakhstan are Paleolithic sites found?",["Only in the north","Only in the east","In the south and centre","Across the whole territory"],2,"Paleolithic sites are found in southern and central Kazakhstan."],
+["What are insert tools?",["Tools made of metal","Tools with stone blades in a wooden base","Ornate tools","Tools from a single stone"],1,"Insert tools are a wooden or bone base with thin stone blades."],
+["Which period is characterised by the appearance of pottery?",["Paleolithic","Mesolithic","Neolithic","Eneolithic"],2,"Ceramic pottery is one of the main markers of the Neolithic."],
+["What is pressure retouch?",["A hunting method","A clothing method","A finer stone-working technique","A cave-painting method"],2,"Pressure retouch allows creating higher-quality tools."],
+["Which animal was domesticated in the Eneolithic in Kazakhstan?",["Cow","Sheep","Horse","Goat"],2,"The horse was first domesticated in the Eneolithic (Botai culture)."],
+["What was used to work hides and wood in the Paleolithic?",["Scrapers, awls and burins","Ploughs and harrows","Axes and saws","Machines"],0,"In the Paleolithic, scrapers, awls and burins were used."],
+["Which period saw the formation of modern humans?",["Early Paleolithic","Late Paleolithic","Mesolithic","Neolithic"],1,"Homo sapiens formed during the Late Paleolithic."],
+["What is the Middle Stone Age called?",["Paleolithic","Mesolithic","Neolithic","Eneolithic"],1,"The Mesolithic is the Middle Stone Age (12,000–5,000 BC)."],
+["What is a hand axe?",["A metal tool","The first stone tool","A bow","A vessel"],1,"The hand axe is the earliest stone tool, appearing in the Early Paleolithic."],
+["Which Neolithic site is in northern Kazakhstan?",["Botai","Atbasar","Karaungur","Tasmola"],1,"The Atbasar culture is a Neolithic culture of northern Kazakhstan."],
+["What are petroglyphs?",["Rock paintings","Stone tools","Dwelling remains","Animal bones"],0,"Petroglyphs are rock paintings — a key source on beliefs of ancient people."],
+["What was the main occupation in the Paleolithic?",["Agriculture","Pastoralism","Hunting and gathering","Metallurgy"],2,"The Paleolithic is the time of an appropriating economy."]
+]},
+{id:"neo_revolution",title:"4. Neolithic Revolution and its global and local importance.",
+hint:"Explain what the Neolithic Revolution is. Show its global and local importance for Kazakhstan (Atbasar culture, first pottery, beginnings of cattle breeding).",
+q:[
+["What is the Neolithic Revolution?",["Invention of the wheel","Transition from appropriating to producing economy","Emergence of metal","Building of cities"],1,"Transition from hunting and gathering to agriculture and pastoralism."],
+["Which Neolithic culture existed in northern Kazakhstan?",["Botai","Atbasar","Tasmola","Andronovo"],1,"The Atbasar culture was a Neolithic culture of northern Kazakhstan."],
+["Which invention is characteristic of the Neolithic?",["The bow","Ceramic pottery","The hand axe","The plough"],1,"Ceramic pottery is one of the main markers of the Neolithic."],
+["What does “producing economy” mean?",["Hunting and gathering","Agriculture and pastoralism","Fishing","Craftsmanship"],1,"A producing economy means people produce the product themselves."],
+["What is the main marker of the Neolithic Revolution?",["Invention of the wheel","Use of iron","Transition to pastoralism and agriculture","Invention of writing"],2,"Transition to pastoralism and agriculture is the main marker."],
+["What is a consequence of the Neolithic Revolution?",["Population decline","Population growth and surplus","Return to hunting","Disappearance of crafts"],1,"Producing economy led to population growth, surplus and social stratification."],
+["What is an appropriating economy?",["Hunting and gathering","Agriculture and pastoralism","Craftsmanship","Trade"],0,"An appropriating economy means taking what is ready from nature."],
+["When did the Neolithic Revolution occur?",["10,000–8,000 BC","5,000–3,000 BC","2,000–1,000 BC","1st century AD"],0,"The Neolithic Revolution began around 10,000–8,000 BC."],
+["Which Neolithic invention allowed tilling the soil?",["Plough and harrow","Axe and hoe","Sickle and scythe","Rake and shovel"],1,"The axe and hoe were used for tilling in the Neolithic."],
+["What did people begin making from clay in the Neolithic?",["Houses","Weapons","Pottery","Ornaments"],2,"Clay pottery (ceramics) appeared in the Neolithic."],
+["Which metals were first mastered in the Eneolithic?",["Iron, steel, bronze","Copper, tin, zinc","Copper, gold, lead","Silver, platinum, nickel"],2,"Copper, gold and lead were the first metals mastered."],
+["How was society organised in the Neolithic?",["Slave-owning","Feudal","Tribal communities","Capitalist"],2,"Tribal communities persisted, but social stratification began."],
+["What is the Neolithic Revolution on a global scale?",["A local phenomenon","One of the most important revolutions in human history","A short-term event","A regression"],1,"It is one of the most important revolutions — it laid the foundations of civilisation."],
+["What was its importance for Kazakhstan?",["First cities","Origins of pastoralism and agriculture","Start of metallurgy","Appearance of writing"],1,"In Kazakhstan, the Neolithic Revolution led to the origins of pastoralism and agriculture."],
+["What is the Neolithic Revolution in the literal sense?",["A revolution of tools","A revolution in economy and lifestyle","A war","A migration of peoples"],1,"It was a fundamental revolution in economy and lifestyle."],
+["Which animal was domesticated first in the Neolithic?",["Horse","Dog","Cow","Sheep"],1,"The dog was first domesticated in the Paleolithic, but sheep, goats and cows in the Neolithic."],
+["What is a “Neolithic village”?",["A city","A settlement of farmers and herders","A fortress","A hunter camp"],1,"A Neolithic village is a permanent settlement of farmers and herders."],
+["Which Neolithic invention is linked to weaving?",["Spindle","Plough","Potter's wheel","Wheel"],0,"The spindle appeared in the Neolithic, starting weaving."],
+["How did the Neolithic Revolution affect the environment?",["Not at all","Beginning of anthropogenic impact","Improvement of ecology","Disappearance of forests"],1,"It began active anthropogenic impact on nature."],
+["What did the appearance of surplus lead to?",["Social equality","Social stratification and exchange","Disappearance of communities","Return to hunting"],1,"Surplus led to social stratification, exchange and trade."]
+]},
+{id:"botai",title:"5. Botai culture and the domestication of the horse.",
+hint:"Tell about the Botai culture: location, period (Eneolithic), economy, and its world importance as the earliest centre of horse domestication.",
+q:[
+["Where was the Botai culture located?",["Southern Kazakhstan","Northern Kazakhstan","Western Kazakhstan","Eastern Kazakhstan"],1,"Botai culture — northern Kazakhstan (Botai site in Akmola Region)."],
+["What is the Botai culture famous for worldwide?",["The earliest domestication of the horse","Invention of the wheel","First cities","First writing"],0,"The horse was first domesticated at Botai."],
+["To which period does the Botai culture belong?",["Paleolithic","Mesolithic","Neolithic","Eneolithic"],3,"The Botai culture belongs to the Eneolithic (4th–3rd millennium BC)."],
+["What was the main food of the Botai people?",["Camel meat","Fish","Horse meat and kumys","Grain"],2,"The main food was horse meat and kumys."],
+["Which culture is the first known horse-breeding culture?",["Yamna","Andronovo","Botai","Sintashta"],2,"The Botai culture is considered the first to domesticate horses."],
+["In which period did horse domestication occur in the Great Steppe?",["Neolithic","Eneolithic","Bronze Age","Iron Age"],1,"Horse domestication occurred in the Eneolithic."],
+["Why did the Botai culture lose its identity in the 3rd millennium BC?",["Mongol invasion","Aridisation of climate and decline of horse herds","Development of agriculture","Migration from the south"],1,"The Botai culture declined due to climate aridisation."],
+["Which animal was first domesticated in the Eneolithic?",["Cow","Sheep","Horse","Goat"],2,"The horse was first domesticated in the Eneolithic."],
+["What is the Botai culture?",["A culture associated with horse domestication","A farming culture","A mammoth-hunting culture","A metallurgical culture"],0,"The Botai culture is associated with horse domestication."],
+["What is the world significance of the Botai culture?",["It shows horse domestication","It invented the wheel","It built cities","It created writing"],0,"It demonstrates horse domestication, which has world significance."],
+["Which finds prove horse domestication at Botai?",["Bridle elements and hobble clasps","Stone axes","Ceramic pottery","Grain grinders"],0,"Bridle elements and hobble clasps prove domestication."],
+["What lifestyle did the Botai people lead?",["Sedentary","Nomadic","Semi-nomadic","Urban"],2,"The Botai people were semi-nomadic, combining horse breeding with other activities."],
+["When did the Botai culture exist?",["1,000 years ago","2,500 years ago","3,500–3,000 BC","5,000 years ago"],2,"The Botai culture existed around 3,500–3,000 BC."],
+["What is the link between the Botai culture and nomadic civilisation?",["Direct — horse domestication became a prerequisite for nomadism","Inverse","None","Indirect"],0,"Horse domestication became an important prerequisite for nomadic civilisation."],
+["Who studied the Botai culture?",["A. Margulan","V. Zaibert","K. Akishev","A. Baitursynov"],1,"Viktor Zaibert researched the Botai culture."],
+["What does “Botai” mean?",["Name of a site","Name of a river","Name of a tribe","Name of a mountain"],0,"Botai is the name of an Eneolithic site in northern Kazakhstan."],
+["Which animals, besides horses, did the Botai people breed?",["Cows and sheep","Camels","Goats","Pigs"],0,"The Botai people also bred cows and sheep."],
+["What is kumys?",["A drink from mare's milk","A meat dish","A grain crop","A tool"],0,"Kumys is a fermented drink from mare's milk."],
+["What was the significance of horse domestication for transport?",["Appearance of chariots and riding","Invention of the boat","Creation of the steam engine","Appearance of the airplane"],0,"Horse domestication led to chariots and riding."],
+["Which culture succeeded the Botai culture?",["Andronovo","Atbasar","Tasmola","Kelteminar"],0,"The Andronovo culture of the Bronze Age succeeded the Botai culture."]
+]},
+{id:"bronze",title:"6. Bronze Age in Kazakhstan: Andronovo and Begazy–Dandybai cultures.",
+hint:"Describe the Bronze Age in Kazakhstan. Compare Andronovo and Begazy–Dandybai cultures: economy, settlements, burial structures, social organisation.",
+q:[
+["Which culture belongs to the Bronze Age in Kazakhstan?",["Atbasar","Andronovo","Botai","Tasmola"],1,"Andronovo is the largest Bronze Age culture of Kazakhstan."],
+["What is the Begazy–Dandybai culture known for?",["Megalithic mausoleums and palaces","First pottery","Horse domestication","Rock art"],0,"Known for monumental burial structures in Central Kazakhstan."],
+["What was the economy of the Andronovo people?",["Hunting only","Pastoralism and agriculture","Fishing only","Gathering only"],1,"Pastoralism combined with primitive agriculture."],
+["What was the first major social division of labour?",["Separation of pastoralism from agriculture","Separation of pastoralism from hunting","Separation of gathering from agriculture","Separation of weaving from agriculture"],0,"The first major social division of labour — pastoralism from agriculture."],
+["The Begazy–Dandybai culture dates to:",["9th–6th cc. BC","10th–7th cc. BC","10th–8th cc. BC","10th–9th cc. BC"],2,"Begazy–Dandybai dates to the 10th–8th cc. BC."],
+["One of the main areas of Andronovo settlement was:",["Northern Kazakhstan","Central Kazakhstan","Eastern Kazakhstan","Western Kazakhstan"],1,"One of the main areas was Central Kazakhstan."],
+["The main occupation of Bronze Age tribes was:",["Pastoralism","Agriculture","Hunting","Gathering"],0,"The main occupation was pastoralism."],
+["Which animal did the Andronovo people most often depict in rock art?",["The goat","The wild horse","The wild bull (aurochs)","The domestic bull"],2,"The wild bull (aurochs) was most often depicted."],
+["The largest cluster of Andronovo rock art is in:",["Semirechye","Southern Kazakhstan","Central Kazakhstan","Western Kazakhstan"],0,"The largest cluster is in Semirechye."],
+["In Andronovo rock art, a round dance is a symbol of:",["Sky","Moon","Sun","Earth"],2,"A round dance symbolises the sun."],
+["The domestic animal that was a symbol of fertility, power and strength to the Andronovo people:",["Goat","Wild horse","Wild bull","Domestic bull"],3,"The domestic bull was a symbol of fertility, power and strength."],
+["Social inequality emerged in the era of:",["Eneolithic","Stone Age","Bronze","Iron"],2,"Social inequality emerged in the Bronze Age."],
+["Where is Arkaim, one of the predecessors of ancient cities?",["Eastern Kazakhstan","Kostanay Region","Aral region","Irtysh region"],1,"Arkaim is located in Kostanay Region."],
+["One of the largest Bronze Age cultures in Europe and Asia:",["Andronovo","Begazy–Dandybai","Atasu","Nura"],0,"Andronovo is one of the largest Bronze Age cultures of Europe and Asia."],
+["Which culture succeeded the Andronovo culture?",["Saka","Begazy–Dandybai","Tasmola","Kelteminar"],1,"The Begazy–Dandybai culture succeeded the Andronovo culture."],
+["Name the Late Bronze Age culture:",["Tasmola","Begazy–Dandybai","Nura","Atasu"],1,"Begazy–Dandybai is a Late Bronze Age culture."],
+["What was the economy of the Andronovo tribes?",["Agricultural","Pastoral","Extractive","Craft"],1,"The Andronovo economy was pastoral with elements of agriculture."],
+["What does the term “pearl ornament” mean for the Begazy–Dandybai culture?",["Ornament made of pearls","Ornament of dots and pits","Ornament of lines","Ornament of spirals"],1,"A “pearl ornament” is a pattern of dots and pits on ceramics."],
+["Adding tin to copper produced:",["Nickel","Chromium","Zirconium","Bronze"],3,"Adding tin to copper produced bronze — the era's namesake."],
+["The Andronovo people are known for their pottery with which ornament?",["Geometric","Floral","Animalistic","Calligraphic"],0,"Geometric ornament is characteristic of Andronovo pottery."]
+]},
+{id:"nomads",title:"7. Origins of nomadic civilization in the steppe.",
+hint:"Explain how and why nomadic civilization emerged in the Eurasian steppe: horse riding, mobile pastoralism, tribal organisation, its role in world history.",
+q:[
+["What was the main prerequisite for nomadic civilisation?",["Horse domestication and mastery of riding","Invention of the plough","Appearance of writing","Building of cities"],0,"Riding and horse domestication made nomadic pastoralism possible."],
+["Which economy is characteristic of nomadic civilisation?",["Sedentary agriculture","Nomadic pastoralism","Fishing","Hunting and gathering"],1,"Nomadic pastoralism was the foundation."],
+["When did nomadic civilisation take shape in the steppes of Kazakhstan?",["In the Paleolithic","In the Neolithic","In the Bronze Age → Early Iron Age","In the Middle Ages"],2,"It took shape at the end of the Bronze Age and in the Early Iron Age."],
+["Which necessary animal did sedentary peoples obtain from nomads?",["Camel","Horse","Cow","Sheep"],1,"Sedentary peoples obtained horses from nomads."],
+["In which century did Herodotus describe Scythian tribes?",["20th c. BC","10th c. BC","5th c. BC","5th c. AD"],2,"Herodotus described Scythians in the 5th century BC."],
+["Who believed the state arises from collision between nomads and sedentary peoples?",["Herodotus","Smith","Hegel","Kant"],2,"Hegel held this view."],
+["In which Soviet years did nomadic civilisation become a subject of special research?",["1902–1907","1999–2000","1920–1940","1950–1970"],2,"It became a special subject of research in 1920–1940."],
+["What was the main occupation of the Turks?",["Hunting and gathering","Nomadic pastoralism","Irrigated agriculture","Craftsmanship"],1,"Nomadic pastoralism was the main occupation."],
+["Where did the Silk Road pass through Kazakhstan?",["North and Semirechye","Southern part and Semirechye","Western part and Semirechye","Across the Akan River"],1,"The Silk Road passed through southern Kazakhstan and Semirechye."],
+["What is “nomadic civilisation”?",["Civilisation based on nomadic pastoralism","Civilisation of farmers","Urban civilisation","Maritime civilisation"],0,"A type of civilisation based on nomadic pastoralism and a mobile lifestyle."],
+["Which animal was central to the nomadic economy?",["Cow","Sheep","Horse","Pig"],2,"The horse was central — providing transport, food and military advantage."],
+["What is “jailau”?",["A winter camp","A summer pasture","A spring camp","An autumn camp"],1,"Jailau is a summer mountain pasture."],
+["What is “kystau”?",["A summer pasture","A winter camp","A spring camp","An autumn camp"],1,"Kystau is a winter camp, usually in a wind-protected place."],
+["Which social organisation is typical of nomads?",["Tribal and clan-based","Urban","Feudal","Slave-owning"],0,"Tribal and clan organisation is typical."],
+["What is “kurultai”?",["A people's assembly","A military campaign","A trade route","A religious rite"],0,"Kurultai is a people's assembly deciding key matters."],
+["Which dwelling is characteristic of nomads?",["The yurt","The log cabin","The palace","The cave"],0,"The yurt is the traditional portable dwelling."],
+["What role did nomads play in world history?",["Isolation","A link between civilisations","Destruction","None"],1,"They were a link between sedentary civilisations, enabling trade and cultural exchange."],
+["What was the “Great Migration of Peoples”?",["Mass migrations of nomads in the 4th–7th cc.","A trade route","A religious movement","A military reform"],0,"Mass migrations of nomads in the 4th–7th centuries changed the map of Europe and Asia."],
+["What was the main weapon of nomads?",["Sword","Bow and arrows","Spear","Axe"],1,"Bow and arrows were the main weapon, giving an advantage in mobile warfare."],
+["Why did nomadic civilisation emerge in the Eurasian steppes?",["Due to vast pastures and horse domestication","Due to lack of water","Due to dense forests","Due to high mountains"],0,"Vast pastures and horse domestication made nomadic pastoralism possible."]
+]}
+];
+
+/* ============================================================
+   2. CORPUS FOR PLAGIARISM
+   ============================================================ */
+const CORPUS = [
+{src:"Wikipedia · Botai culture",text:"The Botai culture is an archaeological culture of the Eneolithic period located in northern Kazakhstan. Botai is considered the earliest known site where horses were domesticated. The economy of the Botai people was based on horse breeding and hunting."},
+{src:"Wikipedia · Andronovo culture",text:"The Andronovo culture is a collection of Bronze Age cultures of the Eurasian steppe. The Andronovo people practised pastoralism and agriculture. They are known for their distinctive pottery with geometric ornament and their burial mounds."},
+{src:"Wikipedia · Neolithic Revolution",text:"The Neolithic Revolution was the transition from hunting and gathering to agriculture and settlement. It is considered one of the most important developments in human history. The revolution led to a significant increase in population."},
+{src:"Wikipedia · Begazy-Dandybai",text:"The Begazy-Dandybai culture is a Late Bronze Age culture of Central Kazakhstan. It is known for its monumental burial structures and mausoleums. The culture dates to the tenth to eighth centuries BC."},
+{src:"Wikipedia · Nomadic pastoralism",text:"Nomadic pastoralism is a form of pastoralism in which livestock are herded in order to find fresh pastures. Nomadic pastoralism became possible with the domestication of the horse. It played an important role in the history of the Eurasian steppe."},
+{src:"Encyclopaedia Britannica",text:"The Stone Age is a broad prehistoric period during which stone was widely used to make tools with an edge, a point, or a percussion surface. The period lasted for roughly 3.4 million years and ended between 4000 and 2000 BC."},
+{src:"Wikipedia · Kurgan",text:"A kurgan is a tumulus, a type of burial mound or barrow, heaped over a burial chamber, often of wood. Kurgans were built in the Eneolithic, Bronze, Iron and Middle Ages in the Eurasian steppe."},
+{src:"Wikipedia · Botai horse",text:"According to archaeological evidence, horses were domesticated at Botai around 3500 BC. The Botai horses were used for riding as well as for meat and milk. This discovery changed our understanding of the history of horse domestication."},
+{src:"Wikipedia · Atbasar culture",text:"The Atbasar culture is a Neolithic culture that existed in northern Kazakhstan. The people of this culture practised hunting, fishing and gathering. They made pottery and used stone tools."},
+{src:"Wikipedia · Karaungur",text:"Karaungur is a Paleolithic site located in southern Kazakhstan, in the Karatau mountains. The site provides important evidence about the life of early humans in Central Asia."},
+{src:"UNESCO · Steppe heritage",text:"The steppe of Central Asia served as a bridge between civilizations, facilitating the exchange of goods, technologies and ideas. Nomadic peoples played a key role in the history of the Silk Road."},
+{src:"Wikipedia · Petroglyphs",text:"Petroglyphs are images created by removing part of a rock surface by incising, picking, carving, or abrading. They are found all over the world and are often associated with prehistoric peoples."},
+{src:"Wikipedia · Eneolithic",text:"The Eneolithic, also known as the Copper Age, is a transitional period between the Neolithic and the Bronze Age. During this period, humans first began to use copper tools alongside stone tools."},
+{src:"Wikipedia · Turkic Khaganate",text:"The Turkic Khaganate was a nomadic empire established by the Ashina clan in the 6th century. It controlled a vast territory stretching from the Black Sea to the borders of China."},
+{src:"Encyclopaedia · Nomadic empires",text:"Nomadic empires were established by pastoral nomads who, having mastered horseback riding, were able to project military power over vast distances. Their history shaped the Eurasian continent for millennia."}
+];
+
+/* ============================================================
+   3. STORAGE
+   ============================================================ */
+const STORE_KEY = "codex-steppae-v1";
+function loadStore(){
+  try{ return JSON.parse(localStorage.getItem(STORE_KEY)) || {topics:{},errors:[],entRuns:[]}; }
+  catch(e){ return {topics:{},errors:[],entRuns:[]}; }
+}
+function saveStore(s){ localStorage.setItem(STORE_KEY, JSON.stringify(s)); }
+let STORE = loadStore();
+
+function recordTopicResult(topicId, score, total){
+  if(!STORE.topics[topicId]) STORE.topics[topicId] = {best:0, total:0, runs:0};
+  const t = STORE.topics[topicId];
+  const pct = Math.round(score/total*100);
+  if(pct > t.best) t.best = pct;
+  t.total = total;
+  t.runs++;
+  saveStore(STORE);
+}
+function recordEntRun(score, total, seconds){
+  STORE.entRuns.push({score, total, seconds, ts: Date.now()});
+  if(STORE.entRuns.length > 20) STORE.entRuns.shift();
+  saveStore(STORE);
+}
+
+/* ============================================================
+   4. STATE
+   ============================================================ */
+const quizState = { topic:null, qIndex:0, score:0, answered:false };
+let currentTopic = null;
+let entState = null;
+let entInterval = null;
+
+const $ = s => document.querySelector(s);
+const stageLanding  = $("#stage-landing");
+const stageTopic    = $("#stage-topic");
+const stageEnt      = $("#stage-ent");
+const stageProgress = $("#stage-progress");
+const topicTitleEl  = $("#topicTitle");
+const topicHintEl   = $("#topicHint");
+const quizBody      = $("#quizBody");
+
+/* ============================================================
+   5. SYLLABUS + NAVIGATION
+   ============================================================ */
+(function renderSyllabus(){
+  $("#syllabusList").innerHTML = TOPICS.map(t=>{
+    const m = t.title.match(/^(\d+)\.\s*(.+?)(?:[.:]|$)/);
+    return `<div class="item"><b>${(m?m[1]:"0").padStart(2,"0")}</b><span>${m?m[2]:t.title}</span></div>`;
+  }).join("");
+})();
+
+function hideAll(){
+  stageLanding.hidden = true;
+  stageTopic.hidden = true;
+  stageEnt.hidden = true;
+  stageProgress.hidden = true;
+  if(entInterval){ clearInterval(entInterval); entInterval = null; }
+}
+function drawTopic(){
+  hideAll();
+  currentTopic = TOPICS[Math.floor(Math.random()*TOPICS.length)];
+  topicTitleEl.textContent = currentTopic.title;
+  topicHintEl.textContent = currentTopic.hint;
+  initQuiz(currentTopic);
+  resetEssayPanel();
+  stageTopic.hidden = false;
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function goHome(){
+  hideAll();
+  stageLanding.hidden = false;
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+$("#btnDraw").addEventListener("click", drawTopic);
+$("#btnReroll").addEventListener("click", drawTopic);
+$("#btnHome").addEventListener("click", goHome);
+$("#btnEnt").addEventListener("click", startEnt);
+$("#btnProgress").addEventListener("click", showProgress);
+$("#btnProgressBack").addEventListener("click", goHome);
+$("#btnResetProgress").addEventListener("click", ()=>{
+  if(confirm("Reset all saved progress? This cannot be undone.")){
+    STORE = {topics:{},errors:[],entRuns:[]};
+    saveStore(STORE);
+    showProgress();
+  }
+});
+
+/* ============================================================
+   6. QUIZ
+   ============================================================ */
+function initQuiz(topic){
+  quizState.topic = topic;
+  quizState.qIndex = 0;
+  quizState.score = 0;
+  quizState.answered = false;
+  renderQuestion();
+}
+function renderQuestion(){
+  const t = quizState.topic;
+  const q = t.q[quizState.qIndex];
+  const total = t.q.length;
+  const pct = Math.round((quizState.qIndex/total)*100);
+  const letters = ["A","B","C","D"];
+  quizBody.innerHTML = `
+    <div class="q-meta"><span>Question ${quizState.qIndex+1} / ${total}</span><span>Score: ${quizState.score}</span></div>
+    <div class="q-bar"><i style="width:${pct}%"></i></div>
+    <p class="q-text">${q[0]}</p>
+    <div class="options" id="options"></div><div id="after"></div>`;
+  const optBox = $("#options");
+  q[1].forEach((text,i)=>{
+    const b = document.createElement("button");
+    b.className = "opt";
+    b.innerHTML = `<span class="lt">${letters[i]}</span><span>${text}</span>`;
+    b.addEventListener("click", ()=>answer(i));
+    optBox.appendChild(b);
+  });
+}
+function answer(choice){
+  if(quizState.answered) return;
+  quizState.answered = true;
+  const q = quizState.topic.q[quizState.qIndex];
+  const correct = q[2];
+  document.querySelectorAll(".opt").forEach((b,i)=>{
+    b.disabled = true;
+    if(i === correct) b.classList.add("correct");
+    if(i === choice && choice !== correct) b.classList.add("wrong");
+  });
+  if(choice === correct) quizState.score++;
+  else {
+    // record error for progress
+    const errKey = quizState.topic.id + ":" + quizState.qIndex;
+    if(!STORE.errors.includes(errKey)) STORE.errors.push(errKey);
+    saveStore(STORE);
+  }
+  const isLast = quizState.qIndex+1 >= quizState.topic.q.length;
+  $("#after").innerHTML = `
+    <div class="explain">${choice===correct?"✔ Correct. ":"✘ Incorrect. "}${q[3]}</div>
+    <div class="btn-row">${isLast?`<button class="btn solid" id="btnFinish">Show result</button>`:`<button class="btn solid" id="btnNext">Next question →</button>`}</div>`;
+  if(isLast) $("#btnFinish").addEventListener("click", showScore);
+  else $("#btnNext").addEventListener("click", ()=>{ quizState.qIndex++; quizState.answered=false; renderQuestion(); });
+}
+function showScore(){
+  const total = quizState.topic.q.length;
+  const pct = Math.round(quizState.score/total*100);
+  recordTopicResult(quizState.topic.id, quizState.score, total);
+  const verdict = pct>=85?"Excellent result. This topic is well mastered.":pct>=60?"Good, but there are gaps — revisit the notes.":"Weak. Return to the theory and retake the quiz.";
+  quizBody.innerHTML = `
+    <div class="score-block">
+      <div class="big">${quizState.score} / ${total}</div>
+      <div class="pct">${pct}% correct answers</div>
+      <p style="font-style:italic;color:var(--ink-soft);max-width:360px;margin:0 auto 22px">${verdict}</p>
+      <div class="btn-row" style="justify-content:center">
+        <button class="btn solid" id="btnRetry">Retake</button>
+        <button class="btn ghost" id="btnNewTopic">Another topic</button>
+      </div>
+    </div>`;
+  $("#btnRetry").addEventListener("click", ()=>{ quizState.qIndex=0; quizState.score=0; quizState.answered=false; renderQuestion(); });
+  $("#btnNewTopic").addEventListener("click", drawTopic);
+}
+
+/* ============================================================
+   7. ESSAY UPLOAD
+   ============================================================ */
+const dropEl = $("#drop"), fileInputEl = $("#fileInput");
+const essayTextEl = $("#essayText"), wordCountEl = $("#wordCount"), minNoteEl = $("#minNote");
+
+dropEl.addEventListener("click", ()=>fileInputEl.click());
+dropEl.addEventListener("dragover", e=>{e.preventDefault();dropEl.classList.add("over")});
+dropEl.addEventListener("dragleave", ()=>dropEl.classList.remove("over"));
+dropEl.addEventListener("drop", e=>{e.preventDefault();dropEl.classList.remove("over");if(e.dataTransfer.files.length)handleFile(e.dataTransfer.files[0]);});
+fileInputEl.addEventListener("change", e=>{if(e.target.files.length)handleFile(e.target.files[0]);});
+
+async function handleFile(file){
+  const name = file.name.toLowerCase();
+  try{
+    if(name.endsWith(".txt")||name.endsWith(".md")) essayTextEl.value = await file.text();
+    else if(name.endsWith(".docx")){
+      if(typeof mammoth==="undefined"){ alert("Parser unavailable. Please paste the text."); return; }
+      const buf = await file.arrayBuffer();
+      const res = await mammoth.extractRawText({arrayBuffer: buf});
+      essayTextEl.value = res.value.trim();
+    } else { alert("Supported: .txt, .md, .docx"); return; }
+    dropEl.querySelector(".t2").textContent = "Loaded: " + file.name;
+    dropEl.querySelector(".t2").style.color = "var(--forest)";
+    updateCount();
+  } catch(err){ alert("Failed to read: " + err.message); }
+}
+function updateCount(){
+  const text = essayTextEl.value.trim();
+  const words = text ? text.split(/\s+/).length : 0;
+  wordCountEl.textContent = `${words} words · ${text.length} characters`;
+  minNoteEl.textContent = (words>0 && words<40) ? "too little text for an accurate check" : "";
+}
+essayTextEl.addEventListener("input", updateCount);
+
+$("#btnClear").addEventListener("click", clearEssay);
+function clearEssay(){
+  essayTextEl.value=""; updateCount();
+  const r = $("#result"); r.classList.remove("show"); r.innerHTML="";
+  $("#grammarBlock").innerHTML="";
+  dropEl.querySelector(".t2").textContent = ".txt · .md · .docx";
+  dropEl.querySelector(".t2").style.color = "";
+  fileInputEl.value = "";
+}
+function resetEssayPanel(){ clearEssay(); $("#loader").classList.remove("show"); }
+
+/* ============================================================
+   8. PLAGIARISM
+   ============================================================ */
+function normalize(text){ return text.toLowerCase().replace(/[^\p{L}\p{N}\s]/gu," ").replace(/\s+/g," ").trim(); }
+function toWords(text){ return normalize(text).split(" ").filter(Boolean); }
+function makeShingles(words,n){ const s=new Set(); for(let i=0;i+n<=words.length;i++)s.add(words.slice(i,i+n).join(" ")); return s; }
+
+function findMatches(userText, n=5){
+  const w = toWords(userText), total = w.length;
+  if(total<n) return {ratio:0,matchedWords:0,total,fragments:[]};
+  const map = new Map();
+  CORPUS.forEach((doc,idx)=>makeShingles(toWords(doc.text),n).forEach(s=>{ if(!map.has(s))map.set(s,idx); }));
+  const hit = new Array(total).fill(false), fragMap = new Map();
+  for(let i=0;i+n<=total;i++){
+    const sh = w.slice(i,i+n).join(" ");
+    if(map.has(sh)){
+      const src = map.get(sh);
+      for(let k=0;k<n;k++) hit[i+k]=true;
+      if(!fragMap.has(src)) fragMap.set(src,[]);
+      const arr = fragMap.get(src), last = arr[arr.length-1];
+      if(last && last.end>=i) last.end = Math.max(last.end, i+n);
+      else arr.push({start:i,end:i+n});
+    }
+  }
+  const matched = hit.filter(Boolean).length;
+  const ratio = total ? matched/total : 0;
+  const fragments = [];
+  fragMap.forEach((ranges,srcIdx)=>{
+    ranges.forEach(r=>{
+      if(r.end-r.start<4) return;
+      fragments.push({src:CORPUS[srcIdx].src,snippet:w.slice(r.start,r.end).join(" "),len:r.end-r.start});
+    });
+  });
+  fragments.sort((a,b)=>b.len-a.len);
+  return {ratio,matchedWords:matched,total,fragments};
+}
+function aiHeuristic(text){
+  const w = toWords(text);
+  const sents = text.split(/[.!?]+/).map(s=>s.trim()).filter(s=>s.length>10);
+  const total = w.length;
+  if(total<40) return {score:0,notes:["Text is too short to evaluate style."]};
+  const ttr = new Set(w).size/total;
+  const avgSent = total/Math.max(sents.length,1);
+  const lens = sents.map(s=>toWords(s).length);
+  const mean = lens.reduce((a,b)=>a+b,0)/Math.max(lens.length,1);
+  const sd = Math.sqrt(lens.reduce((a,b)=>a+(b-mean)**2,0)/Math.max(lens.length,1));
+  const markers = ["moreover","furthermore","in conclusion","it is important to note","delve into","crucial","significant","overall","in summary","additionally","comprehensive"];
+  const hits = markers.filter(m=>text.toLowerCase().includes(m)).length;
+  let score = 0; const notes = [];
+  if(sd<4){score+=30;notes.push("Very uniform sentence length — typical of generated text.");}
+  else notes.push("Sentence length varies naturally.");
+  if(ttr<0.45){score+=25;notes.push("Low lexical diversity — words repeat frequently.");}
+  else notes.push("Vocabulary is sufficiently diverse.");
+  if(hits>=2){score+=20;notes.push(`Found ${hits} template connectors.`);}
+  if(avgSent>26){score+=15;notes.push("Average sentence length is unusually high.");}
+  return {score:Math.min(100,score),notes,ttr,sd,avgSent};
+}
+
+$("#btnCheck").addEventListener("click", async ()=>{
+  const text = essayTextEl.value.trim();
+  const result = $("#result"), loader = $("#loader");
+  if(toWords(text).length < 20){
+    result.classList.add("show");
+    result.innerHTML = `<p style="color:var(--wine);font-style:italic">Text is too short. At least ~40 words for a meaningful check.</p>`;
+    return;
+  }
+  loader.classList.add("show"); result.classList.remove("show"); result.innerHTML="";
+  await new Promise(r=>setTimeout(r,1300));
+  const sim = findMatches(text,5);
+  const ai = aiHeuristic(text);
+  const pct = Math.max(0,Math.round((1-sim.ratio)*100));
+  const offset = 326.7*(1-pct/100);
+  const ringColor = pct>=80?"var(--forest)":pct>=55?"var(--gold)":"var(--wine)";
+  const vT = pct>=85?"Text is original":pct>=65?"Moderate borrowing":pct>=40?"Heavy borrowing":"High plagiarism level";
+  const vX = pct>=85?"Almost no overlap with the source corpus. The work looks independent.":
+             pct>=65?"Some matching wordings were found. Rewrite them in your own words.":
+             pct>=40?"A significant part of the text matches the sources. Serious revision is needed.":
+                     "Most of the text is copied. A full rewrite is recommended.";
+  const fragHtml = sim.fragments.length
+    ? `<h4>Matching fragments (${sim.fragments.length})</h4><ul>${sim.fragments.slice(0,6).map(f=>`<li><em>“${f.snippet}”</em><span class="src">→ ${f.src}</span></li>`).join("")}</ul>`
+    : `<p style="font-style:italic;color:var(--forest)">No matching fragments detected.</p>`;
+  const aiLabel = ai.score>=55?"bad":ai.score>=30?"":"good";
+  const aiVerdict = ai.score>=55?"AI-generated signals present":ai.score>=30?"ambiguous signals":"no AI signals found";
+  result.innerHTML = `
+    <div class="ring-wrap">
+      <div class="ring-holder">
+        <svg class="ring" viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"></circle><circle class="fg" cx="60" cy="60" r="52" style="stroke:${ringColor};stroke-dashoffset:${offset}"></circle></svg>
+        <div class="val">${pct}%</div>
+      </div>
+      <div class="verdict">
+        <h3>${vT}</h3><p>${vX}</p>
+        <p style="font-size:14px;color:var(--ink-faint);font-style:italic;margin-top:6px">Compared against a local corpus of ${CORPUS.length} sources</p>
+      </div>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="k">Words checked</div><div class="v">${sim.total}</div></div>
+      <div class="metric"><div class="k">Words matched</div><div class="v ${sim.ratio>0.3?'bad':'good'}">${sim.matchedWords} (${Math.round(sim.ratio*100)}%)</div></div>
+      <div class="metric"><div class="k">Lexical diversity</div><div class="v">${ai.ttr?ai.ttr.toFixed(2):"—"}</div></div>
+      <div class="metric"><div class="k">AI signals</div><div class="v ${aiLabel}">${ai.score}% · ${aiVerdict}</div></div>
+    </div>
+    <div class="matches">${fragHtml}${ai.notes?`<h4>Style observations</h4><ul>${ai.notes.map(n=>`<li>${n}</li>`).join("")}</ul>`:""}</div>`;
+  loader.classList.remove("show"); result.classList.add("show");
+});
+
+/* ============================================================
+   9. GRAMMAR CHECK — LanguageTool public API
+   ============================================================ */
+$("#btnGrammar").addEventListener("click", async ()=>{
+  const text = essayTextEl.value.trim();
+  const block = $("#grammarBlock");
+  if(text.length < 5){ block.innerHTML = `<p style="color:var(--wine);font-style:italic">Text is too short.</p>`; return; }
+  block.innerHTML = `<div style="text-align:center;padding:14px;color:var(--ink-soft);font-style:italic">Checking grammar via LanguageTool…</div>`;
+  try{
+    const body = new URLSearchParams();
+    body.append("text", text.slice(0, 20000));
+    body.append("language", "en-US");
+    const r = await fetch("https://api.languagetool.org/v2/check", { method:"POST", body });
+    if(!r.ok) throw new Error("API responded " + r.status);
+    const data = await r.json();
+    const matches = data.matches || [];
+    if(!matches.length){ block.innerHTML = `<p style="color:var(--forest);font-style:italic">✔ No grammar issues found.</p>`; return; }
+    block.innerHTML = `<h4 style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-faint);margin:16px 0 10px">Grammar & Style (${matches.length})</h4>` +
+      matches.slice(0,15).map(m=>{
+        const ctx = m.context.text || "";
+        const err = ctx.slice(m.context.offset, m.context.offset + m.context.length);
+        const fix = (m.replacements||[]).slice(0,3).map(x=>x.value).join(" · ") || "—";
+        return `<div class="grammar-item">
+          <div class="msg"><span class="grammar-tag">${m.rule.category.name}</span>${m.message}</div>
+          ${err?`<div class="ctx">“${err}”</div>`:""}
+          <div class="fix">Suggestions: <b>${fix}</b></div>
+        </div>`;
+      }).join("");
+  } catch(err){
+    block.innerHTML = `<p style="color:var(--wine);font-style:italic">Grammar check failed: ${err.message}. Check your internet connection.</p>`;
+  }
+});
+
+/* ============================================================
+   10. ENT MODE — 20 questions, 30 minutes
+   ============================================================ */
+const ENT_TOTAL = 20;
+const ENT_TIME = 30*60; // seconds
+
+function buildEntPool(){
+  const pool = [];
+  TOPICS.forEach(t=>t.q.forEach((_,i)=>pool.push({topicId:t.id, qIdx:i})));
+  for(let i=pool.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [pool[i],pool[j]]=[pool[j],pool[i]]; }
+  return pool.slice(0, ENT_TOTAL);
+}
+function fmtTime(sec){
+  sec = Math.max(0, Math.floor(sec));
+  const m = String(Math.floor(sec/60)).padStart(2,"0");
+  const s = String(sec%60).padStart(2,"0");
+  return `${m}:${s}`;
+}
+function startEnt(){
+  hideAll();
+  entState = { pool: buildEntPool(), idx:0, score:0, answered:false, startedAt: Date.now(), ended:false };
+  stageEnt.hidden = false;
+  $("#entTimer").textContent = "30:00";
+  renderEntQuestion();
+  entInterval = setInterval(tickEnt, 1000);
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function tickEnt(){
+  if(!entState || entState.ended) return;
+  const elapsed = (Date.now() - entState.startedAt)/1000;
+  const left = ENT_TIME - elapsed;
+  const el = $("#entTimer");
+  el.textContent = fmtTime(left);
+  el.classList.remove("warn","crit");
+  if(left <= 60) el.classList.add("crit");
+  else if(left <= 300) el.classList.add("warn");
+  if(left <= 0) finishEnt(true);
+}
+function renderEntQuestion(){
+  const { pool, idx, score } = entState;
+  const { topicId, qIdx } = pool[idx];
+  const topic = TOPICS.find(t=>t.id===topicId);
+  const q = topic.q[qIdx];
+  const letters = ["A","B","C","D"];
+  const pct = Math.round((idx/ENT_TOTAL)*100);
+  $("#entBody").innerHTML = `
+    <div class="q-meta"><span>Question ${idx+1} / ${ENT_TOTAL}</span><span>Score: ${score}</span></div>
+    <div class="q-bar"><i style="width:${pct}%"></i></div>
+    <p class="q-text">${q[0]}</p>
+    <div class="options" id="entOptions"></div>
+    <div id="entAfter"></div>`;
+  const box = $("#entOptions");
+  q[1].forEach((text,i)=>{
+    const b = document.createElement("button");
+    b.className = "opt";
+    b.innerHTML = `<span class="lt">${letters[i]}</span><span>${text}</span>`;
+    b.addEventListener("click", ()=>answerEnt(i));
+    box.appendChild(b);
+  });
+}
+function answerEnt(choice){
+  if(!entState || entState.answered || entState.ended) return;
+  entState.answered = true;
+  const { topicId, qIdx } = entState.pool[entState.idx];
+  const topic = TOPICS.find(t=>t.id===topicId);
+  const q = topic.q[qIdx];
+  const correct = q[2];
+  document.querySelectorAll("#entOptions .opt").forEach((b,i)=>{
+    b.disabled = true;
+    if(i===correct) b.classList.add("correct");
+    if(i===choice && choice!==correct) b.classList.add("wrong");
+  });
+  if(choice===correct) entState.score++;
+  const isLast = entState.idx + 1 >= ENT_TOTAL;
+  $("#entAfter").innerHTML = `
+    <div class="explain">${choice===correct?"✔ Correct.":"✘ Incorrect."} Correct answer: <b>${q[1][correct]}</b></div>
+    <div class="btn-row">${isLast?`<button class="btn solid" id="entFinish">Finish</button>`:`<button class="btn solid" id="entNext">Next →</button>`}</div>`;
+  if(isLast) $("#entFinish").addEventListener("click", ()=>finishEnt(false));
+  else $("#entNext").addEventListener("click", ()=>{ entState.idx++; entState.answered=false; renderEntQuestion(); });
+}
+function finishEnt(timeOut){
+  if(!entState || entState.ended) return;
+  entState.ended = true;
+  clearInterval(entInterval); entInterval = null;
+  const spent = Math.round((Date.now() - entState.startedAt)/1000);
+  const pct = Math.round(entState.score / ENT_TOTAL * 100);
+  recordEntRun(entState.score, ENT_TOTAL, spent);
+  $("#entTimer").textContent = timeOut ? "Time is up!" : "Finished";
+  $("#entTimer").classList.remove("warn","crit");
+  const verdict = pct>=85?"Excellent — you're ready.":pct>=60?"Decent, but keep drilling the weak spots.":"Needs more work — revisit the topics and try again.";
+  $("#entBody").innerHTML = `
+    <div class="score-block">
+      <div class="big">${entState.score} / ${ENT_TOTAL}</div>
+      <div class="pct">${pct}% correct · time spent: ${fmtTime(spent)}</div>
+      <p style="font-style:italic;color:var(--ink-soft);max-width:420px;margin:0 auto 22px">${verdict}</p>
+      <div class="btn-row" style="justify-content:center">
+        <button class="btn solid" id="entAgain">Try again</button>
+        <button class="btn ghost" id="entHome">← Home</button>
+      </div>
+    </div>`;
+  $("#entAgain").addEventListener("click", startEnt);
+  $("#entHome").addEventListener("click", goHome);
+}
+
+/* ============================================================
+   11. PROGRESS VIEW
+   ============================================================ */
+function showProgress(){
+  hideAll();
+  stageProgress.hidden = false;
+  const body = $("#progressBody");
+  const parts = [];
+
+  // Topics
+  parts.push(`<h3 style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 12px">By topic</h3>`);
+  parts.push(`<div class="progress-list">`);
+  TOPICS.forEach(t=>{
+    const rec = STORE.topics[t.id];
+    const best = rec ? rec.best : 0;
+    const cls = best>=85?"good":best>=60?"":"bad";
+    const label = rec ? `${best}%` : "not attempted";
+    const width = rec ? best : 0;
+    parts.push(`<div class="progress-item">
+      <div style="flex:1">
+        <div class="name">${t.title}</div>
+        <div class="progress-bar-mini"><i style="width:${width}%"></i></div>
+      </div>
+      <div class="val ${cls}" style="margin-left:16px">${label}</div>
+    </div>`);
+  });
+  parts.push(`</div>`);
+
+  // Errors
+  if(STORE.errors.length){
+    parts.push(`<h3 style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin:28px 0 12px">Weak spots (${STORE.errors.length})</h3>`);
+    parts.push(`<p style="font-style:italic;color:var(--ink-faint);margin:0 0 10px">Questions you got wrong at least once.</p>`);
+    const list = STORE.errors.slice(0,12).map(k=>{
+      const [tid, qi] = k.split(":");
+      const topic = TOPICS.find(t=>t.id===tid);
+      if(!topic) return "";
+      const q = topic.q[Number(qi)];
+      return `<li style="margin-bottom:6px">${q?q[0]:""}<br><span style="font-size:13px;color:var(--ink-faint)">— ${topic.title}</span></li>`;
+    }).join("");
+    parts.push(`<ul style="padding-left:18px">${list}</ul>`);
+  }
+
+  // ENT history
+  if(STORE.entRuns.length){
+    parts.push(`<h3 style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin:28px 0 12px">ENT simulation history</h3>`);
+    parts.push(`<div class="progress-list">`);
+    STORE.entRuns.slice().reverse().forEach(r=>{
+      const pct = Math.round(r.score/r.total*100);
+      const cls = pct>=85?"good":pct>=60?"":"bad";
+      const date = new Date(r.ts).toLocaleString();
+      parts.push(`<div class="progress-item">
+        <div style="flex:1"><div class="name">${date}</div></div>
+        <div class="val ${cls}">${r.score}/${r.total} · ${pct}%</div>
+      </div>`);
+    });
+    parts.push(`</div>`);
+  }
+
+  body.innerHTML = parts.join("");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+</script>
+</body>
+</html>

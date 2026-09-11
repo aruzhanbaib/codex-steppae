@@ -25,6 +25,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opa
   mix-blend-mode:multiply;}
 body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;box-shadow:inset 0 0 200px rgba(90,70,40,.35)}
 .page{position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:32px 24px 60px}
+
 .masthead{text-align:center;padding:18px 0 26px;position:relative}
 .masthead .kicker{font-family:'Cinzel',serif;font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px}
 .masthead h1{font-family:'Cinzel',serif;font-weight:700;font-size:clamp(26px,4.4vw,46px);letter-spacing:.06em;margin:0 0 10px;color:var(--ink);text-transform:uppercase}
@@ -32,6 +33,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;box-
 .rule{display:flex;align-items:center;justify-content:center;gap:14px;margin:22px auto 0;max-width:520px}
 .rule::before,.rule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
 .rule .gem{width:9px;height:9px;background:var(--gold);transform:rotate(45deg);box-shadow:0 0 0 3px var(--parchment), 0 0 0 4px var(--line)}
+
 .panel{position:relative;background:rgba(255,252,243,.55);border:1px solid var(--line);padding:26px 26px 24px;box-shadow:0 1px 0 rgba(255,255,255,.6) inset, 0 12px 30px -22px rgba(60,45,20,.6)}
 .panel::before,.panel::after{content:"";position:absolute;width:14px;height:14px;border:1px solid var(--gold);opacity:.85}
 .panel::before{top:-1px;left:-1px;border-right:0;border-bottom:0}
@@ -39,6 +41,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;box-
 .panel h2{font-family:'Cinzel',serif;font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 18px;display:flex;align-items:center;gap:10px}
 .panel h2 .num{font-family:'Cinzel',serif;font-size:11px;border:1px solid var(--gold);color:var(--gold);width:22px;height:22px;display:grid;place-items:center;transform:rotate(45deg)}
 .panel h2 .num span{transform:rotate(-45deg);display:block}
+
 .btn{font-family:'Cinzel',serif;font-size:13px;letter-spacing:.18em;text-transform:uppercase;padding:13px 26px;border:1px solid var(--wine);background:transparent;color:var(--wine);cursor:pointer;transition:.22s;position:relative}
 .btn:hover{background:var(--wine);color:var(--parchment)}
 .btn.solid{background:var(--wine);color:var(--parchment)}
@@ -49,27 +52,58 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;box-
 .btn.ghost:hover{background:rgba(90,74,56,.1);color:var(--ink)}
 .btn:disabled{opacity:.45;cursor:not-allowed}
 .btn-row{display:flex;gap:12px;flex-wrap:wrap}
+
 .hero{text-align:center;padding:44px 20px 40px}
-.hero .sigil{width:104px;height:104px;margin:0 auto 26px;position:relative;display:grid;place-items:center}
+.hero .sigil{width:104px;height:104px;margin:0 auto 26px;display:grid;place-items:center}
 .hero .sigil svg{width:100%;height:100%}
-.hero p.lead{max-width:640px;margin:0 auto 30px;font-size:clamp(16px,1.9vw,20px);color:var(--ink-soft);font-style:italic}
-.syllabus{margin:44px auto 0;max-width:900px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;text-align:left}
-.syllabus .item{border:1px solid var(--line);padding:11px 14px;font-size:15px;color:var(--ink-soft);display:flex;gap:12px;align-items:baseline;background:rgba(255,255,255,.28)}
-.syllabus .item b{font-family:'Cinzel',serif;font-size:12px;color:var(--gold);letter-spacing:.08em}
-.topic-card{text-align:center;padding:38px 30px 32px;position:relative;background:linear-gradient(180deg, rgba(255,253,246,.85), rgba(246,238,218,.65));border:1px solid var(--line-strong)}
-.topic-card::before{content:"";position:absolute;inset:8px;border:1px solid var(--line);pointer-events:none}
-.topic-label{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
-.topic-en{font-family:'Cinzel',serif;font-weight:600;font-size:clamp(19px,2.8vw,30px);line-height:1.35;margin:0 0 18px;color:var(--ink);letter-spacing:.01em}
-.topic-hint{max-width:720px;margin:0 auto 26px;font-style:italic;color:var(--ink-soft);font-size:clamp(15px,1.7vw,18px)}
-.topic-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2}
-.workspace{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:30px;align-items:start}
-@media(max-width:980px){.workspace{grid-template-columns:1fr}}
+.hero p.lead{max-width:680px;margin:0 auto 30px;font-size:clamp(16px,1.9vw,20px);color:var(--ink-soft);font-style:italic}
+
+.topic-grid{margin-top:38px;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.topic-tile{position:relative;background:linear-gradient(180deg,rgba(255,253,246,.9),rgba(246,238,218,.65));border:1px solid var(--line);padding:20px 18px 18px;cursor:pointer;transition:.2s;text-align:left}
+.topic-tile:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 12px 24px -18px rgba(60,45,20,.6)}
+.topic-tile::before{content:"";position:absolute;top:-1px;left:-1px;width:14px;height:14px;border:1px solid var(--gold);border-right:0;border-bottom:0;opacity:.85}
+.topic-tile::after{content:"";position:absolute;bottom:-1px;right:-1px;width:14px;height:14px;border:1px solid var(--gold);border-left:0;border-top:0;opacity:.85}
+.topic-tile .num{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.3em;color:var(--gold);margin-bottom:8px}
+.topic-tile .name{font-family:'Cinzel',serif;font-size:15px;font-weight:600;line-height:1.35;color:var(--ink);margin-bottom:10px}
+.topic-tile .count{font-size:14px;color:var(--ink-faint);font-style:italic}
+
+.crumbs{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px;text-align:center}
+.crumbs b{color:var(--wine)}
+
+.topic-head{text-align:center;padding:32px 26px 26px;position:relative;background:linear-gradient(180deg, rgba(255,253,246,.85), rgba(246,238,218,.65));border:1px solid var(--line-strong);margin-bottom:24px}
+.topic-head::before{content:"";position:absolute;inset:8px;border:1px solid var(--line);pointer-events:none}
+.topic-head h1{font-family:'Cinzel',serif;font-weight:600;font-size:clamp(19px,2.6vw,28px);line-height:1.35;margin:0 0 14px;position:relative;z-index:1}
+.topic-head .hint{max-width:760px;margin:0 auto 20px;font-style:italic;color:var(--ink-soft);position:relative;z-index:1}
+.topic-head .actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2}
+
+.subtopics-list{display:grid;gap:12px}
+.subtopic-card{display:flex;gap:18px;align-items:center;background:rgba(255,252,243,.6);border:1px solid var(--line);padding:16px 20px;cursor:pointer;transition:.2s;text-align:left}
+.subtopic-card:hover{border-color:var(--gold);background:rgba(216,184,118,.12);transform:translateX(4px)}
+.subtopic-card .idx{font-family:'Cinzel',serif;font-size:17px;color:var(--gold);min-width:38px;height:38px;display:grid;place-items:center;border:1px solid var(--gold);transform:rotate(45deg);flex-shrink:0}
+.subtopic-card .idx span{transform:rotate(-45deg)}
+.subtopic-card .body{flex:1}
+.subtopic-card .body h3{font-family:'Cinzel',serif;font-size:15px;margin:0 0 4px;color:var(--ink);font-weight:600;letter-spacing:.03em}
+.subtopic-card .body p{margin:0;font-size:15px;color:var(--ink-faint);font-style:italic}
+.subtopic-card .arrow{font-family:'Cinzel',serif;color:var(--gold);font-size:20px}
+
+.lesson{background:rgba(255,252,243,.65);border:1px solid var(--line);padding:24px 26px;margin-bottom:24px;position:relative}
+.lesson::before{content:"";position:absolute;top:-1px;left:-1px;width:14px;height:14px;border:1px solid var(--gold);border-right:0;border-bottom:0}
+.lesson::after{content:"";position:absolute;bottom:-1px;right:-1px;width:14px;height:14px;border:1px solid var(--gold);border-left:0;border-top:0}
+.lesson h2{font-family:'Cinzel',serif;font-size:14px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 16px;display:flex;align-items:center;gap:10px}
+.lesson h2 .num{font-family:'Cinzel',serif;font-size:11px;border:1px solid var(--gold);color:var(--gold);width:22px;height:22px;display:grid;place-items:center;transform:rotate(45deg)}
+.lesson h2 .num span{transform:rotate(-45deg);display:block}
+.lesson p{font-size:17px;line-height:1.7;margin:0 0 14px;color:var(--ink)}
+.lesson p:last-child{margin-bottom:0}
+.key-points{list-style:none;padding:0;margin:18px 0 0;border-top:1px solid var(--line);padding-top:18px}
+.key-points li{padding-left:22px;position:relative;margin-bottom:8px;font-size:16px;color:var(--ink-soft)}
+.key-points li::before{content:"◆";position:absolute;left:0;color:var(--gold);font-size:11px;top:4px}
+
 .q-meta{display:flex;justify-content:space-between;align-items:center;font-family:'Cinzel',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:12px}
 .q-bar{height:3px;background:rgba(90,74,56,.15);margin-bottom:22px;overflow:hidden}
 .q-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-2));transition:.35s;width:0}
-.q-text{font-size:clamp(17px,1.9vw,20px);line-height:1.5;margin:0 0 22px;font-weight:500}
+.q-text{font-size:clamp(17px,1.9vw,19px);line-height:1.5;margin:0 0 22px;font-weight:500}
 .options{display:grid;gap:10px;margin-bottom:18px}
-.opt{text-align:left;padding:14px 18px;border:1px solid var(--line);background:rgba(255,255,255,.4);cursor:pointer;font:inherit;font-size:17px;color:var(--ink);transition:.18s;display:flex;gap:14px;align-items:baseline}
+.opt{text-align:left;padding:13px 18px;border:1px solid var(--line);background:rgba(255,255,255,.4);cursor:pointer;font:inherit;font-size:17px;color:var(--ink);transition:.18s;display:flex;gap:14px;align-items:baseline}
 .opt .lt{font-family:'Cinzel',serif;font-size:12px;color:var(--gold);min-width:16px}
 .opt:hover:not(:disabled){border-color:var(--gold);background:rgba(216,184,118,.16)}
 .opt:disabled{cursor:default}
@@ -80,34 +114,46 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;box-
 .score-block{text-align:center;padding:20px 0}
 .score-block .big{font-family:'Cinzel',serif;font-size:52px;color:var(--wine);line-height:1;margin-bottom:10px}
 .score-block .pct{font-size:19px;color:var(--ink-soft);margin-bottom:22px}
-.drop{border:1.5px dashed var(--line-strong);padding:26px 20px;text-align:center;cursor:pointer;transition:.2s;background:rgba(255,255,255,.25);margin-bottom:14px}
+
+.essay-workspace{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:26px;align-items:start}
+@media(max-width:980px){.essay-workspace{grid-template-columns:1fr}}
+.essay-card{background:rgba(255,252,243,.65);border:1px solid var(--line);padding:24px 26px;position:relative}
+.essay-card::before{content:"";position:absolute;top:-1px;left:-1px;width:14px;height:14px;border:1px solid var(--gold);border-right:0;border-bottom:0}
+.essay-card::after{content:"";position:absolute;bottom:-1px;right:-1px;width:14px;height:14px;border:1px solid var(--gold);border-left:0;border-top:0}
+.essay-card h2{font-family:'Cinzel',serif;font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 16px;display:flex;align-items:center;gap:10px}
+.essay-card h2 .num{font-family:'Cinzel',serif;font-size:11px;border:1px solid var(--gold);color:var(--gold);width:22px;height:22px;display:grid;place-items:center;transform:rotate(45deg)}
+.essay-card h2 .num span{transform:rotate(-45deg);display:block}
+.essay-topic-title{font-family:'Cinzel',serif;font-size:18px;line-height:1.4;margin:0 0 12px;color:var(--ink)}
+.essay-topic-hint{font-style:italic;color:var(--ink-soft);font-size:16px;margin:0}
+
+.drop{border:1.5px dashed var(--line-strong);padding:24px 20px;text-align:center;cursor:pointer;transition:.2s;background:rgba(255,255,255,.25);margin-bottom:14px}
 .drop:hover,.drop.over{border-color:var(--gold);background:rgba(216,184,118,.14)}
 .drop .ico{font-size:26px;color:var(--gold);display:block;margin-bottom:8px}
 .drop .t1{font-family:'Cinzel',serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:5px}
 .drop .t2{font-size:14px;color:var(--ink-faint);font-style:italic}
 .or{text-align:center;font-family:'Cinzel',serif;font-size:11px;letter-spacing:.3em;color:var(--ink-faint);margin:14px 0}
-textarea{width:100%;min-height:180px;padding:16px;font:inherit;font-size:16px;line-height:1.55;border:1px solid var(--line);background:rgba(255,255,255,.5);color:var(--ink);resize:vertical;outline:none;transition:.2s}
+textarea{width:100%;min-height:160px;padding:14px;font:inherit;font-size:16px;line-height:1.55;border:1px solid var(--line);background:rgba(255,255,255,.5);color:var(--ink);resize:vertical;outline:none;transition:.2s}
 textarea:focus{border-color:var(--gold);background:rgba(255,255,255,.75)}
 textarea::placeholder{color:var(--ink-faint);font-style:italic}
 .meta-row{display:flex;justify-content:space-between;align-items:center;margin:10px 0 16px;font-size:14px;color:var(--ink-faint);font-style:italic}
 .meta-row .warn{color:var(--wine);font-style:normal}
+
 .result{margin-top:22px;border-top:1px solid var(--line);padding-top:22px;display:none}
 .result.show{display:block;animation:fade .4s ease}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .ring-wrap{display:flex;gap:24px;align-items:center;flex-wrap:wrap;margin-bottom:20px}
-.ring{width:118px;height:118px;flex-shrink:0;transform:rotate(-90deg)}
+.ring{width:110px;height:110px;flex-shrink:0;transform:rotate(-90deg)}
 .ring circle{fill:none;stroke-width:7;stroke-linecap:round}
 .ring .bg{stroke:rgba(90,74,56,.14)}
 .ring .fg{stroke:var(--gold);stroke-dasharray:326.7;stroke-dashoffset:326.7;transition:1s cubic-bezier(.4,0,.2,1)}
-.ring-holder{position:relative;width:118px;height:118px}
-.ring-holder .val{position:absolute;inset:0;display:grid;place-items:center;font-family:'Cinzel',serif;font-size:26px;color:var(--ink)}
+.ring-holder{position:relative;width:110px;height:110px}
+.ring-holder .val{position:absolute;inset:0;display:grid;place-items:center;font-family:'Cinzel',serif;font-size:24px;color:var(--ink)}
 .verdict h3{font-family:'Cinzel',serif;font-size:17px;letter-spacing:.04em;margin:0 0 8px;color:var(--wine)}
 .verdict p{margin:0;color:var(--ink-soft);font-size:16px}
-.verdict p + p{margin-top:5px}
 .metrics{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
 .metric{border:1px solid var(--line);padding:11px 14px;background:rgba(255,255,255,.35)}
 .metric .k{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:4px}
-.metric .v{font-size:18px;font-weight:600}
+.metric .v{font-size:17px;font-weight:600}
 .metric .v.good{color:var(--forest)}
 .metric .v.bad{color:var(--wine)}
 .matches{font-size:15px;color:var(--ink-soft)}
@@ -121,14 +167,12 @@ textarea::placeholder{color:var(--ink-faint);font-style:italic}
 .loader .bar{width:180px;height:2px;background:rgba(90,74,56,.15);margin:12px auto 0;overflow:hidden}
 .loader .bar i{display:block;height:100%;width:40%;background:var(--gold);animation:slide 1s ease-in-out infinite}
 @keyframes slide{0%{transform:translateX(-100%)}100%{transform:translateX(350%)}}
-.footer{text-align:center;margin-top:50px;padding-top:24px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-faint);font-style:italic}
-[hidden]{display:none !important}
 
-/* ---------- ENT TIMER MODE ---------- */
 .ent-timer{font-family:'Cinzel',serif;font-size:26px;color:var(--wine);text-align:center;letter-spacing:.08em;margin-bottom:6px}
 .ent-timer.warn{color:#a0522d}
 .ent-timer.crit{color:#8b0000;animation:pulse 1s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.55}}
+
 .progress-list{margin-top:20px}
 .progress-item{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-bottom:1px solid var(--line);font-size:16px}
 .progress-item:last-child{border-bottom:0}
@@ -139,14 +183,15 @@ textarea::placeholder{color:var(--ink-faint);font-style:italic}
 .progress-bar-mini{height:4px;background:rgba(90,74,56,.15);margin-top:5px;overflow:hidden}
 .progress-bar-mini i{display:block;height:100%;background:var(--gold);transition:.4s}
 
-/* ---------- GRAMMAR ---------- */
 .grammar-block{margin-top:20px}
 .grammar-item{border-left:3px solid var(--gold);padding:10px 14px;margin-bottom:10px;background:rgba(216,184,118,.08)}
 .grammar-item .msg{font-size:16px;color:var(--ink)}
 .grammar-item .ctx{font-size:14px;color:var(--ink-faint);font-style:italic;margin-top:5px}
 .grammar-item .fix{font-size:14px;color:var(--forest);margin-top:5px}
-.grammar-item .fix b{font-style:normal}
 .grammar-tag{display:inline-block;font-family:'Cinzel',serif;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#fff;background:var(--gold);padding:2px 7px;margin-right:8px;vertical-align:middle}
+
+.footer{text-align:center;margin-top:50px;padding-top:24px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-faint);font-style:italic}
+[hidden]{display:none !important}
 </style>
 </head>
 <body>
@@ -155,7 +200,7 @@ textarea::placeholder{color:var(--ink-faint);font-style:italic}
   <header class="masthead">
     <div class="kicker">Codex Steppae · Anno MMXXVI</div>
     <h1>History of Kazakhstan</h1>
-    <p class="sub">Stone Age, Eneolithic and Bronze Age — ENT preparation and essay practice</p>
+    <p class="sub">From the Stone Age to nomadic civilisation — ENT preparation and essay practice</p>
     <div class="rule"><span class="gem"></span></div>
   </header>
 
@@ -163,44 +208,70 @@ textarea::placeholder{color:var(--ink-faint);font-style:italic}
     <div class="panel">
       <div class="hero">
         <div class="sigil">
-          <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 120 120" fill="none">
             <circle cx="60" cy="60" r="52" stroke="#b08d57"/>
             <path d="M38 74 L60 38 L82 74 Z" stroke="#6e2b2b" stroke-width="1.4" fill="none"/>
             <circle cx="60" cy="60" r="6" fill="#b08d57"/>
           </svg>
         </div>
         <p class="lead">
-          Draw an essay topic, write your work in English — check it for plagiarism and grammar.
-          Beside it, a quiz on the same topic. Or enter ENT mode: 20 questions, 30 minutes, real exam simulation.
+          Choose a topic, study its subtopics — each with a clear lesson and a quiz.
+          Then check your essay for plagiarism and grammar, or enter ENT simulation.
         </p>
         <div class="btn-row" style="justify-content:center">
           <button class="btn solid" id="btnDraw">🎲 Draw essay topic</button>
           <button class="btn gold" id="btnEnt">⏱ ENT mode (20 q · 30 min)</button>
           <button class="btn ghost" id="btnProgress">📊 My progress</button>
         </div>
+        <div class="topic-grid" id="topicGrid"></div>
       </div>
-      <div class="syllabus" id="syllabusList"></div>
     </div>
   </section>
 
   <section id="stage-topic" hidden>
-    <div class="topic-card">
-      <div class="topic-label">Essay Topic · English</div>
-      <h2 class="topic-en" id="topicTitle">—</h2>
-      <p class="topic-hint" id="topicHint">—</p>
-      <div class="topic-actions">
-        <button class="btn gold" id="btnReroll">🎲 Another topic</button>
-        <button class="btn ghost" id="btnHome">← Home</button>
+    <div class="crumbs"><b id="crumbTopic">—</b></div>
+    <div class="topic-head">
+      <h1 id="topicTitle">—</h1>
+      <p class="hint" id="topicHint">—</p>
+      <div class="actions">
+        <button class="btn gold" id="btnTopicEssay">📝 Essay on this topic</button>
+        <button class="btn ghost" id="btnTopicHome">← Home</button>
       </div>
     </div>
+    <div class="subtopics-list" id="subtopicsList"></div>
+  </section>
 
-    <div class="workspace">
-      <div class="panel">
-        <h2><span class="num"><span>I</span></span> Knowledge Check</h2>
-        <div id="quizBody"></div>
+  <section id="stage-subtopic" hidden>
+    <div class="crumbs"><b id="crumbSubtopic">—</b></div>
+    <div class="lesson">
+      <h2><span class="num"><span>§</span></span> Lesson</h2>
+      <div id="lessonBody"></div>
+    </div>
+    <div class="panel">
+      <h2><span class="num"><span>?</span></span> Quiz</h2>
+      <div id="quizBody"></div>
+    </div>
+    <div class="btn-row" style="margin-top:20px">
+      <button class="btn ghost" id="btnSubtopicBack">← Back to subtopics</button>
+      <button class="btn ghost" id="btnSubtopicHome">🏠 Home</button>
+    </div>
+  </section>
+
+  <section id="stage-essay" hidden>
+    <div class="crumbs"><b>Essay Practice</b></div>
+    <div class="essay-workspace">
+      <div class="essay-card">
+        <h2><span class="num"><span>I</span></span> Your Topic</h2>
+        <div id="essayTopicBlock">
+          <h3 class="essay-topic-title" id="essayTitle">—</h3>
+          <p class="essay-topic-hint" id="essayHint">—</p>
+        </div>
+        <div class="btn-row" style="margin-top:18px">
+          <button class="btn gold" id="btnEssayReroll">🎲 Another topic</button>
+          <button class="btn ghost" id="btnEssayHome">← Home</button>
+        </div>
       </div>
-
-      <div class="panel">
+      <div class="essay-card">
         <h2><span class="num"><span>II</span></span> Essay Check</h2>
         <div class="drop" id="drop">
           <span class="ico">📜</span>
@@ -209,7 +280,7 @@ textarea::placeholder{color:var(--ink-faint);font-style:italic}
         </div>
         <input type="file" id="fileInput" accept=".txt,.md,.docx" hidden>
         <div class="or">— or paste the text —</div>
-        <textarea id="essayText" placeholder="Paste your essay here… (minimum ~40 words for a meaningful check)"></textarea>
+        <textarea id="essayText" placeholder="Paste your essay here… (minimum ~40 words)"></textarea>
         <div class="meta-row">
           <span id="wordCount">0 words · 0 characters</span>
           <span id="minNote" class="warn"></span>
@@ -219,10 +290,7 @@ textarea::placeholder{color:var(--ink-faint);font-style:italic}
           <button class="btn gold" id="btnGrammar">✎ Grammar check</button>
           <button class="btn ghost" id="btnClear">Clear</button>
         </div>
-        <div class="loader" id="loader">
-          <div>Analysing the text…</div>
-          <div class="bar"><i></i></div>
-        </div>
+        <div class="loader" id="loader"><div>Analysing…</div><div class="bar"><i></i></div></div>
         <div class="result" id="result"></div>
         <div class="grammar-block" id="grammarBlock"></div>
       </div>
@@ -256,182 +324,764 @@ textarea::placeholder{color:var(--ink-faint);font-style:italic}
 
 <script>
 /* ============================================================
-   1. DATA — 7 TOPICS × 20 QUESTIONS (English)
-   Each question: [text, [A,B,C,D], correctIndex, explanation]
+   DATA — 7 TOPICS → SUBTOPICS → LESSON + QUIZ
    ============================================================ */
 const TOPICS = [
-{id:"intro",title:"1. Introduction to the course “History of Kazakhstan”: goals, objectives, and significance.",
-hint:"Explain why studying the History of Kazakhstan matters. What are the goals and objectives of the course? What role does historical knowledge play in forming national identity?",
+{
+id:"intro",
+title:"1. Introduction to the course “History of Kazakhstan”",
+hint:"Why study the History of Kazakhstan? Goals, objectives and significance of the discipline.",
+subtopics:[
+{
+id:"intro_goals",
+title:"Goals and Objectives of the Course",
+info:[
+"The History of Kazakhstan is a foundational academic discipline taught in every school and university of the country. Its main goal is to form a holistic, objective understanding of how the Kazakh people and state developed — from the earliest human settlements on this land to the modern Republic of Kazakhstan.",
+"The course has several objectives. First, students must master the methods of historical analysis and learn to work with different types of sources — archaeological, written, oral and visual. Second, they must develop the ability to compare different interpretations and form their own reasoned conclusions. Third, the course aims to strengthen civic and national identity by showing how values of freedom, unity and resilience have shaped the country over centuries.",
+"Studying the history of Kazakhstan matters because it connects people to their roots. Without historical memory, a society loses its sense of direction. The discipline helps young people understand who they are, where they come from, and what responsibility they carry toward the future of their country."
+],
+points:[
+"Goal: holistic and objective understanding of the country's past",
+"Objectives: methodology, sources, civic identity",
+"Course is compulsory at all levels of education",
+"History shapes historical memory and national identity"
+],
 q:[
-["What is the main goal of the course “History of Kazakhstan”?",["To study only the ancient period","To form a holistic knowledge of the country's history and national identity","To study only the 20th century","To study the history of other countries"],1,"The course provides a holistic understanding of the country's history and shapes national identity."],
-["Which of the following belongs to the objectives of the course?",["Rote memorisation of dates","Mastering methods of historical analysis and work with sources","Studying only maps","Writing essays only"],1,"A key objective is to teach how to work with historical sources and analyse processes."],
-["Why is the history of Kazakhstan important for modern society?",["It has no practical value","It shapes historical memory and civic identity","It is needed only for exams","It replaces other sciences"],1,"Knowledge of history shapes historical memory, patriotism and civic identity."],
-["Which principle underlies an objective study of history?",["Subjectivism","Historicism","Mythologisation","Idealisation"],1,"The principle of historicism requires examining phenomena in development and specific context."],
-["What is the most important source for studying the ancient history of Kazakhstan?",["Written documents","Archaeological finds","Fiction","Newsreels"],1,"For the earliest periods, archaeological materials are the primary source."],
-["What does the term “historiography” mean?",["The science of writing history","The history of historical science","The study of sources","The methodology of history"],1,"Historiography is the history of historical science — how history has been written."],
-["Which scholar contributed greatly to the study of ancient Kazakhstan?",["A. Margulan","N. Nazarbayev","A. Baitursynov","Ch. Valikhanov"],0,"Alkey Margulan was an outstanding archaeologist and researcher of the Bronze Age."],
-["What is a historical source?",["Any object carrying information about the past","Only a written document","Only an archaeological find","Only an oral tradition"],0,"A historical source is any object that carries information about the human past."],
-["Which science studies the past through material sources?",["Ethnography","Archaeology","Anthropology","Numismatics"],1,"Archaeology studies the past through material sources — tools, buildings, ornaments."],
-["What is the science of human origins and evolution?",["Anthropology","Ethnography","Archaeology","Palaeontology"],0,"Anthropology studies the origin, evolution and physical features of humans."],
-["What is the goal of historical education?",["To form historical thinking and civic position","To prepare only for exams","To know only dates","To study foreign languages"],0,"Historical education shapes historical thinking, civic position and respect for the past."],
-["Which period of Kazakhstan's history studies the earliest human sites?",["Ancient world","Middle Ages","Modern times","Contemporary times"],0,"The earliest sites belong to the ancient period."],
-["What is “historical memory”?",["Ability to memorise dates","The body of society's knowledge about its past","A school subject","A document archive"],1,"Historical memory is the body of knowledge and ideas about the past shared by a society."],
-["Why is it important to study the history of one's region?",["To know one's roots and be proud of the heritage","To get good grades","To argue with the teacher","To fill free time"],0,"Knowing local history helps understand one's roots and preserve heritage."],
-["What is a comparative-historical method?",["Description of events","Comparison of events and phenomena","Statistical analysis","Sociological survey"],1,"The comparative-historical method reveals the common and the specific in historical phenomena."],
-["What does the principle of objectivity in history mean?",["Relying on all sources and being unbiased","Relying on one source","Presenting only your own view","Ignoring facts"],0,"Objectivity requires relying on all available sources and avoiding bias."],
-["Which science studies the origin and evolution of humans?",["Anthropology","Ethnography","Archaeology","Palaeontology"],0,"Anthropology studies human origins, evolution and physical features."],
-["What is the “civilisational approach” to history?",["Isolated study of one country","Studying history in the context of world civilisations","Rote learning","Ignoring sources"],1,"The civilisational approach studies Kazakhstan's history as part of world civilisation."],
-["Which historian is known for studying Saka kurgans?",["A. Margulan","K. Akishev","A. Kunaev","D. Kunaev"],1,"Kemal Akishev is known for his research on Saka kurgans."],
-["Why is the History of Kazakhstan course included in the curriculum?",["To form national identity and historical consciousness","To fill the schedule","To replace world history","To teach foreign languages"],0,"The course forms national identity and historical consciousness."]
+["What is the main goal of the course?",["To memorise dates","To form a holistic understanding of the country's history and identity","To study only the 20th century","To study foreign countries"],1,"The main goal is holistic understanding and national identity."],
+["Which of these is an objective of the course?",["Rote memorisation","Working with historical sources","Studying only maps","Reading fiction only"],1,"Learning to work with sources is a key objective."],
+["Why is history important for society?",["It has no practical value","It shapes historical memory and civic identity","It is only for exams","It replaces other sciences"],1,"History forms historical memory and civic identity."],
+["Which principle requires studying events in development and context?",["Subjectivism","Historicism","Mythologisation","Idealisation"],1,"Historicism studies events in development and context."],
+["What type of source is most important for the ancient history of Kazakhstan?",["Written documents","Archaeological finds","Fiction","Newsreels"],1,"Archaeological finds dominate ancient history studies."],
+["What is the science of writing and studying history called?",["Historiography","Geography","Archaeology","Anthropology"],0,"Historiography is the history of historical science."]
+]
+},
+{
+id:"intro_sources",
+title:"Historiography and Types of Sources",
+info:[
+"Historiography is the history of historical science — how history has been studied, written and interpreted over time. Understanding historiography helps you see that every generation reads the past in its own way, and that historical knowledge is not static but continuously refined.",
+"Sources are the foundation of any historical research. They are divided into several types. Written sources include chronicles, letters, official documents and books. Material (or archaeological) sources are physical remains — tools, weapons, buildings, ornaments. Oral sources are epics, legends and genealogies passed down by word of mouth. Visual sources include petroglyphs, rock paintings and ancient drawings. Ethnographic sources are customs, rituals and traditions that have survived into modern times.",
+"Different periods require different types of sources. For the Stone Age, archaeology is practically the only source of knowledge — there are no written records. For the medieval period, written chronicles and oral epics become equally important. For modern history, official documents and press materials dominate."
+],
+points:[
+"Historiography = history of historical science",
+"Main source types: written, material, oral, visual, ethnographic",
+"Different periods require different source types",
+"For Stone Age — archaeology is the primary source"
+],
+q:[
+["What does “historiography” mean?",["Writing history for the first time","The history of historical science","Studying sources only","A branch of archaeology"],1,"Historiography studies how history has been written."],
+["Which source is most important for the Stone Age?",["Written chronicles","Archaeological finds","Coins","Newspapers"],1,"Archaeological finds dominate Stone Age studies."],
+["What is an oral source?",["A book","An epic or legend passed by word of mouth","A carved stone","A coin"],1,"Epics and legends are oral sources."],
+["What is an ethnographic source?",["A modern history textbook","Customs and rituals surviving to the present","An ancient coin","A rock painting"],1,"Ethnographic sources are living customs and traditions."],
+["Which scientist contributed greatly to the study of ancient Kazakhstan?",["A. Margulan","N. Nazarbayev","A. Kunaev","D. Kunaev"],0,"Alkey Margulan was a leading archaeologist of Kazakhstan."],
+["Which type of source dominates the medieval period?",["Only archaeology","Written chronicles and oral epics","Only coins","Only modern photos"],1,"Medieval history relies on both written and oral sources."]
+]
+},
+{
+id:"intro_memory",
+title:"Historical Memory and National Identity",
+info:[
+"Historical memory is the body of knowledge and ideas that a society holds about its own past. It is transmitted through family stories, school education, museums, monuments, literature, cinema and, in our time, digital media. Historical memory is not the same as academic history — it is how ordinary people remember and feel about the past.",
+"Historical knowledge strengthens national identity by connecting people to their ancestors and their land. When a nation remembers its achievements and its trials, it gains confidence and direction. In Kazakhstan, key milestones such as the formation of the Kazakh Khanate, the struggle for independence, and the events of 1986 or 1991 all play a role in shaping this sense of identity.",
+"A strong historical memory protects society from manipulation. When people know their history, they are less vulnerable to false narratives. That is why the History of Kazakhstan course is not just about the past — it is about the present and the future of the country."
+],
+points:[
+"Historical memory = society's shared knowledge of its past",
+"Transmitted via family, education, media, monuments",
+"Strengthens national and civic identity",
+"Protects society from historical manipulation"
+],
+q:[
+["What is historical memory?",["Memorising dates","Society's shared knowledge of its past","A school subject only","An archive of documents"],1,"Historical memory is society's knowledge about its past."],
+["Why does historical memory matter?",["It has no impact","It strengthens national identity","It only matters for historians","It replaces other sciences"],1,"It strengthens identity and continuity."],
+["How is historical memory transmitted?",["Only through books","Through education, media and monuments","Only through museums","Only orally"],1,"Many channels transmit historical memory."],
+["What role does history play in education?",["It forms civic identity","It replaces other subjects","It is optional","It has no role"],0,"History forms civic identity."],
+["What is the danger of losing historical memory?",["Loss of identity and continuity","Nothing changes","It helps progress","It improves society"],0,"Losing historical memory undermines identity."],
+["Which event is a key milestone in Kazakhstan's historical memory?",["Formation of the Kazakh Khanate","Invention of the wheel","Roman conquest","Discovery of America"],0,"The Kazakh Khanate (1465) is a cornerstone of national memory."]
+]
+}
 ]},
-{id:"periodization",title:"2. Periodization of the history of Kazakhstan.",
-hint:"Describe the main periodization of the history of Kazakhstan: ancient, medieval, modern and contemporary periods. Explain the criteria used for periodization.",
+{
+id:"periodization",
+title:"2. Periodization of the history of Kazakhstan",
+hint:"How historians divide the past: ancient, medieval, modern and contemporary periods — and the criteria behind it.",
+subtopics:[
+{
+id:"period_criteria",
+title:"Criteria and Main Periods",
+info:[
+"Periodization is the division of history into periods by specific criteria. This is not a natural fact but a scholarly convention — historians choose the criteria they consider most important, so periodization can vary between different schools.",
+"The most common criteria are: type of economy (appropriating vs producing), social organisation (tribe, state, empire), form of statehood (khanate, empire, republic), and key political events (wars, revolutions, treaties). In the history of Kazakhstan, four main periods are traditionally distinguished.",
+"These four periods are: ancient (from the first human presence to the 5th century AD), medieval (5th to 17th centuries), modern (18th to early 20th century), and contemporary (from 1917 to the present day). Each period has its own characteristic economy, society and political order."
+],
+points:[
+"Periodization is a scholarly convention, not a fixed fact",
+"Criteria: economy, society, statehood, key events",
+"Four main periods in the history of Kazakhstan"
+],
 q:[
-["Into which major periods is the history of Kazakhstan divided?",["Only ancient and contemporary","Ancient, medieval, modern and contemporary","Only medieval","Only contemporary"],1,"Traditionally divided into ancient, medieval, modern and contemporary."],
-["What marks the end of the ancient period?",["Formation of the Kazakh Khanate","Beginning of the Early Iron Age and nomadic civilisation","Accession to Russia","20th century"],1,"The ancient period ends with the Early Iron Age and nomadic civilisation."],
-["Which event starts the medieval period?",["The rise of the Botai culture","Formation of the Turkic Khaganate and early states","The Mongol conquest","Formation of the USSR"],1,"The medieval period starts with early states such as the Turkic Khaganate."],
-["Which criterion is most often used for periodization?",["Skin colour","Type of economy, society and form of statehood","Weather","Population size"],1,"The main criteria are economy, social organisation and statehood."],
-["What is the boundary between ancient and medieval periods?",["5th century AD","13th century","15th century","18th century"],0,"Conventionally placed at the 5th century AD — the Great Migration of Peoples."],
-["What is periodization of history?",["Dividing history into periods by certain criteria","Memorising dates","Studying one period","Describing events"],0,"A conventional division of the historical process into periods."],
-["Which period in Kazakhstan's history saw the formation of the Kazakh people?",["Ancient","Medieval","Contemporary","Modern"],1,"The formation of the Kazakh people is completed in the medieval period (14th–15th cc.)."],
-["What begins the contemporary period of Kazakhstan's history?",["Formation of the Kazakh Khanate","Formation of the USSR","October Revolution of 1917","Accession to Russia"],2,"The contemporary period begins with the October Revolution of 1917."],
-["Which period covers the history of Kazakhstan up to the 13th century?",["Ancient","Medieval","Modern","Contemporary"],0,"The ancient period covers everything up to the 13th century."],
-["What belongs to the modern period of Kazakhstan's history?",["Prehistory","Kazakh Khanate and accession to Russia","Soviet period","Independence"],1,"The modern period includes the Kazakh Khanate and accession to Russia."],
-["Which period is the longest in Kazakhstan's history?",["Ancient","Medieval","Modern","Contemporary"],0,"The ancient period covers hundreds of thousands of years."],
-["What starts the contemporary period?",["The October Revolution","The Mongol invasion","Accession to Russia","Formation of the Kazakh Khanate"],0,"The contemporary period starts with the October Revolution."],
-["What is chronology?",["The science of time and sequence of events","The science of the earth","The science of language","The science of numbers"],0,"Chronology studies time, sequence and dating of events."],
-["Which period of Kazakhstan's history is tied to Soviet modernisation?",["Ancient","Medieval","Modern","Contemporary"],3,"Soviet modernisation (industrialisation, collectivisation) belongs to the contemporary period."],
-["Why is periodization important for studying history?",["Helps systematise events and see patterns","To confuse students","To complicate exams","It is not important"],0,"Periodization helps systematise events and see patterns."],
-["What is a main criterion of periodization of ancient history?",["Material of tools","Religion","Language","Writing"],0,"Ancient history is divided into Stone, Bronze and Iron Ages by tool material."],
-["Which period covers the 13th–18th centuries?",["Ancient","Medieval","Modern","Contemporary"],1,"The medieval period in Kazakhstan covers the 5th–17th/18th centuries."],
-["Which period includes the era of the Kazakh Khanate?",["Ancient","Medieval","Modern","Contemporary"],1,"Formation of the Kazakh Khanate (1465) belongs to the late medieval period."],
-["What ends the medieval period in Kazakhstan's history?",["Accession to Russia","Formation of the Kazakh Khanate","The Mongol invasion","Independence"],0,"Accession to Russia marks the end of the medieval period and start of the modern one."],
-["Which period marks the beginning of independence in 1991?",["Modern","Contemporary","Medieval","Ancient"],1,"Independence (1991) falls within the contemporary period."]
+["What are the four main periods of Kazakhstan's history?",["Ancient, medieval, modern, contemporary","Only ancient and modern","Only medieval and contemporary","Prehistoric and historic only"],0,"Four main periods are distinguished."],
+["Which criterion is most commonly used for periodization?",["Weather","Type of economy and form of statehood","Population size","Religion"],1,"Economy and statehood are the main criteria."],
+["What is periodization?",["Dividing history into periods by criteria","Memorising dates","Studying sources only","Writing essays"],0,"Periodization is the division of history into periods by criteria."],
+["Is periodization absolute or conventional?",["Absolute","Conventional","Natural","Fixed by law"],1,"Periodization is a scholarly convention, not an absolute fact."],
+["Which is NOT a criterion for periodization?",["Type of economy","Social organisation","Weather in a given year","Form of statehood"],2,"Weather is not a criterion for periodization."]
+]
+},
+{
+id:"period_boundaries",
+title:"Boundaries Between Periods",
+info:[
+"The transition from ancient to medieval history is conventionally placed at the 5th century AD — the era of the Great Migration of Peoples and the formation of the first Turkic states. In this period, the ancient nomadic world gave way to new political structures.",
+"The modern period begins around the 18th century and is linked to the Kazakh Khanate's decline and the gradual accession of Kazakh lands to the Russian Empire. This is a complex and controversial period in national history, combining elements of loss, adaptation and modernisation.",
+"The contemporary period begins with the October Revolution of 1917 and covers the Soviet era, the difficult years of collectivisation and the Great Patriotic War, the post-war recovery, perestroika, and finally independence in 1991 and the formation of the modern Republic of Kazakhstan."
+],
+points:[
+"Ancient → Medieval: 5th c. AD (Great Migration)",
+"Medieval → Modern: 18th c. (Kazakh Khanate / Russia)",
+"Modern → Contemporary: 1917 (October Revolution)",
+"Independence: 1991"
+],
+q:[
+["When does the medieval period begin?",["5th c. AD","10th c. AD","13th c.","15th c."],0,"The medieval period begins in the 5th c. AD."],
+["What marks the beginning of the modern period?",["Formation of the Kazakh Khanate and accession to Russia","The Mongol invasion","October Revolution","Independence"],0,"The modern period is linked to the Khanate and Russia."],
+["When does the contemporary period begin?",["1917","1991","1861","1465"],0,"The contemporary period begins with the October Revolution of 1917."],
+["What marks the end of the ancient period?",["Beginning of the Iron Age and nomadic civilisation","The Mongol invasion","Accession to Russia","The 20th century"],0,"The ancient period ends with nomadic civilisation."],
+["When did Kazakhstan become independent?",["1991","1917","1986","1465"],0,"Independence was declared in 1991."]
+]
+},
+{
+id:"period_ancient_medieval",
+title:"Ancient and Medieval Periods in Detail",
+info:[
+"The ancient period covers the longest stretch of time — from the first humans on the territory of Kazakhstan (around 1 million years ago) to the 5th century AD. It includes the Stone Age (Paleolithic, Mesolithic, Neolithic, Eneolithic), the Bronze Age, and the Early Iron Age with the Saka tribes.",
+"The medieval period (5th – 17th centuries) is the era of early and mature statehood. It begins with the Turkic Khaganate (6th century) and includes the states of the Karluks, Oguz, Kimaks, Kipchaks, and finally the formation of the Kazakh Khanate in 1465. This is also the period of the Mongol invasion, the rise of the Golden Horde, and the emergence of the Kazakh people as a distinct ethnic community."
+],
+points:[
+"Ancient: Stone Age → Bronze Age → Early Iron Age (Saka)",
+"Medieval: Turkic Khaganate → Mongol invasion → Kazakh Khanate",
+"Kazakh Khanate founded in 1465",
+"Formation of the Kazakh people — 14th–15th centuries"
+],
+q:[
+["Which period covers the Saka tribes?",["Ancient","Medieval","Modern","Contemporary"],0,"The Saka belong to the Early Iron Age — the ancient period."],
+["What was the first state in the medieval period?",["The Turkic Khaganate","The Kazakh Khanate","The Golden Horde","The Russian Empire"],0,"The Turkic Khaganate (6th c.) is the first early state."],
+["When was the Kazakh Khanate formed?",["1465","1917","1991","1240"],0,"The Kazakh Khanate was formed in 1465."],
+["What is the medieval period known for?",["Formation of statehood and the Kazakh people","Invention of the wheel","Discovery of America","Building of the first cities"],0,"The medieval period saw the formation of statehood and the Kazakh people."],
+["Which period includes the Mongol invasion?",["Medieval","Ancient","Modern","Contemporary"],0,"The Mongol invasion (13th c.) belongs to the medieval period."]
+]
+},
+{
+id:"period_modern",
+title:"Modern and Contemporary Periods",
+info:[
+"The modern period (18th – early 20th century) includes the final years of the Kazakh Khanate, its abolition in 1822–1848, and the gradual incorporation of Kazakh territories into the Russian Empire. This era saw major changes: the abolition of the traditional political system, land colonisation, and the first wave of Kazakh national awakening.",
+"The contemporary period (1917 – present) is complex and rich in events. It includes the 1917 revolution and the establishment of Soviet power, collectivisation and the 1930s famine, mass repressions, the Great Patriotic War (1941–45), post-war industrialisation, and the Virgin Lands campaign. In 1986, the December events in Almaty became a symbol of national awakening.",
+"On 16 December 1991, Kazakhstan declared independence. The contemporary period concludes with the formation of the modern Republic of Kazakhstan — a sovereign state that builds its own political, economic and cultural path."
+],
+points:[
+"Modern: Kazakh Khanate → Russian Empire",
+"Contemporary: 1917 revolution → Soviet times → independence",
+"Key dates: 1917, 1930s, 1941–45, 1986, 1991",
+"Independence declared on 16 December 1991"
+],
+q:[
+["What is included in the modern period?",["Kazakh Khanate and the Russian Empire","Soviet times","Independence","Prehistory"],0,"The modern period covers the Kazakh Khanate and Russian Empire."],
+["What is included in the contemporary period?",["Soviet and post-Soviet times","Kazakh Khanate","Ancient times","Bronze Age"],0,"The contemporary period covers Soviet and post-Soviet times."],
+["What year did Kazakhstan declare independence?",["1991","1986","1917","1465"],0,"Kazakhstan declared independence on 16 December 1991."],
+["What was the significance of 1986?",["December events in Almaty","Formation of the Khanate","October Revolution","End of the war"],0,"The December events of 1986 became a symbol of national awakening."],
+["What event is tied to the 1930s?",["Collectivisation and famine","Formation of the Khanate","Independence","Mongol invasion"],0,"The 1930s saw collectivisation and famine."]
+]
+}
 ]},
-{id:"stone_age",title:"3. Stone Age in Kazakhstan: Paleolithic, Mesolithic, Neolithic, Eneolithic.",
-hint:"Describe the main stages of the Stone Age on the territory of Kazakhstan. Compare Paleolithic, Mesolithic, Neolithic and Eneolithic: climate, tools, economy, main sites.",
+{
+id:"stone_age",
+title:"3. Stone Age in Kazakhstan: Paleolithic, Mesolithic, Neolithic, Eneolithic",
+hint:"The longest period in human history — from the first stone tools to the first metal. Divided into four stages.",
+subtopics:[
+{
+id:"paleo_early",
+title:"Paleolithic: Early and Middle Periods",
+info:[
+"The Paleolithic (from Greek palaios — ancient, lithos — stone) is the longest period in human history, beginning about 2.6 million years ago and ending around 12,000 BC. In the territory of Kazakhstan, the earliest traces of human presence date to this era.",
+"Early and Middle Paleolithic humans were not yet Homo sapiens. They lived in small kin groups, made very simple tools from stone — mostly hand axes (рубило) and choppers — and survived through hunting and gathering. Permanent settlements did not exist: groups moved constantly following animal herds.",
+"The climate was harsh and repeatedly changed with glacial cycles. People sheltered in caves, rock overhangs and simple huts made of branches and animal skins. Fire was already used for warmth, cooking and protection from predators."
+],
+points:[
+"Paleolithic = 2.6 million – 12,000 BC",
+"Main tools: hand axe (рубило), chopper, scraper",
+"Economy: hunting and gathering (appropriating)",
+"Social organisation: small kin groups",
+"Fire mastered; caves and primitive shelters used"
+],
 q:[
-["How many main periods are distinguished in the Stone Age?",["Two","Three","Four","Five"],2,"Paleolithic, Mesolithic, Neolithic and Eneolithic — four periods."],
-["Which site belongs to the Paleolithic?",["Botai","Karaungur","Atbasar","Begazy"],1,"Karaungur — a Paleolithic site in southern Kazakhstan (Karatau ridge)."],
-["Which period is called the Copper-Stone Age?",["Paleolithic","Mesolithic","Neolithic","Eneolithic"],3,"The Eneolithic is transitional — copper used alongside stone."],
-["What was the key invention of the Mesolithic?",["The hand axe","The bow and arrow","Pottery","The plough"],1,"The bow and arrow was the key Mesolithic invention."],
-["What are microliths?",["Large stone tools","Miniature stone blades","Metal tools","Ceramic items"],1,"Microliths are miniature stone blades of the Mesolithic and Neolithic."],
-["Which site belongs to the Eneolithic?",["Karaungur","Botai","Atbasar","Shakpak-ata"],1,"Botai — an Eneolithic site in northern Kazakhstan."],
-["What is the longest period of the Stone Age?",["Paleolithic","Mesolithic","Neolithic","Eneolithic"],0,"The Paleolithic is the longest, starting ~2.6 million years ago."],
-["Which technique of stone working appears in the Neolithic?",["Knapping","Sawing, drilling, polishing","Casting","Forging"],1,"In the Neolithic sawing, drilling, polishing and grinding were mastered."],
-["Where in Kazakhstan are Paleolithic sites found?",["Only in the north","Only in the east","In the south and centre","Across the whole territory"],2,"Paleolithic sites are found in southern and central Kazakhstan."],
-["What are insert tools?",["Tools made of metal","Tools with stone blades in a wooden base","Ornate tools","Tools from a single stone"],1,"Insert tools are a wooden or bone base with thin stone blades."],
-["Which period is characterised by the appearance of pottery?",["Paleolithic","Mesolithic","Neolithic","Eneolithic"],2,"Ceramic pottery is one of the main markers of the Neolithic."],
-["What is pressure retouch?",["A hunting method","A clothing method","A finer stone-working technique","A cave-painting method"],2,"Pressure retouch allows creating higher-quality tools."],
-["Which animal was domesticated in the Eneolithic in Kazakhstan?",["Cow","Sheep","Horse","Goat"],2,"The horse was first domesticated in the Eneolithic (Botai culture)."],
-["What was used to work hides and wood in the Paleolithic?",["Scrapers, awls and burins","Ploughs and harrows","Axes and saws","Machines"],0,"In the Paleolithic, scrapers, awls and burins were used."],
-["Which period saw the formation of modern humans?",["Early Paleolithic","Late Paleolithic","Mesolithic","Neolithic"],1,"Homo sapiens formed during the Late Paleolithic."],
-["What is the Middle Stone Age called?",["Paleolithic","Mesolithic","Neolithic","Eneolithic"],1,"The Mesolithic is the Middle Stone Age (12,000–5,000 BC)."],
-["What is a hand axe?",["A metal tool","The first stone tool","A bow","A vessel"],1,"The hand axe is the earliest stone tool, appearing in the Early Paleolithic."],
-["Which Neolithic site is in northern Kazakhstan?",["Botai","Atbasar","Karaungur","Tasmola"],1,"The Atbasar culture is a Neolithic culture of northern Kazakhstan."],
-["What are petroglyphs?",["Rock paintings","Stone tools","Dwelling remains","Animal bones"],0,"Petroglyphs are rock paintings — a key source on beliefs of ancient people."],
-["What was the main occupation in the Paleolithic?",["Agriculture","Pastoralism","Hunting and gathering","Metallurgy"],2,"The Paleolithic is the time of an appropriating economy."]
+["What does “Paleolithic” mean?",["New stone","Ancient stone","Middle stone","Copper stone"],1,"Palaios = ancient, lithos = stone."],
+["How long did the Paleolithic last?",["~50 thousand years","~500 thousand years","~2.6 million years","~10 thousand years"],2,"The Paleolithic began around 2.6 million years ago."],
+["What was the main economic activity in the Paleolithic?",["Agriculture","Hunting and gathering","Craftsmanship","Trade"],1,"The Paleolithic was a period of appropriating economy."],
+["What is the earliest known stone tool?",["The bow","The hand axe","The plough","The wheel"],1,"The hand axe (рубило) is the earliest known stone tool."],
+["What kind of dwelling did Paleolithic people use?",["Stone houses","Caves and primitive shelters","Yurts","Fortified cities"],1,"Caves, rock overhangs and simple huts were used."],
+["Which discovery was already made in the Paleolithic?",["Writing","Fire","Metal","Pottery"],1,"Fire was already mastered in the Paleolithic."],
+["What is the “appropriating economy”?",["Producing food artificially","Taking ready resources from nature","Buying food","Storing grain"],1,"Appropriating means taking what nature provides."]
+]
+},
+{
+id:"paleo_late",
+title:"Paleolithic: Late Period and Sites in Kazakhstan",
+info:[
+"The Late Paleolithic (40,000 – 12,000 BC) is the era of Homo sapiens — anatomically modern humans. Tool-making became much more sophisticated: people learned to create long thin blades, burins, awls and composite tools — combinations of wood, bone and stone inserts.",
+"In Kazakhstan, the most important Paleolithic sites are Karaungur (in the Karatau mountains, southern Kazakhstan) and Karyntau. These sites provide key evidence about the life of the earliest inhabitants of the region. Other important locations include Shakpak-Ata and sites in the Saryarka region.",
+"Hunting techniques improved too: people began using spears with stone tips and later — the spear-thrower. Group hunting of large animals such as mammoths, woolly rhinos and wild horses required coordination, which strengthened social organisation. The first signs of spiritual life appeared: burial rites and cave art."
+],
+points:[
+"Late Paleolithic: 40,000 – 12,000 BC",
+"Species: Homo sapiens (modern human)",
+"Key sites: Karaungur, Karyntau, Shakpak-Ata",
+"New tools: blades, burins, composite tools",
+"First burial rites and cave art"
+],
+q:[
+["Which species dominated the Late Paleolithic?",["Homo erectus","Homo sapiens","Homo neanderthalensis","Homo habilis"],1,"The Late Paleolithic is the era of Homo sapiens."],
+["Where is the Karaungur site located?",["Northern Kazakhstan","Eastern Kazakhstan","Southern Kazakhstan (Karatau)","Western Kazakhstan"],2,"Karaungur is in the Karatau mountains."],
+["When did the Late Paleolithic begin?",["~100,000 BC","~40,000 BC","~12,000 BC","~5,000 BC"],1,"The Late Paleolithic began around 40,000 BC."],
+["Which of these is a Late Paleolithic site in Kazakhstan?",["Botai","Atbasar","Karyntau","Begazy"],2,"Karyntau is a key Paleolithic site."],
+["What new tool type appeared in the Late Paleolithic?",["The plough","Long thin blades and burins","The yurt","Copper axes"],1,"Blades, burins and composite tools appeared."],
+["What large animals were hunted?",["Horses and sheep","Mammoths and woolly rhinos","Camels and cows","Only deer"],1,"Mammoths, woolly rhinos and wild horses were hunted."],
+["What is evidence of the first spiritual life?",["Pottery and weaving","Burial rites and cave art","Metalwork","Agriculture"],1,"Burial rites and cave art are the earliest signs."]
+]
+},
+{
+id:"mesolithic",
+title:"Mesolithic — The Middle Stone Age",
+info:[
+"The Mesolithic (12,000 – 5,000 BC) is the Middle Stone Age. It began at the end of the last Ice Age, when the climate became significantly warmer and wetter. Forests expanded, and large Ice Age animals (mammoths, woolly rhinos) disappeared. New, faster and smaller animals — deer, boars, birds — took their place.",
+"To hunt such animals efficiently, people invented the bow and arrow — the most important technological breakthrough of the Mesolithic. They also began using microliths — tiny stone blades that were inserted into wooden or bone handles to create composite tools (spears, harpoons, knives).",
+"Another major change: fishing became important. People started making boats, nets and fishhooks. Sites from this period in Kazakhstan are found along rivers and lakes. The economy remained appropriating, but life became more varied and more settled."
+],
+points:[
+"Mesolithic: 12,000 – 5,000 BC",
+"Key invention: bow and arrow",
+"New tools: microliths, composite tools, harpoons",
+"End of Ice Age → warmer climate, new fauna",
+"Fishing, boats and nets became common"
+],
+q:[
+["What was the key invention of the Mesolithic?",["The wheel","The bow and arrow","The plough","Writing"],1,"The bow and arrow is the defining invention."],
+["When did the Mesolithic begin?",["20,000 BC","12,000 BC","5,000 BC","2,000 BC"],1,"The Mesolithic began around 12,000 BC."],
+["What are microliths?",["Large stone blocks","Miniature stone blades","Metal weapons","Ceramic pieces"],1,"Microliths are tiny stone blades used in composite tools."],
+["What happened to the climate at the start of the Mesolithic?",["It became colder","It warmed up","It stayed the same","It became volcanic"],1,"The climate warmed after the last Ice Age."],
+["Which animals disappeared at the end of the Ice Age?",["Deer and boars","Mammoths and woolly rhinos","Horses and cows","Wolves and foxes"],1,"Large Ice Age animals became extinct."],
+["What new activity became common in the Mesolithic?",["Agriculture","Fishing","Metalworking","Writing"],1,"Fishing, boats and nets became widespread."],
+["What is a “composite tool”?",["A tool made of a single stone","A tool combining wood/bone with stone blades","A tool made of metal","A ceremonial object"],1,"Composite tools combine a wooden or bone base with stone inserts."]
+]
+},
+{
+id:"neolithic",
+title:"Neolithic — The New Stone Age",
+info:[
+"The Neolithic (5,000 – 3,000 BC) is one of the most important periods in human history — the time of the Neolithic Revolution. The main change: people moved from an appropriating economy (hunting, gathering) to a producing one (agriculture, pastoralism).",
+"Stone tool technology became much more advanced: people learned to saw, drill, polish and grind stone. Ceramic pottery appeared — the first time humans made vessels from fired clay. This allowed storing food and water, which supported a more settled way of life.",
+"In Kazakhstan, the best-known Neolithic culture is the Atbasar culture (northern Kazakhstan). Its people practised hunting, fishing and gathering, made pottery and used polished stone tools. Other important Neolithic sites include Karaganda-15, Ust-Narym and sites along the Irtysh river."
+],
+points:[
+"Neolithic: 5,000 – 3,000 BC",
+"Neolithic Revolution: producing economy",
+"New technologies: sawing, drilling, polishing, pottery",
+"Main culture in Kazakhstan: Atbasar (northern)",
+"First steps towards agriculture and cattle breeding"
+],
+q:[
+["What is the main change of the Neolithic Revolution?",["From foraging to producing","From producing to foraging","From agriculture to hunting","From farming to industry"],0,"The Neolithic marks the transition to a producing economy."],
+["Which culture is characteristic of Neolithic Kazakhstan?",["Botai","Andronovo","Atbasar","Begazy"],2,"The Atbasar culture is the main Neolithic culture of northern Kazakhstan."],
+["What new material appeared in the Neolithic?",["Iron","Bronze","Ceramic pottery","Steel"],2,"Ceramic pottery is one of the main markers of the Neolithic."],
+["Which stone-working techniques appeared in the Neolithic?",["Only knapping","Sawing, drilling, polishing","Casting","Forging"],1,"Sawing, drilling, polishing and grinding are Neolithic innovations."],
+["What is the importance of pottery?",["It replaced metal","It allowed storing food and water","It was a weapon","It replaced stone tools"],1,"Pottery allowed storing food and water, supporting settled life."],
+["When did the Neolithic begin?",["12,000 BC","5,000 BC","3,000 BC","1,000 BC"],1,"The Neolithic began around 5,000 BC in Kazakhstan."],
+["Which Neolithic site is in Kazakhstan?",["Karaungur","Karaganda-15","Botai","Arkaim"],1,"Karaganda-15 is one of the Neolithic sites in Kazakhstan."]
+]
+},
+{
+id:"eneolithic",
+title:"Eneolithic — The Copper-Stone Age",
+info:[
+"The Eneolithic (3,000 – 2,000 BC) is a transitional period between the Neolithic and the Bronze Age. The name comes from Latin aeneus (copper) + Greek lithos (stone) — meaning “copper-stone”, because both materials were used together.",
+"People learned to work with copper — the first metal used by humans. It is soft, so initially it did not replace stone tools but supplemented them. Cold-working and then simple smelting allowed making small items: ornaments, needles, and later knives and axes.",
+"In Kazakhstan, the Eneolithic is best known for the Botai culture (northern Kazakhstan). Here, for the first time in the world, the horse was domesticated. This discovery had worldwide consequences — it laid the foundation for the later nomadic civilisation of the Eurasian steppe."
+],
+points:[
+"Eneolithic: 3,000 – 2,000 BC",
+"First metal: copper",
+"Copper did not immediately replace stone tools",
+"Key culture: Botai (northern Kazakhstan)",
+"First horse domestication in world history"
+],
+q:[
+["What does “Eneolithic” mean?",["Stone-Copper Age","Bronze Age","Iron Age","New Stone Age"],0,"Aeneus = copper, lithos = stone."],
+["What was the first metal used by humans?",["Iron","Copper","Bronze","Gold"],1,"Copper was the first metal used."],
+["Which culture is characteristic of Kazakhstan's Eneolithic?",["Atbasar","Botai","Andronovo","Tasmola"],1,"The Botai culture is the key Eneolithic culture."],
+["What was first domesticated at Botai?",["Cow","Sheep","Horse","Goat"],2,"The horse was first domesticated at Botai."],
+["When did the Eneolithic begin?",["5,000 BC","3,000 BC","2,000 BC","1,000 BC"],1,"The Eneolithic began around 3,000 BC."],
+["Did copper immediately replace stone tools?",["Yes","No, they were used together","Copper was never used","Stone was abandoned"],1,"Copper supplemented but did not replace stone."],
+["What is the world significance of the Botai Eneolithic?",["The first cities","The first horse domestication","The first writing","The first agriculture"],1,"The Botai site proves the world's earliest horse domestication."]
+]
+},
+{
+id:"tools_weapons",
+title:"Stone Tools and Weapons",
+info:[
+"Stone tools are the primary source for studying the Stone Age. Since written records did not yet exist, archaeologists classify periods by the way stones were worked and what kinds of tools were made.",
+"The earliest tools were the hand axe (рубило) and chopper — simple stones with a sharpened edge, used for cutting, scraping and digging. Over time, people invented more specialised tools: scrapers for cleaning hides, burins for working bone and wood, awls for piercing, and points for spears.",
+"Important inventions of the Stone Age: the bow and arrow (Mesolithic), the spear-thrower, harpoons for fishing, and later polished axes and hoes (Neolithic). For hunting and warfare people used spears, bows, slings and clubs. The technique of making tools also evolved — from simple striking (knapping) to more refined pressure flaking, and finally to grinding and polishing."
+],
+points:[
+"Hand axe (рубило) — earliest tool",
+"Scrapers, burins, awls, points — specialised tools",
+"Mesolithic: bow and arrow, microliths",
+"Neolithic: polished axes, hoes",
+"Techniques: knapping → pressure flaking → grinding"
+],
+q:[
+["What was the earliest stone tool?",["The bow","The hand axe","The polished axe","The plough"],1,"The hand axe is the earliest tool."],
+["What is the bow and arrow used for?",["Digging","Hunting and warfare","Fishing","Cooking"],1,"The bow was used for hunting and warfare."],
+["What are microliths?",["Large stone blocks","Miniature stone blades","Ceramic shards","Metal tools"],1,"Microliths are tiny stone blades used as inserts."],
+["Which tool was used for cleaning hides?",["Hand axe","Scraper","Bow","Hoe"],1,"Scrapers cleaned hides and skins."],
+["What is a burin used for?",["Cutting meat","Working bone and wood","Fishing","Farming"],1,"A burin was used for working bone and wood."],
+["Which technique was more advanced than knapping?",["Smelting","Pressure flaking","Casting","Firing"],1,"Pressure flaking allowed thinner, finer tools."],
+["What tool was used for fishing?",["Hoe","Harpoon","Plough","Chisel"],1,"Harpoons were used for fishing."],
+["Which Stone Age tool was used for digging up roots?",["Bow","Digging stick","Harpoon","Spear"],1,"Digging sticks were used for roots and tubers."]
+]
+},
+{
+id:"daily_life",
+title:"Daily Life, Society and Beliefs",
+info:[
+"Daily life in the Stone Age was centred on survival. Men typically hunted large game, while women gathered plants, fruits, seeds and roots, and cared for children. Everyone contributed, and tools, fire and knowledge were shared — this made the group stronger than any individual.",
+"Society was organised into kin groups and later into tribes. There was no private property — everything was shared. Elders held authority because they remembered where to find food in different seasons. Language developed and became more complex, allowing the transmission of knowledge between generations.",
+"Spiritual life appeared already in the Stone Age. People believed that animals, plants, rivers and stones had spirits — this is called animism. They also practised totemism (believing their group descended from a particular animal) and magic (rituals to ensure a successful hunt). Petroglyphs — rock carvings — expressed these beliefs. Burial rites show that people already thought about life after death."
+],
+points:[
+"Division of labour: hunting (men) + gathering (women)",
+"Social organisation: kin groups → tribes",
+"No private property; elders held authority",
+"Beliefs: animism, totemism, magic",
+"Petroglyphs = rock art; burial rites = belief in afterlife"
+],
+q:[
+["What is animism?",["Belief in one God","Belief that nature has spirits","Belief in metal","Belief in writing"],1,"Animism is belief that nature and objects have spirits."],
+["What is totemism?",["Belief in sacred animals linked to the group","Belief in stone tools","Belief in agriculture","Belief in fire"],0,"Totemism is belief in kinship with a sacred animal or plant."],
+["What is a petroglyph?",["A stone tool","A rock carving or painting","A burial","A dwelling"],1,"Petroglyphs are rock carvings and paintings."],
+["How was society organised in the Stone Age?",["Empires","Kin groups and tribes","Cities","Nations"],1,"Kin groups and tribes are the earliest forms of society."],
+["What was the role of elders?",["To fight","To hold authority through knowledge","To farm","To build cities"],1,"Elders were respected for their environmental knowledge."],
+["What did division of labour mean?",["Men hunted, women gathered","Only men worked","Only women worked","Everyone did the same job"],0,"Hunting was typically done by men, gathering by women."],
+["What do burial rites suggest?",["Belief in afterlife","Belief in agriculture","Belief in metal","Belief in writing"],0,"Burial rites suggest belief in life after death."],
+["Why was magic important to Stone Age people?",["To ensure a successful hunt","To build houses","To write history","To make pottery"],0,"Magical rituals were believed to ensure successful hunting."]
+]
+}
 ]},
-{id:"neo_revolution",title:"4. Neolithic Revolution and its global and local importance.",
-hint:"Explain what the Neolithic Revolution is. Show its global and local importance for Kazakhstan (Atbasar culture, first pottery, beginnings of cattle breeding).",
+{
+id:"neo_revolution",
+title:"4. Neolithic Revolution and its global and local importance",
+hint:"The transition from appropriating to producing economy — one of the most important turning points in human history.",
+subtopics:[
+{
+id:"neo_causes",
+title:"Causes and Essence",
+info:[
+"The Neolithic Revolution is the transition from an appropriating economy (hunting, gathering, fishing) to a producing economy (agriculture, pastoralism). It began around 10,000–8,000 BC in the Middle East and gradually spread across the entire world.",
+"Several factors caused this shift. After the Ice Age, the climate warmed up significantly — this changed vegetation and animal life. Population was growing, and the older ways of hunting and gathering could no longer feed everyone. Large game was declining. At the same time, people accumulated knowledge about plants, animals and seasonal cycles.",
+"As a result, humans learned to control nature instead of just taking from it. They began to sow seeds, breed animals and store the surplus. This was a fundamental break with the previous million years of human existence — hence the term “revolution”."
+],
+points:[
+"Producing economy replaces appropriating",
+"Began ~10,000–8,000 BC in the Middle East",
+"Causes: warming climate, population growth, decline of big game",
+"Accumulated knowledge about plants and animals",
+"Term “revolution” marks a fundamental break"
+],
 q:[
-["What is the Neolithic Revolution?",["Invention of the wheel","Transition from appropriating to producing economy","Emergence of metal","Building of cities"],1,"Transition from hunting and gathering to agriculture and pastoralism."],
-["Which Neolithic culture existed in northern Kazakhstan?",["Botai","Atbasar","Tasmola","Andronovo"],1,"The Atbasar culture was a Neolithic culture of northern Kazakhstan."],
-["Which invention is characteristic of the Neolithic?",["The bow","Ceramic pottery","The hand axe","The plough"],1,"Ceramic pottery is one of the main markers of the Neolithic."],
-["What does “producing economy” mean?",["Hunting and gathering","Agriculture and pastoralism","Fishing","Craftsmanship"],1,"A producing economy means people produce the product themselves."],
-["What is the main marker of the Neolithic Revolution?",["Invention of the wheel","Use of iron","Transition to pastoralism and agriculture","Invention of writing"],2,"Transition to pastoralism and agriculture is the main marker."],
-["What is a consequence of the Neolithic Revolution?",["Population decline","Population growth and surplus","Return to hunting","Disappearance of crafts"],1,"Producing economy led to population growth, surplus and social stratification."],
-["What is an appropriating economy?",["Hunting and gathering","Agriculture and pastoralism","Craftsmanship","Trade"],0,"An appropriating economy means taking what is ready from nature."],
-["When did the Neolithic Revolution occur?",["10,000–8,000 BC","5,000–3,000 BC","2,000–1,000 BC","1st century AD"],0,"The Neolithic Revolution began around 10,000–8,000 BC."],
-["Which Neolithic invention allowed tilling the soil?",["Plough and harrow","Axe and hoe","Sickle and scythe","Rake and shovel"],1,"The axe and hoe were used for tilling in the Neolithic."],
-["What did people begin making from clay in the Neolithic?",["Houses","Weapons","Pottery","Ornaments"],2,"Clay pottery (ceramics) appeared in the Neolithic."],
-["Which metals were first mastered in the Eneolithic?",["Iron, steel, bronze","Copper, tin, zinc","Copper, gold, lead","Silver, platinum, nickel"],2,"Copper, gold and lead were the first metals mastered."],
-["How was society organised in the Neolithic?",["Slave-owning","Feudal","Tribal communities","Capitalist"],2,"Tribal communities persisted, but social stratification began."],
-["What is the Neolithic Revolution on a global scale?",["A local phenomenon","One of the most important revolutions in human history","A short-term event","A regression"],1,"It is one of the most important revolutions — it laid the foundations of civilisation."],
-["What was its importance for Kazakhstan?",["First cities","Origins of pastoralism and agriculture","Start of metallurgy","Appearance of writing"],1,"In Kazakhstan, the Neolithic Revolution led to the origins of pastoralism and agriculture."],
-["What is the Neolithic Revolution in the literal sense?",["A revolution of tools","A revolution in economy and lifestyle","A war","A migration of peoples"],1,"It was a fundamental revolution in economy and lifestyle."],
-["Which animal was domesticated first in the Neolithic?",["Horse","Dog","Cow","Sheep"],1,"The dog was first domesticated in the Paleolithic, but sheep, goats and cows in the Neolithic."],
-["What is a “Neolithic village”?",["A city","A settlement of farmers and herders","A fortress","A hunter camp"],1,"A Neolithic village is a permanent settlement of farmers and herders."],
-["Which Neolithic invention is linked to weaving?",["Spindle","Plough","Potter's wheel","Wheel"],0,"The spindle appeared in the Neolithic, starting weaving."],
-["How did the Neolithic Revolution affect the environment?",["Not at all","Beginning of anthropogenic impact","Improvement of ecology","Disappearance of forests"],1,"It began active anthropogenic impact on nature."],
-["What did the appearance of surplus lead to?",["Social equality","Social stratification and exchange","Disappearance of communities","Return to hunting"],1,"Surplus led to social stratification, exchange and trade."]
+["What is the Neolithic Revolution?",["The invention of the wheel","Transition to a producing economy","Emergence of cities","Invention of writing"],1,"It is the transition to a producing economy."],
+["When did the Neolithic Revolution begin?",["~10,000–8,000 BC","~5,000 BC","~2,000 BC","1st c. AD"],0,"It began around 10,000–8,000 BC."],
+["What was the main cause?",["Warming climate and decline of large game","Volcanic eruption","Writing invention","Iron smelting"],0,"Climate and resource factors drove the transition."],
+["What does “producing economy” mean?",["Hunting and gathering","Creating food by farming and herding","Fishing only","Craftsmanship only"],1,"Producing means making food, not just taking it."],
+["Where did the Neolithic Revolution begin?",["The Middle East","Northern Europe","The Americas","Australia"],0,"It began in the Middle East (the Fertile Crescent)."],
+["What made the revolution possible?",["Accumulated knowledge about plants and animals","Random chance","Written records","Metal tools"],0,"Knowledge accumulation was essential."]
+]
+},
+{
+id:"neo_global",
+title:"Global Importance",
+info:[
+"The Neolithic Revolution is one of the most important turning points in human history. It led to population growth, the emergence of food surplus, and social stratification. Permanent settlements appeared — the ancestors of villages and cities.",
+"Surplus food allowed some people to specialise in crafts, trade or administration. Over time, this led to the emergence of the state, writing and the first civilizations in Mesopotamia, Egypt, India and China. The great river valleys became the cradles of urban life.",
+"The revolution also changed the environment. People began to modify nature — clearing forests, irrigating fields, domesticating plants and animals. The relationship between humans and nature shifted forever: humans became active transformers of the world rather than passive inhabitants."
+],
+points:[
+"Population growth and surplus",
+"Permanent settlements and craft specialisation",
+"Foundation for the first civilizations and states",
+"Humans became active transformers of nature"
+],
+q:[
+["What was one consequence of the Neolithic Revolution?",["Population decline","Population growth","End of farming","Loss of language"],1,"The producing economy supported population growth."],
+["What did surplus allow?",["Craft specialisation and trade","Constant warfare","Loss of settlements","Return to hunting"],0,"Surplus allowed specialisation."],
+["Where did the first civilizations emerge?",["Only in Europe","In Mesopotamia, Egypt, India and China","Only in Africa","Only in America"],1,"The first civilizations emerged in river valleys across Asia and Africa."],
+["What did permanent settlements evolve into?",["Cities","Nomadic camps","Caves","Fortresses only"],0,"Permanent settlements led to cities."],
+["What was the role of food surplus?",["Enabled crafts and administration","Caused decline","Nothing changed","Reduced trade"],0,"Surplus enabled specialisation in crafts and administration."],
+["What was the effect on nature?",["Humans became transformers of nature","Nature took over humans","No effect","Only positive"],0,"Humans began actively modifying the environment."]
+]
+},
+{
+id:"neo_local",
+title:"Local Importance for Kazakhstan",
+info:[
+"In the territory of Kazakhstan, the Neolithic Revolution arrived later than in the Middle East, but its impact was significant. Neolithic tribes such as the Atbasar culture began the first experiments with pastoralism and simple agriculture.",
+"The producing economy in Kazakhstan took a specific form: because of vast steppe pastures, pastoralism quickly became dominant while agriculture remained secondary. This was a crucial step toward the later nomadic civilisation of the region.",
+"Climate and geography shaped the local version of the Neolithic Revolution. In the forest-steppe zone of northern Kazakhstan, both herding and simple farming were possible. In the drier south, pastoralism dominated. This division of economic activity by region left a long-lasting mark on Kazakh history."
+],
+points:[
+"Atbasar culture in northern Kazakhstan",
+"Pastoralism became dominant over agriculture",
+"Foundation for the future nomadic civilisation",
+"Geography shaped local variants of the revolution"
+],
+q:[
+["Which culture in Kazakhstan shows Neolithic traits?",["Botai","Andronovo","Atbasar","Begazy"],2,"The Atbasar culture shows Neolithic traits."],
+["Why did pastoralism dominate in Kazakhstan?",["Vast steppe pastures","Lack of animals","Cold climate only","No farming knowledge"],0,"Vast steppe pastures favoured pastoralism."],
+["What did Neolithic innovations in Kazakhstan pave the way for?",["Nomadic civilisation","Industrial revolution","Writing","Cities"],0,"They paved the way for nomadic civilisation."],
+["What remained secondary to pastoralism?",["Agriculture","Craftsmanship","Trade","Fishing"],0,"Agriculture remained secondary to pastoralism."],
+["Where did farming also develop?",["In the forest-steppe north","In the far south","On the Caspian coast","In the mountains only"],0,"Farming developed in the forest-steppe north."]
+]
+},
+{
+id:"neo_consequences",
+title:"Long-Term Consequences",
+info:[
+"The consequences of the Neolithic Revolution are still with us today. Agriculture created the possibility of food storage, which made permanent settlements, cities, and eventually states possible. Writing itself appeared partly to record grain and trade.",
+"Pastoralism led to another major development — nomadism. In regions with vast grasslands like the Eurasian steppe, mobile herding became the most efficient way of life. This would later give rise to some of the most powerful cultures in world history.",
+"The revolution also created new problems: social inequality, warfare over land and resources, and eventually environmental pressures caused by intensive farming. Thus, the Neolithic Revolution was not only a story of progress but also of new challenges that humanity still faces."
+],
+points:[
+"Agriculture enabled cities, states and writing",
+"Pastoralism led to nomadism in the steppe",
+"New problems: inequality, warfare, environmental pressures",
+"The revolution's consequences are still with us today"
+],
+q:[
+["What did agriculture make possible?",["Permanent settlements and cities","Sailing ships","Iron tools","Writing on paper only"],0,"Agriculture enabled permanent settlements and cities."],
+["What did pastoralism lead to in the steppe?",["Nomadism","Industrialisation","Seafaring","Writing"],0,"Pastoralism led to nomadism in the steppe."],
+["What problem did the revolution create?",["Social inequality","Shorter lifespans","Loss of language","End of trade"],0,"Social inequality is one of its long-term consequences."],
+["Where did writing first appear?",["Partly to record grain and trade","Only for religion","Only for warfare","Only for poetry"],0,"Writing emerged partly for economic reasons."],
+["Why did nomadism develop in the steppe?",["Because mobile herding suited vast grasslands","Because of religion","Because of writing","Because of cold climate only"],0,"Mobile herding suited the vast grasslands of the Eurasian steppe."]
+]
+}
 ]},
-{id:"botai",title:"5. Botai culture and the domestication of the horse.",
-hint:"Tell about the Botai culture: location, period (Eneolithic), economy, and its world importance as the earliest centre of horse domestication.",
+{
+id:"botai",
+title:"5. Botai culture and the domestication of the horse",
+hint:"The Botai culture — location, economy, and its world importance as the earliest centre of horse domestication.",
+subtopics:[
+{
+id:"botai_site",
+title:"The Site and Its Discovery",
+info:[
+"The Botai site is located in northern Kazakhstan (Akmola Region), on the steppe plain. It was discovered and studied by archaeologist Viktor Zaibert. The culture is dated to the Eneolithic (4th–3rd millennium BC).",
+"Botai is a large settlement with dozens of dwellings, pit-houses and thousands of artefacts. It is one of the largest and best-preserved Eneolithic sites in the Eurasian steppe. Radiocarbon dating and bone analysis have shown that the site was occupied for several centuries.",
+"The discovery of Botai changed how historians understand the steppe Eneolithic. Before, scholars thought that horse domestication began in the south — in Iran or Central Asia. Botai proved that it happened first in the northern steppes of modern Kazakhstan."
+],
+points:[
+"Location: northern Kazakhstan (Akmola Region)",
+"Period: Eneolithic (4th–3rd millennium BC)",
+"Discovered and studied by V. Zaibert",
+"Large settlement with pit-houses and many artefacts",
+"Changed understanding of horse domestication origins"
+],
 q:[
-["Where was the Botai culture located?",["Southern Kazakhstan","Northern Kazakhstan","Western Kazakhstan","Eastern Kazakhstan"],1,"Botai culture — northern Kazakhstan (Botai site in Akmola Region)."],
-["What is the Botai culture famous for worldwide?",["The earliest domestication of the horse","Invention of the wheel","First cities","First writing"],0,"The horse was first domesticated at Botai."],
-["To which period does the Botai culture belong?",["Paleolithic","Mesolithic","Neolithic","Eneolithic"],3,"The Botai culture belongs to the Eneolithic (4th–3rd millennium BC)."],
-["What was the main food of the Botai people?",["Camel meat","Fish","Horse meat and kumys","Grain"],2,"The main food was horse meat and kumys."],
-["Which culture is the first known horse-breeding culture?",["Yamna","Andronovo","Botai","Sintashta"],2,"The Botai culture is considered the first to domesticate horses."],
-["In which period did horse domestication occur in the Great Steppe?",["Neolithic","Eneolithic","Bronze Age","Iron Age"],1,"Horse domestication occurred in the Eneolithic."],
-["Why did the Botai culture lose its identity in the 3rd millennium BC?",["Mongol invasion","Aridisation of climate and decline of horse herds","Development of agriculture","Migration from the south"],1,"The Botai culture declined due to climate aridisation."],
-["Which animal was first domesticated in the Eneolithic?",["Cow","Sheep","Horse","Goat"],2,"The horse was first domesticated in the Eneolithic."],
-["What is the Botai culture?",["A culture associated with horse domestication","A farming culture","A mammoth-hunting culture","A metallurgical culture"],0,"The Botai culture is associated with horse domestication."],
-["What is the world significance of the Botai culture?",["It shows horse domestication","It invented the wheel","It built cities","It created writing"],0,"It demonstrates horse domestication, which has world significance."],
-["Which finds prove horse domestication at Botai?",["Bridle elements and hobble clasps","Stone axes","Ceramic pottery","Grain grinders"],0,"Bridle elements and hobble clasps prove domestication."],
-["What lifestyle did the Botai people lead?",["Sedentary","Nomadic","Semi-nomadic","Urban"],2,"The Botai people were semi-nomadic, combining horse breeding with other activities."],
-["When did the Botai culture exist?",["1,000 years ago","2,500 years ago","3,500–3,000 BC","5,000 years ago"],2,"The Botai culture existed around 3,500–3,000 BC."],
-["What is the link between the Botai culture and nomadic civilisation?",["Direct — horse domestication became a prerequisite for nomadism","Inverse","None","Indirect"],0,"Horse domestication became an important prerequisite for nomadic civilisation."],
-["Who studied the Botai culture?",["A. Margulan","V. Zaibert","K. Akishev","A. Baitursynov"],1,"Viktor Zaibert researched the Botai culture."],
-["What does “Botai” mean?",["Name of a site","Name of a river","Name of a tribe","Name of a mountain"],0,"Botai is the name of an Eneolithic site in northern Kazakhstan."],
-["Which animals, besides horses, did the Botai people breed?",["Cows and sheep","Camels","Goats","Pigs"],0,"The Botai people also bred cows and sheep."],
-["What is kumys?",["A drink from mare's milk","A meat dish","A grain crop","A tool"],0,"Kumys is a fermented drink from mare's milk."],
-["What was the significance of horse domestication for transport?",["Appearance of chariots and riding","Invention of the boat","Creation of the steam engine","Appearance of the airplane"],0,"Horse domestication led to chariots and riding."],
-["Which culture succeeded the Botai culture?",["Andronovo","Atbasar","Tasmola","Kelteminar"],0,"The Andronovo culture of the Bronze Age succeeded the Botai culture."]
+["Where is the Botai site located?",["Southern Kazakhstan","Northern Kazakhstan","Eastern Kazakhstan","Western Kazakhstan"],1,"Botai is in northern Kazakhstan."],
+["To which period does Botai belong?",["Paleolithic","Mesolithic","Neolithic","Eneolithic"],3,"Botai belongs to the Eneolithic."],
+["Who studied the Botai culture?",["A. Margulan","V. Zaibert","K. Akishev","A. Baitursynov"],1,"Viktor Zaibert studied Botai."],
+["What type of site is Botai?",["A small camp","A large settlement","A fortress","A burial ground"],1,"Botai is a large Eneolithic settlement."],
+["Why is Botai important for world history?",["It changed the understanding of horse domestication","It proved ancient writing","It was the first city","It was the first empire"],0,"Botai changed understanding of where horses were first domesticated."]
+]
+},
+{
+id:"botai_horse",
+title:"Horse Domestication",
+info:[
+"The most important discovery at Botai is evidence of the world's earliest horse domestication. Bone analysis showed that the Botai horses were already morphologically distinct from wild horses, and their teeth show signs of bit wear — the mark of a riding bridle.",
+"Finds of bridle elements and hobble clasps prove that horses were used for riding, as well as for meat and milk. This makes Botai the earliest known centre of horse domestication in the world — around 3,500 BC.",
+"Horse domestication was a revolution in human mobility. For the first time, people could travel long distances quickly, herd larger animals, and project power over vast territories. This discovery laid the foundation for the later nomadic civilisations of the Eurasian steppe."
+],
+points:[
+"World's earliest horse domestication",
+"Dating: around 3,500 BC",
+"Evidence: bit wear on teeth, bridle elements, hobble clasps",
+"Horses used for riding, meat and milk",
+"Foundation for the later nomadic civilisation"
+],
+q:[
+["What is the most famous feature of Botai?",["The first horse domestication","The first cities","The first writing","The first pottery"],0,"Botai is the earliest known centre of horse domestication."],
+["Around what date were horses domesticated at Botai?",["10,000 BC","3,500 BC","1,000 BC","500 AD"],1,"Horse domestication at Botai dates to ~3,500 BC."],
+["What finds prove horse domestication?",["Bridle elements and hobble clasps","Stone axes","Gold ornaments","Iron tools"],0,"Bridle elements and hobble clasps prove riding."],
+["How were horses used at Botai?",["Only for meat","For riding, meat and milk","Only for war","Only for transport of goods"],1,"Horses were used for riding, meat and milk."],
+["What evidence is visible on horse teeth?",["Bit wear","Gold plating","Tool marks only","Nothing"],0,"Bit wear on teeth indicates the use of a bridle."],
+["What did horse domestication enable?",["Fast travel and mobility","Writing","Farming","Metallurgy"],0,"Horse domestication revolutionised mobility."]
+]
+},
+{
+id:"botai_economy",
+title:"Economy and Daily Life",
+info:[
+"The Botai economy was based on horse breeding. People also bred cows and sheep, and supplemented their diet with hunting and fishing. Their main food was horse meat and kumys — fermented mare's milk, a drink still popular in Kazakhstan today.",
+"Botai people lived in semi-subterranean dwellings — pit-houses with domed roofs made of poles and hides. These were not fully nomadic; the Botai culture was semi-nomadic, meaning people stayed in one place for part of the year and moved with herds for another part.",
+"This lifestyle laid the foundation for the fully nomadic cultures that came later. The Botai also made distinctive pottery, used bone tools, and produced ornaments from shells and animal teeth — signs of developed craft and long-distance trade."
+],
+points:[
+"Economy: horse breeding + cattle, sheep",
+"Diet: horse meat and kumys",
+"Semi-subterranean pit-houses",
+"Semi-nomadic lifestyle",
+"Craft: distinctive pottery, bone tools, shell ornaments"
+],
+q:[
+["What was the main food of the Botai people?",["Fish and grain","Horse meat and kumys","Camel meat","Vegetables"],1,"Horse meat and kumys were the main food."],
+["What other animals were bred at Botai?",["Camels and pigs","Cows and sheep","Only horses","Only dogs"],1,"Cows and sheep were also bred."],
+["What was the Botai lifestyle?",["Fully nomadic","Semi-nomadic","Urban","Fully sedentary"],1,"The Botai people were semi-nomadic."],
+["What was the typical dwelling at Botai?",["Yurt","Pit-house with domed roof","Stone fortress","Cave"],1,"Semi-subterranean pit-houses were typical."],
+["What is kumys?",["A drink from mare's milk","A meat dish","A grain crop","A tool"],0,"Kumys is a fermented drink made from mare's milk."],
+["What craft did the Botai develop?",["Pottery, bone tools and ornaments","Iron working","Glass making","Silk weaving"],0,"The Botai made pottery, bone tools and ornaments."]
+]
+},
+{
+id:"botai_significance",
+title:"World Significance",
+info:[
+"The Botai culture is important not only for Kazakhstan but for world history. It is the earliest known centre of horse domestication — a discovery that reshaped human mobility, warfare, trade and agriculture across the entire Eurasian continent.",
+"The horse transformed warfare. Mounted warriors could move faster and strike harder than any foot army. It transformed trade — caravans and messengers could cover vast distances. And it transformed herding — pastoralists could control much larger flocks and follow seasonal pastures.",
+"After the Botai, the horse spread across the steppe and beyond. By the Bronze Age, horses were pulling chariots in the Middle East and India. By the Iron Age, mounted nomads dominated the Eurasian steppe. All of this began at Botai — an Eneolithic site in northern Kazakhstan."
+],
+points:[
+"World's earliest horse domestication centre",
+"Horse transformed warfare, trade and herding",
+"Spread of horses across Eurasia from Botai",
+"Foundation for chariot warfare (Bronze Age)",
+"Foundation for mounted nomads (Iron Age)"
+],
+q:[
+["Why is Botai important for world history?",["Earliest horse domestication centre","First writing system","First city","First empire"],0,"Botai is the earliest known centre of horse domestication."],
+["What did horse domestication transform?",["Warfare, trade and herding","Writing only","Religion only","Farming only"],0,"Horse domestication transformed warfare, trade and herding."],
+["When did mounted nomads dominate the steppe?",["Iron Age","Paleolithic","Neolithic only","Modern era"],0,"Mounted nomads dominated the steppe in the Iron Age."],
+["Where did chariot warfare appear?",["Bronze Age Middle East and India","Paleolithic Europe","Medieval Japan","Modern America"],0,"Chariots appeared in the Bronze Age across Asia and the Middle East."],
+["Which route did the horse spread?",["From the steppe across Eurasia","From Africa to Europe","From America to Asia","From Australia to Asia"],0,"Horses spread from the Eurasian steppe in all directions."],
+["What did the Botai discovery change?",["Understanding of where horses were first domesticated","Understanding of writing","Understanding of agriculture","Understanding of cities"],0,"It changed our understanding of horse domestication origins."]
+]
+}
 ]},
-{id:"bronze",title:"6. Bronze Age in Kazakhstan: Andronovo and Begazy–Dandybai cultures.",
-hint:"Describe the Bronze Age in Kazakhstan. Compare Andronovo and Begazy–Dandybai cultures: economy, settlements, burial structures, social organisation.",
+{
+id:"bronze",
+title:"6. Bronze Age in Kazakhstan: Andronovo and Begazy–Dandybai cultures",
+hint:"The era of metallurgy, pastoralism and the first proto-cities of the Eurasian steppe.",
+subtopics:[
+{
+id:"bronze_andronovo",
+title:"Andronovo Culture",
+info:[
+"The Andronovo culture (2nd millennium BC) is the largest Bronze Age culture of the Eurasian steppe. It covered a vast territory — from the Ural Mountains to the Yenisei River and from the forest zone in the north to Central Asia in the south.",
+"The Andronovo people practised pastoralism combined with primitive agriculture. They lived in small settlements and used bronze tools and weapons. They are famous for their distinctive pottery with geometric ornament and their burial mounds (kurgans), which often contain rich grave goods.",
+"Andronovo society was already stratified. Some burials contain chariots, bronze weapons and imported ornaments — signs of a warrior elite. The economy rested on cattle, sheep and horses, and the culture is associated with the spread of Indo-European languages across the steppe."
+],
+points:[
+"Time: 2nd millennium BC",
+"Territory: from the Urals to the Yenisei",
+"Economy: pastoralism + primitive agriculture",
+"Famous pottery with geometric ornament",
+"Burial kurgans with rich grave goods; warrior elite"
+],
 q:[
-["Which culture belongs to the Bronze Age in Kazakhstan?",["Atbasar","Andronovo","Botai","Tasmola"],1,"Andronovo is the largest Bronze Age culture of Kazakhstan."],
-["What is the Begazy–Dandybai culture known for?",["Megalithic mausoleums and palaces","First pottery","Horse domestication","Rock art"],0,"Known for monumental burial structures in Central Kazakhstan."],
-["What was the economy of the Andronovo people?",["Hunting only","Pastoralism and agriculture","Fishing only","Gathering only"],1,"Pastoralism combined with primitive agriculture."],
-["What was the first major social division of labour?",["Separation of pastoralism from agriculture","Separation of pastoralism from hunting","Separation of gathering from agriculture","Separation of weaving from agriculture"],0,"The first major social division of labour — pastoralism from agriculture."],
-["The Begazy–Dandybai culture dates to:",["9th–6th cc. BC","10th–7th cc. BC","10th–8th cc. BC","10th–9th cc. BC"],2,"Begazy–Dandybai dates to the 10th–8th cc. BC."],
-["One of the main areas of Andronovo settlement was:",["Northern Kazakhstan","Central Kazakhstan","Eastern Kazakhstan","Western Kazakhstan"],1,"One of the main areas was Central Kazakhstan."],
-["The main occupation of Bronze Age tribes was:",["Pastoralism","Agriculture","Hunting","Gathering"],0,"The main occupation was pastoralism."],
-["Which animal did the Andronovo people most often depict in rock art?",["The goat","The wild horse","The wild bull (aurochs)","The domestic bull"],2,"The wild bull (aurochs) was most often depicted."],
-["The largest cluster of Andronovo rock art is in:",["Semirechye","Southern Kazakhstan","Central Kazakhstan","Western Kazakhstan"],0,"The largest cluster is in Semirechye."],
-["In Andronovo rock art, a round dance is a symbol of:",["Sky","Moon","Sun","Earth"],2,"A round dance symbolises the sun."],
-["The domestic animal that was a symbol of fertility, power and strength to the Andronovo people:",["Goat","Wild horse","Wild bull","Domestic bull"],3,"The domestic bull was a symbol of fertility, power and strength."],
-["Social inequality emerged in the era of:",["Eneolithic","Stone Age","Bronze","Iron"],2,"Social inequality emerged in the Bronze Age."],
-["Where is Arkaim, one of the predecessors of ancient cities?",["Eastern Kazakhstan","Kostanay Region","Aral region","Irtysh region"],1,"Arkaim is located in Kostanay Region."],
-["One of the largest Bronze Age cultures in Europe and Asia:",["Andronovo","Begazy–Dandybai","Atasu","Nura"],0,"Andronovo is one of the largest Bronze Age cultures of Europe and Asia."],
-["Which culture succeeded the Andronovo culture?",["Saka","Begazy–Dandybai","Tasmola","Kelteminar"],1,"The Begazy–Dandybai culture succeeded the Andronovo culture."],
-["Name the Late Bronze Age culture:",["Tasmola","Begazy–Dandybai","Nura","Atasu"],1,"Begazy–Dandybai is a Late Bronze Age culture."],
-["What was the economy of the Andronovo tribes?",["Agricultural","Pastoral","Extractive","Craft"],1,"The Andronovo economy was pastoral with elements of agriculture."],
-["What does the term “pearl ornament” mean for the Begazy–Dandybai culture?",["Ornament made of pearls","Ornament of dots and pits","Ornament of lines","Ornament of spirals"],1,"A “pearl ornament” is a pattern of dots and pits on ceramics."],
-["Adding tin to copper produced:",["Nickel","Chromium","Zirconium","Bronze"],3,"Adding tin to copper produced bronze — the era's namesake."],
-["The Andronovo people are known for their pottery with which ornament?",["Geometric","Floral","Animalistic","Calligraphic"],0,"Geometric ornament is characteristic of Andronovo pottery."]
+["Which culture is the largest in the Bronze Age of Kazakhstan?",["Atbasar","Botai","Andronovo","Tasmola"],2,"Andronovo is the largest Bronze Age culture."],
+["When did the Andronovo culture exist?",["3rd millennium BC","2nd millennium BC","1st millennium BC","1st millennium AD"],1,"Andronovo dates to the 2nd millennium BC."],
+["What was the Andronovo economy?",["Only hunting","Pastoralism + agriculture","Only fishing","Only gathering"],1,"Pastoralism with primitive agriculture."],
+["What is the Andronovo pottery known for?",["Geometric ornament","Floral ornament","Calligraphy","Plain surface"],0,"Geometric ornament is characteristic."],
+["What were Andronovo burial mounds called?",["Pyramids","Kurgans","Mausoleums","Tombs"],1,"Andronovo burials were kurgans — burial mounds."],
+["What does Andronovo society show?",["Social stratification","Complete equality","Urbanisation","Industrialisation"],0,"Andronovo society shows clear stratification."]
+]
+},
+{
+id:"bronze_begazy",
+title:"Begazy–Dandybai Culture",
+info:[
+"The Begazy–Dandybai culture (10th–8th cc. BC) is a Late Bronze Age culture of Central Kazakhstan. It is known for its monumental burial structures — mausoleums and megalithic tombs that required complex organisation of labour.",
+"These monuments suggest increasing social stratification: the leaders had enormous resources at their disposal. Building a mausoleum required quarrying stone, transporting materials and organising dozens of workers — all of which implies a developed political hierarchy.",
+"The culture is also known for its distinctive “pearl ornament” on pottery — a pattern of dots and pits. Its people practised pastoralism and metallurgy, especially copper and tin mining. The Begazy–Dandybai culture is often seen as a bridge between the Andronovo world and the later Saka tribes of the Iron Age."
+],
+points:[
+"Time: 10th–8th cc. BC",
+"Region: Central Kazakhstan",
+"Famous for monumental mausoleums",
+"“Pearl ornament” on pottery",
+"Bridged the Andronovo and Saka periods"
+],
+q:[
+["Which culture is characteristic of the Late Bronze Age in Kazakhstan?",["Atbasar","Andronovo","Begazy–Dandybai","Botai"],2,"Begazy–Dandybai is the Late Bronze Age culture."],
+["When did the Begazy–Dandybai culture exist?",["10th–8th cc. BC","2nd millennium BC","5th c. AD","3rd c. BC"],0,"Begazy–Dandybai dates to the 10th–8th centuries BC."],
+["What is this culture known for?",["Monumental mausoleums","First pottery","Horse domestication","First writing"],0,"Monumental mausoleums are typical."],
+["What ornament is characteristic of its pottery?",["Pearl ornament","Floral ornament","Calligraphic","Zoomorphic only"],0,"The “pearl ornament” is characteristic."],
+["What does the Begazy–Dandybai culture suggest?",["Increasing social stratification","Full equality","No metal use","No herding"],0,"Its monuments suggest increasing stratification."],
+["What industry was important to the Begazy–Dandybai?",["Metallurgy and mining","Silk weaving","Glass making","Shipbuilding"],0,"Metallurgy and mining were important."]
+]
+},
+{
+id:"bronze_arkaim",
+title:"Arkaim and Early Proto-Cities",
+info:[
+"Arkaim is one of the most famous Bronze Age sites in the Eurasian steppe. It is located in the Chelyabinsk region (Russia), near the border with the Kostanay region of Kazakhstan. Its discovery in 1987 changed our understanding of the steppe Bronze Age.",
+"Arkaim was a fortified settlement with a circular plan, surrounded by walls and a moat. Inside, there were dwellings and craft workshops arranged in a ring around a central square. This suggests a level of urban planning previously thought impossible for steppe societies of that era.",
+"Arkaim belongs to the Sintashta culture (a local variant of the Andronovo horizon). Its people were metallurgists, pastoralists and warriors. The site is sometimes called a “proto-city” — a transition point between village and true urban life."
+],
+points:[
+"Arkaim: fortified proto-city of the Bronze Age",
+"Located near Kazakhstan (Kostanay region border)",
+"Circular plan with defensive walls and moat",
+"Discovered in 1987",
+"Belongs to the Sintashta culture (Andronovo horizon)"
+],
+q:[
+["What is Arkaim?",["A cave","A fortified Bronze Age settlement","A medieval fortress","A Saka burial"],1,"Arkaim is a fortified Bronze Age settlement."],
+["Where is Arkaim located?",["Central Kazakhstan","Near the border with the Kostanay region","Southern Kazakhstan","Western Kazakhstan"],1,"Arkaim is near the border with the Kostanay region."],
+["What is Arkaim's plan?",["Rectangular","Circular","Triangular","Random"],1,"Arkaim had a circular plan."],
+["When was Arkaim discovered?",["1917","1950","1987","2005"],2,"Arkaim was discovered in 1987."],
+["What culture does Arkaim belong to?",["Sintashta (Andronovo horizon)","Botai","Atbasar","Tasmola"],0,"Arkaim belongs to the Sintashta culture."],
+["What were the people of Arkaim?",["Metallurgists, pastoralists and warriors","Only farmers","Only traders","Only fishermen"],0,"They were metallurgists, pastoralists and warriors."]
+]
+},
+{
+id:"bronze_metallurgy",
+title:"Metallurgy and Social Change",
+info:[
+"The Bronze Age is defined by one key innovation — the production of bronze, an alloy of copper and tin. Bronze is harder and more durable than pure copper, so it made better tools and weapons than anything available before.",
+"Metallurgy required specialised knowledge: finding ore, smelting it at high temperatures, mixing copper with tin in the right proportions. These skills were rare and valuable. Mining settlements appeared, and long-distance trade in metals developed.",
+"Metallurgy also transformed society. Those who controlled mines and trade routes became wealthy and powerful. Social stratification deepened: warriors, chiefs and priests emerged as distinct groups. The first proto-cities, like Arkaim, appeared. And the demand for metals fuelled the trade networks that later became the Silk Road."
+],
+points:[
+"Bronze = alloy of copper + tin",
+"Harder and more durable than pure copper",
+"Metallurgy required specialised knowledge and trade",
+"Metal control → wealth and power",
+"First proto-cities and long-distance trade networks"
+],
+q:[
+["What is bronze?",["An alloy of copper and tin","Pure copper","Pure iron","A type of stone"],0,"Bronze is copper + tin."],
+["Why is bronze important?",["It is harder than pure copper","It is cheaper","It is lighter than wood","It is transparent"],0,"Bronze is harder and more durable than copper."],
+["What did metallurgy require?",["Specialised knowledge and trade","Only stone","Only wood","No skill"],0,"Metallurgy required specialised knowledge."],
+["What did control over metal lead to?",["Wealth and power","Equality","Poverty","Isolation"],0,"Metal control led to wealth and power."],
+["What appeared in the Bronze Age?",["Proto-cities and long-distance trade","Writing systems only","Iron tools","Steam engines"],0,"Proto-cities and long-distance trade appeared."]
+]
+}
 ]},
-{id:"nomads",title:"7. Origins of nomadic civilization in the steppe.",
-hint:"Explain how and why nomadic civilization emerged in the Eurasian steppe: horse riding, mobile pastoralism, tribal organisation, its role in world history.",
+{
+id:"nomads",
+title:"7. Origins of nomadic civilization in the steppe",
+hint:"How and why nomadic civilisation emerged in the Eurasian steppe, and its role in world history.",
+subtopics:[
+{
+id:"nomads_origins",
+title:"Origins and Causes",
+info:[
+"Nomadic civilisation emerged in the Eurasian steppe at the end of the Bronze Age and finally took shape in the Early Iron Age (1st millennium BC). Its foundation was the domestication of the horse and mastery of riding — inventions inherited from the Botai culture.",
+"Several factors caused this shift. The vast steppe pastures, unsuitable for farming but perfect for herding, made mobile pastoralism the most efficient way of life. Climate aridisation in the Bronze Age made settled agriculture harder, pushing communities toward mobility. And the horse provided speed, transport and military power that farmers could not match.",
+"This was not a sudden change but a gradual process that took centuries. Over time, steppe communities developed a fully mobile culture: portable dwellings, seasonal migration, and social organisation suited to a life on the move."
+],
+points:[
+"Time: end of the Bronze Age → Early Iron Age",
+"Key prerequisite: horse riding",
+"Causes: steppe pastures, mobility, climate aridity",
+"Gradual process, not a sudden change",
+"Portable culture: dwellings, migration, mobility"
+],
 q:[
-["What was the main prerequisite for nomadic civilisation?",["Horse domestication and mastery of riding","Invention of the plough","Appearance of writing","Building of cities"],0,"Riding and horse domestication made nomadic pastoralism possible."],
-["Which economy is characteristic of nomadic civilisation?",["Sedentary agriculture","Nomadic pastoralism","Fishing","Hunting and gathering"],1,"Nomadic pastoralism was the foundation."],
-["When did nomadic civilisation take shape in the steppes of Kazakhstan?",["In the Paleolithic","In the Neolithic","In the Bronze Age → Early Iron Age","In the Middle Ages"],2,"It took shape at the end of the Bronze Age and in the Early Iron Age."],
-["Which necessary animal did sedentary peoples obtain from nomads?",["Camel","Horse","Cow","Sheep"],1,"Sedentary peoples obtained horses from nomads."],
-["In which century did Herodotus describe Scythian tribes?",["20th c. BC","10th c. BC","5th c. BC","5th c. AD"],2,"Herodotus described Scythians in the 5th century BC."],
-["Who believed the state arises from collision between nomads and sedentary peoples?",["Herodotus","Smith","Hegel","Kant"],2,"Hegel held this view."],
-["In which Soviet years did nomadic civilisation become a subject of special research?",["1902–1907","1999–2000","1920–1940","1950–1970"],2,"It became a special subject of research in 1920–1940."],
-["What was the main occupation of the Turks?",["Hunting and gathering","Nomadic pastoralism","Irrigated agriculture","Craftsmanship"],1,"Nomadic pastoralism was the main occupation."],
-["Where did the Silk Road pass through Kazakhstan?",["North and Semirechye","Southern part and Semirechye","Western part and Semirechye","Across the Akan River"],1,"The Silk Road passed through southern Kazakhstan and Semirechye."],
-["What is “nomadic civilisation”?",["Civilisation based on nomadic pastoralism","Civilisation of farmers","Urban civilisation","Maritime civilisation"],0,"A type of civilisation based on nomadic pastoralism and a mobile lifestyle."],
-["Which animal was central to the nomadic economy?",["Cow","Sheep","Horse","Pig"],2,"The horse was central — providing transport, food and military advantage."],
-["What is “jailau”?",["A winter camp","A summer pasture","A spring camp","An autumn camp"],1,"Jailau is a summer mountain pasture."],
-["What is “kystau”?",["A summer pasture","A winter camp","A spring camp","An autumn camp"],1,"Kystau is a winter camp, usually in a wind-protected place."],
-["Which social organisation is typical of nomads?",["Tribal and clan-based","Urban","Feudal","Slave-owning"],0,"Tribal and clan organisation is typical."],
-["What is “kurultai”?",["A people's assembly","A military campaign","A trade route","A religious rite"],0,"Kurultai is a people's assembly deciding key matters."],
-["Which dwelling is characteristic of nomads?",["The yurt","The log cabin","The palace","The cave"],0,"The yurt is the traditional portable dwelling."],
-["What role did nomads play in world history?",["Isolation","A link between civilisations","Destruction","None"],1,"They were a link between sedentary civilisations, enabling trade and cultural exchange."],
-["What was the “Great Migration of Peoples”?",["Mass migrations of nomads in the 4th–7th cc.","A trade route","A religious movement","A military reform"],0,"Mass migrations of nomads in the 4th–7th centuries changed the map of Europe and Asia."],
-["What was the main weapon of nomads?",["Sword","Bow and arrows","Spear","Axe"],1,"Bow and arrows were the main weapon, giving an advantage in mobile warfare."],
-["Why did nomadic civilisation emerge in the Eurasian steppes?",["Due to vast pastures and horse domestication","Due to lack of water","Due to dense forests","Due to high mountains"],0,"Vast pastures and horse domestication made nomadic pastoralism possible."]
+["When did nomadic civilisation take shape?",["In the Paleolithic","In the Neolithic","In the Bronze → Early Iron Age","In the Middle Ages"],2,"Nomadic civilisation took shape in the Bronze Age → Early Iron Age."],
+["What was the key prerequisite?",["Writing","Horse riding","Agriculture","Cities"],1,"Horse riding was the key prerequisite."],
+["Why did nomadic pastoralism dominate in the steppe?",["Vast pastures and mobility","Lack of water","Cold climate only","No farming knowledge"],0,"Vast pastures and mobility were decisive."],
+["When did nomadic civilisation finally take shape?",["In the Paleolithic","In the Early Iron Age","In the 5th c. AD","In the 18th c."],1,"It finally took shape in the Early Iron Age."],
+["What made settled agriculture harder in the Bronze Age?",["Climate aridisation","Writing","Cities","Mountains"],0,"Aridisation made farming harder."],
+["What did nomads develop over time?",["A fully mobile culture","Cities only","Writing only","Industrial tools"],0,"They developed a fully mobile culture."]
+]
+},
+{
+id:"nomads_economy",
+title:"Economy and Lifestyle",
+info:[
+"The economy of nomads was based on mobile pastoralism — herding sheep, horses, cattle and camels. Animals provided food (meat, milk), clothing (leather, wool), transport and military power. A nomad's wealth was measured in livestock.",
+"The nomadic lifestyle was seasonal. In summer, groups moved to high mountain pastures (jailau). In winter, they settled in protected valleys (kystau). This seasonal migration required careful planning, deep knowledge of the landscape, and strong social coordination.",
+"Nomadic material culture was designed for mobility. Everything was portable — the yurt, felt rugs, leather bags. Nomads did not build permanent homes or accumulate heavy possessions. But they produced magnificent art: textiles, metalwork, jewellery — often in the famous “animal style” of steppe ornaments."
+],
+points:[
+"Economy: mobile pastoralism",
+"Animals: sheep, horses, cattle, camels",
+"Seasonal migration: jailau ↔ kystau",
+"Portable material culture: yurt, felt, leather",
+"Animal-style art in metalwork and textiles"
+],
+q:[
+["What was the basis of the nomadic economy?",["Agriculture","Mobile pastoralism","Fishing","Trade"],1,"Mobile pastoralism was the basis."],
+["What is “jailau”?",["Winter camp","Summer pasture","Fortress","Market"],1,"Jailau is a summer pasture."],
+["What is “kystau”?",["Summer pasture","Winter camp","Trade route","City"],1,"Kystau is a winter camp."],
+["What did animals provide?",["Only meat","Food, clothing, transport, military power","Only clothing","Only transport"],1,"Animals provided many resources."],
+["What style is famous in nomadic art?",["Animal style","Renaissance style","Baroque style","Minimalist style"],0,"The animal style is characteristic of steppe art."],
+["What was the typical dwelling?",["The yurt","The stone house","The palace","The cave"],0,"The yurt is the traditional portable dwelling of nomads."]
+]
+},
+{
+id:"nomads_society",
+title:"Society and Political Organisation",
+info:[
+"Nomadic society was organised into clans and tribes. Kinship was the foundation of identity — every person knew their lineage and their place in a larger tribal network. Loyalty to family, clan and tribe was the highest social value.",
+"Key decisions were made at the kurultai — a general assembly of the tribe. Elders and military leaders held authority. Leadership was often elective: a chief had to prove himself through wisdom, generosity and success in war.",
+"Nomadic political organisation is often described as “military democracy”. Chosen leaders commanded warriors in times of war, while in peacetime the tribe governed itself through councils and traditions. Over time, larger political structures — confederations, empires and khanates — grew out of these tribal foundations."
+],
+points:[
+"Clans and tribes as the basic units",
+"Kurultai — general assembly",
+"Military democracy: elective leadership",
+"Authority through wisdom, generosity and military success",
+"Tribal foundations → nomadic empires and khanates"
+],
+q:[
+["What was the basic social unit?",["A city","A clan or tribe","An empire","A nation"],1,"Clans and tribes were the basic units."],
+["What is a kurultai?",["A trade route","A general assembly","A weapon","A dwelling"],1,"Kurultai is a general assembly."],
+["What was the political system based on?",["Military democracy","Republic","Absolute monarchy","Theocracy"],0,"Military democracy was the political basis."],
+["What did nomads later create?",["Empires and khanates","Cities only","Republics","Parliaments"],0,"They created empires and khanates."],
+["What was the highest social value?",["Loyalty to clan and tribe","Individual wealth","Land ownership","Formal education"],0,"Clan and tribal loyalty was paramount."],
+["What qualified a chief?",["Wisdom, generosity and military success","Wealth alone","Age alone","Birth only"],0,"A chief had to prove himself in multiple ways."]
+]
+},
+{
+id:"nomads_world",
+title:"Role in World History",
+info:[
+"Nomads played a central role in world history. They controlled the Silk Road and ensured the exchange of goods, technologies, ideas and religions between East and West. Without the steppe routes, the great Silk Road could not have existed as it did.",
+"The Great Migration of Peoples (4th–7th cc. AD) reshaped the map of Europe and Asia. Nomadic empires — Hunnic, Turkic, Mongol — influenced the political and cultural development of many regions. The Mongols created the largest land empire in history, stretching from Korea to Eastern Europe.",
+"Nomadic culture left a lasting mark: the yurt, kumys, horse riding, and the epic traditions of the steppe. The Kazakh epic poems — such as “Koblandy Batyr” and “Alpamys Batyr” — preserve ancient oral traditions, reflecting the deep roots of nomadic heritage in modern Kazakh culture."
+],
+points:[
+"Control of the Silk Road",
+"The Great Migration of Peoples (4th–7th cc. AD)",
+"Nomadic empires: Hunnic, Turkic, Mongol",
+"Mongol Empire — largest land empire in history",
+"Cultural legacy: yurt, kumys, epics"
+],
+q:[
+["What role did nomads play in world history?",["Isolation","A link between civilizations","Destruction only","None"],1,"They were a link between civilizations."],
+["What was the Great Migration of Peoples?",["Mass migrations of nomads in 4th–7th cc. AD","A trade route","A religion","A dynasty"],0,"It was a mass migration of nomads."],
+["What did nomads control?",["The Silk Road","The Atlantic","The Mediterranean only","Nothing"],0,"They controlled the Silk Road."],
+["Which nomadic empires existed?",["Roman and Persian","Hunnic, Turkic, Mongol","Egyptian and Greek","Aztec and Inca"],1,"Hunnic, Turkic and Mongol empires were nomadic."],
+["Who created the largest land empire in history?",["The Mongols","The Romans","The British","The Aztecs"],0,"The Mongol Empire was the largest land empire ever."],
+["Which epic is part of Kazakh tradition?",["Koblandy Batyr","The Iliad","The Odyssey","Beowulf"],0,"Koblandy Batyr is a Kazakh epic."]
+]
+}
 ]}
 ];
 
 /* ============================================================
-   2. CORPUS FOR PLAGIARISM
+   CORPUS
    ============================================================ */
 const CORPUS = [
 {src:"Wikipedia · Botai culture",text:"The Botai culture is an archaeological culture of the Eneolithic period located in northern Kazakhstan. Botai is considered the earliest known site where horses were domesticated. The economy of the Botai people was based on horse breeding and hunting."},
@@ -439,7 +1089,7 @@ const CORPUS = [
 {src:"Wikipedia · Neolithic Revolution",text:"The Neolithic Revolution was the transition from hunting and gathering to agriculture and settlement. It is considered one of the most important developments in human history. The revolution led to a significant increase in population."},
 {src:"Wikipedia · Begazy-Dandybai",text:"The Begazy-Dandybai culture is a Late Bronze Age culture of Central Kazakhstan. It is known for its monumental burial structures and mausoleums. The culture dates to the tenth to eighth centuries BC."},
 {src:"Wikipedia · Nomadic pastoralism",text:"Nomadic pastoralism is a form of pastoralism in which livestock are herded in order to find fresh pastures. Nomadic pastoralism became possible with the domestication of the horse. It played an important role in the history of the Eurasian steppe."},
-{src:"Encyclopaedia Britannica",text:"The Stone Age is a broad prehistoric period during which stone was widely used to make tools with an edge, a point, or a percussion surface. The period lasted for roughly 3.4 million years and ended between 4000 and 2000 BC."},
+{src:"Encyclopaedia Britannica · Stone Age",text:"The Stone Age is a broad prehistoric period during which stone was widely used to make tools with an edge, a point, or a percussion surface. The period lasted for roughly 3.4 million years and ended between 4000 and 2000 BC."},
 {src:"Wikipedia · Kurgan",text:"A kurgan is a tumulus, a type of burial mound or barrow, heaped over a burial chamber, often of wood. Kurgans were built in the Eneolithic, Bronze, Iron and Middle Ages in the Eurasian steppe."},
 {src:"Wikipedia · Botai horse",text:"According to archaeological evidence, horses were domesticated at Botai around 3500 BC. The Botai horses were used for riding as well as for meat and milk. This discovery changed our understanding of the history of horse domestication."},
 {src:"Wikipedia · Atbasar culture",text:"The Atbasar culture is a Neolithic culture that existed in northern Kazakhstan. The people of this culture practised hunting, fishing and gathering. They made pottery and used stone tools."},
@@ -452,23 +1102,22 @@ const CORPUS = [
 ];
 
 /* ============================================================
-   3. STORAGE
+   STORAGE
    ============================================================ */
-const STORE_KEY = "codex-steppae-v1";
+const STORE_KEY = "codex-steppae-v3";
 function loadStore(){
-  try{ return JSON.parse(localStorage.getItem(STORE_KEY)) || {topics:{},errors:[],entRuns:[]}; }
-  catch(e){ return {topics:{},errors:[],entRuns:[]}; }
+  try{ return JSON.parse(localStorage.getItem(STORE_KEY)) || {subs:{}, errors:[], entRuns:[]}; }
+  catch(e){ return {subs:{}, errors:[], entRuns:[]}; }
 }
 function saveStore(s){ localStorage.setItem(STORE_KEY, JSON.stringify(s)); }
 let STORE = loadStore();
 
-function recordTopicResult(topicId, score, total){
-  if(!STORE.topics[topicId]) STORE.topics[topicId] = {best:0, total:0, runs:0};
-  const t = STORE.topics[topicId];
+function recordSubResult(subId, score, total){
+  if(!STORE.subs[subId]) STORE.subs[subId] = {best:0, total:0, runs:0};
+  const s = STORE.subs[subId];
   const pct = Math.round(score/total*100);
-  if(pct > t.best) t.best = pct;
-  t.total = total;
-  t.runs++;
+  if(pct > s.best) s.best = pct;
+  s.total = total; s.runs++;
   saveStore(STORE);
 }
 function recordEntRun(score, total, seconds){
@@ -478,144 +1127,203 @@ function recordEntRun(score, total, seconds){
 }
 
 /* ============================================================
-   4. STATE
+   HELPERS
    ============================================================ */
-const quizState = { topic:null, qIndex:0, score:0, answered:false };
-let currentTopic = null;
-let entState = null;
-let entInterval = null;
-
 const $ = s => document.querySelector(s);
-const stageLanding  = $("#stage-landing");
-const stageTopic    = $("#stage-topic");
-const stageEnt      = $("#stage-ent");
-const stageProgress = $("#stage-progress");
-const topicTitleEl  = $("#topicTitle");
-const topicHintEl   = $("#topicHint");
-const quizBody      = $("#quizBody");
+function findSubtopic(id){
+  for(const t of TOPICS){
+    for(const s of t.subtopics){
+      if(s.id===id) return {topic:t, sub:s};
+    }
+  }
+  return null;
+}
 
 /* ============================================================
-   5. SYLLABUS + NAVIGATION
+   NAVIGATION
    ============================================================ */
-(function renderSyllabus(){
-  $("#syllabusList").innerHTML = TOPICS.map(t=>{
-    const m = t.title.match(/^(\d+)\.\s*(.+?)(?:[.:]|$)/);
-    return `<div class="item"><b>${(m?m[1]:"0").padStart(2,"0")}</b><span>${m?m[2]:t.title}</span></div>`;
-  }).join("");
-})();
+const stageLanding  = $("#stage-landing");
+const stageTopic    = $("#stage-topic");
+const stageSubtopic = $("#stage-subtopic");
+const stageEssay    = $("#stage-essay");
+const stageEnt      = $("#stage-ent");
+const stageProgress = $("#stage-progress");
 
 function hideAll(){
   stageLanding.hidden = true;
   stageTopic.hidden = true;
+  stageSubtopic.hidden = true;
+  stageEssay.hidden = true;
   stageEnt.hidden = true;
   stageProgress.hidden = true;
   if(entInterval){ clearInterval(entInterval); entInterval = null; }
 }
-function drawTopic(){
-  hideAll();
-  currentTopic = TOPICS[Math.floor(Math.random()*TOPICS.length)];
-  topicTitleEl.textContent = currentTopic.title;
-  topicHintEl.textContent = currentTopic.hint;
-  initQuiz(currentTopic);
-  resetEssayPanel();
-  stageTopic.hidden = false;
-  window.scrollTo({top:0,behavior:"smooth"});
-}
-function goHome(){
-  hideAll();
-  stageLanding.hidden = false;
-  window.scrollTo({top:0,behavior:"smooth"});
-}
-$("#btnDraw").addEventListener("click", drawTopic);
-$("#btnReroll").addEventListener("click", drawTopic);
-$("#btnHome").addEventListener("click", goHome);
+function scrollTop(){ window.scrollTo({top:0, behavior:"smooth"}); }
+function goHome(){ hideAll(); stageLanding.hidden = false; scrollTop(); }
+
+(function renderTopicGrid(){
+  const grid = $("#topicGrid");
+  grid.innerHTML = TOPICS.map(t=>`
+    <div class="topic-tile" data-id="${t.id}">
+      <div class="num">${t.title.match(/^(\d+)\./)[1].padStart(2,"0")}</div>
+      <div class="name">${t.title.replace(/^\d+\.\s*/,"")}</div>
+      <div class="count">${t.subtopics.length} subtopics</div>
+    </div>`).join("");
+  grid.querySelectorAll(".topic-tile").forEach(el=>{
+    el.addEventListener("click", ()=> openTopic(el.dataset.id));
+  });
+})();
+
+$("#btnDraw").addEventListener("click", openEssayRandom);
 $("#btnEnt").addEventListener("click", startEnt);
 $("#btnProgress").addEventListener("click", showProgress);
-$("#btnProgressBack").addEventListener("click", goHome);
-$("#btnResetProgress").addEventListener("click", ()=>{
-  if(confirm("Reset all saved progress? This cannot be undone.")){
-    STORE = {topics:{},errors:[],entRuns:[]};
-    saveStore(STORE);
-    showProgress();
-  }
+
+/* ============================================================
+   TOPIC → SUBTOPICS
+   ============================================================ */
+let currentTopic = null;
+function openTopic(tid){
+  hideAll();
+  currentTopic = TOPICS.find(t=>t.id===tid);
+  $("#crumbTopic").textContent = currentTopic.title;
+  $("#topicTitle").textContent = currentTopic.title.replace(/^\d+\.\s*/,"");
+  $("#topicHint").textContent = currentTopic.hint;
+  const list = $("#subtopicsList");
+  list.innerHTML = currentTopic.subtopics.map((s,i)=>`
+    <div class="subtopic-card" data-id="${s.id}">
+      <div class="idx"><span>${i+1}</span></div>
+      <div class="body">
+        <h3>${s.title}</h3>
+        <p>${s.q.length} questions · short lesson</p>
+      </div>
+      <div class="arrow">→</div>
+    </div>`).join("");
+  list.querySelectorAll(".subtopic-card").forEach(el=>{
+    el.addEventListener("click", ()=> openSubtopic(el.dataset.id));
+  });
+  stageTopic.hidden = false;
+  scrollTop();
+}
+$("#btnTopicHome").addEventListener("click", goHome);
+$("#btnTopicEssay").addEventListener("click", ()=>{
+  const topic = currentTopic;
+  openEssayTopic({id:topic.id, title:topic.title, hint:topic.hint});
 });
 
 /* ============================================================
-   6. QUIZ
+   SUBTOPIC → LESSON + QUIZ
    ============================================================ */
-function initQuiz(topic){
-  quizState.topic = topic;
-  quizState.qIndex = 0;
+let quizState = { subId:null, sub:null, topic:null, idx:0, score:0, answered:false };
+
+function openSubtopic(subId){
+  hideAll();
+  const found = findSubtopic(subId);
+  if(!found) return;
+  quizState.subId = subId;
+  quizState.sub = found.sub;
+  quizState.topic = found.topic;
+  quizState.idx = 0;
   quizState.score = 0;
   quizState.answered = false;
+  $("#crumbSubtopic").textContent = found.sub.title;
+  renderLesson(found.sub);
   renderQuestion();
+  stageSubtopic.hidden = false;
+  scrollTop();
+}
+function renderLesson(sub){
+  $("#lessonBody").innerHTML =
+    sub.info.map(p=>`<p>${p}</p>`).join("") +
+    `<ul class="key-points">${sub.points.map(p=>`<li>${p}</li>`).join("")}</ul>`;
 }
 function renderQuestion(){
-  const t = quizState.topic;
-  const q = t.q[quizState.qIndex];
-  const total = t.q.length;
-  const pct = Math.round((quizState.qIndex/total)*100);
+  const sub = quizState.sub;
+  const q = sub.q[quizState.idx];
+  const total = sub.q.length;
+  const pct = Math.round((quizState.idx/total)*100);
   const letters = ["A","B","C","D"];
-  quizBody.innerHTML = `
-    <div class="q-meta"><span>Question ${quizState.qIndex+1} / ${total}</span><span>Score: ${quizState.score}</span></div>
+  $("#quizBody").innerHTML = `
+    <div class="q-meta"><span>Question ${quizState.idx+1} / ${total}</span><span>Score: ${quizState.score}</span></div>
     <div class="q-bar"><i style="width:${pct}%"></i></div>
     <p class="q-text">${q[0]}</p>
-    <div class="options" id="options"></div><div id="after"></div>`;
-  const optBox = $("#options");
+    <div class="options" id="options"></div>
+    <div id="after"></div>`;
+  const box = $("#options");
   q[1].forEach((text,i)=>{
     const b = document.createElement("button");
     b.className = "opt";
     b.innerHTML = `<span class="lt">${letters[i]}</span><span>${text}</span>`;
     b.addEventListener("click", ()=>answer(i));
-    optBox.appendChild(b);
+    box.appendChild(b);
   });
 }
 function answer(choice){
   if(quizState.answered) return;
   quizState.answered = true;
-  const q = quizState.topic.q[quizState.qIndex];
+  const q = quizState.sub.q[quizState.idx];
   const correct = q[2];
   document.querySelectorAll(".opt").forEach((b,i)=>{
     b.disabled = true;
-    if(i === correct) b.classList.add("correct");
-    if(i === choice && choice !== correct) b.classList.add("wrong");
+    if(i===correct) b.classList.add("correct");
+    if(i===choice && choice!==correct) b.classList.add("wrong");
   });
-  if(choice === correct) quizState.score++;
+  if(choice===correct) quizState.score++;
   else {
-    // record error for progress
-    const errKey = quizState.topic.id + ":" + quizState.qIndex;
+    const errKey = quizState.subId + ":" + quizState.idx;
     if(!STORE.errors.includes(errKey)) STORE.errors.push(errKey);
     saveStore(STORE);
   }
-  const isLast = quizState.qIndex+1 >= quizState.topic.q.length;
+  const isLast = quizState.idx+1 >= quizState.sub.q.length;
   $("#after").innerHTML = `
     <div class="explain">${choice===correct?"✔ Correct. ":"✘ Incorrect. "}${q[3]}</div>
-    <div class="btn-row">${isLast?`<button class="btn solid" id="btnFinish">Show result</button>`:`<button class="btn solid" id="btnNext">Next question →</button>`}</div>`;
-  if(isLast) $("#btnFinish").addEventListener("click", showScore);
-  else $("#btnNext").addEventListener("click", ()=>{ quizState.qIndex++; quizState.answered=false; renderQuestion(); });
+    <div class="btn-row">${isLast?`<button class="btn solid" id="btnFinish">Show result</button>`:`<button class="btn solid" id="btnNext">Next →</button>`}</div>`;
+  if(isLast) $("#btnFinish").addEventListener("click", showSubScore);
+  else $("#btnNext").addEventListener("click", ()=>{ quizState.idx++; quizState.answered=false; renderQuestion(); });
 }
-function showScore(){
-  const total = quizState.topic.q.length;
+function showSubScore(){
+  const total = quizState.sub.q.length;
   const pct = Math.round(quizState.score/total*100);
-  recordTopicResult(quizState.topic.id, quizState.score, total);
-  const verdict = pct>=85?"Excellent result. This topic is well mastered.":pct>=60?"Good, but there are gaps — revisit the notes.":"Weak. Return to the theory and retake the quiz.";
-  quizBody.innerHTML = `
+  recordSubResult(quizState.subId, quizState.score, total);
+  const verdict = pct>=85?"Excellent — subtopic mastered.":pct>=60?"Good, but some gaps remain.":"Weak. Re-read the lesson and try again.";
+  $("#quizBody").innerHTML = `
     <div class="score-block">
       <div class="big">${quizState.score} / ${total}</div>
-      <div class="pct">${pct}% correct answers</div>
+      <div class="pct">${pct}% correct</div>
       <p style="font-style:italic;color:var(--ink-soft);max-width:360px;margin:0 auto 22px">${verdict}</p>
       <div class="btn-row" style="justify-content:center">
         <button class="btn solid" id="btnRetry">Retake</button>
-        <button class="btn ghost" id="btnNewTopic">Another topic</button>
+        <button class="btn ghost" id="btnBackSubs">← Subtopics</button>
       </div>
     </div>`;
-  $("#btnRetry").addEventListener("click", ()=>{ quizState.qIndex=0; quizState.score=0; quizState.answered=false; renderQuestion(); });
-  $("#btnNewTopic").addEventListener("click", drawTopic);
+  $("#btnRetry").addEventListener("click", ()=>{ quizState.idx=0; quizState.score=0; quizState.answered=false; renderQuestion(); });
+  $("#btnBackSubs").addEventListener("click", ()=>openTopic(quizState.topic.id));
 }
+$("#btnSubtopicBack").addEventListener("click", ()=>{
+  if(quizState.topic) openTopic(quizState.topic.id);
+  else goHome();
+});
+$("#btnSubtopicHome").addEventListener("click", goHome);
 
 /* ============================================================
-   7. ESSAY UPLOAD
+   ESSAY
    ============================================================ */
+let essayTopic = null;
+function openEssayRandom(){
+  const t = TOPICS[Math.floor(Math.random()*TOPICS.length)];
+  openEssayTopic(t);
+}
+function openEssayTopic(t){
+  hideAll();
+  essayTopic = t;
+  $("#essayTitle").textContent = t.title;
+  $("#essayHint").textContent = t.hint;
+  resetEssayPanel();
+  stageEssay.hidden = false;
+  scrollTop();
+}
+$("#btnEssayReroll").addEventListener("click", openEssayRandom);
+$("#btnEssayHome").addEventListener("click", goHome);
+
 const dropEl = $("#drop"), fileInputEl = $("#fileInput");
 const essayTextEl = $("#essayText"), wordCountEl = $("#wordCount"), minNoteEl = $("#minNote");
 
@@ -647,7 +1355,6 @@ function updateCount(){
   minNoteEl.textContent = (words>0 && words<40) ? "too little text for an accurate check" : "";
 }
 essayTextEl.addEventListener("input", updateCount);
-
 $("#btnClear").addEventListener("click", clearEssay);
 function clearEssay(){
   essayTextEl.value=""; updateCount();
@@ -659,9 +1366,6 @@ function clearEssay(){
 }
 function resetEssayPanel(){ clearEssay(); $("#loader").classList.remove("show"); }
 
-/* ============================================================
-   8. PLAGIARISM
-   ============================================================ */
 function normalize(text){ return text.toLowerCase().replace(/[^\p{L}\p{N}\s]/gu," ").replace(/\s+/g," ").trim(); }
 function toWords(text){ return normalize(text).split(" ").filter(Boolean); }
 function makeShingles(words,n){ const s=new Set(); for(let i=0;i+n<=words.length;i++)s.add(words.slice(i,i+n).join(" ")); return s; }
@@ -722,7 +1426,7 @@ $("#btnCheck").addEventListener("click", async ()=>{
   const result = $("#result"), loader = $("#loader");
   if(toWords(text).length < 20){
     result.classList.add("show");
-    result.innerHTML = `<p style="color:var(--wine);font-style:italic">Text is too short. At least ~40 words for a meaningful check.</p>`;
+    result.innerHTML = `<p style="color:var(--wine);font-style:italic">Text is too short. At least ~40 words.</p>`;
     return;
   }
   loader.classList.add("show"); result.classList.remove("show"); result.innerHTML="";
@@ -733,15 +1437,15 @@ $("#btnCheck").addEventListener("click", async ()=>{
   const offset = 326.7*(1-pct/100);
   const ringColor = pct>=80?"var(--forest)":pct>=55?"var(--gold)":"var(--wine)";
   const vT = pct>=85?"Text is original":pct>=65?"Moderate borrowing":pct>=40?"Heavy borrowing":"High plagiarism level";
-  const vX = pct>=85?"Almost no overlap with the source corpus. The work looks independent.":
-             pct>=65?"Some matching wordings were found. Rewrite them in your own words.":
-             pct>=40?"A significant part of the text matches the sources. Serious revision is needed.":
-                     "Most of the text is copied. A full rewrite is recommended.";
+  const vX = pct>=85?"Almost no overlap with the source corpus.":
+             pct>=65?"Some matching wordings found. Rewrite them.":
+             pct>=40?"A significant part of the text matches sources.":
+                     "Most of the text is copied. Rewrite fully.";
   const fragHtml = sim.fragments.length
     ? `<h4>Matching fragments (${sim.fragments.length})</h4><ul>${sim.fragments.slice(0,6).map(f=>`<li><em>“${f.snippet}”</em><span class="src">→ ${f.src}</span></li>`).join("")}</ul>`
     : `<p style="font-style:italic;color:var(--forest)">No matching fragments detected.</p>`;
   const aiLabel = ai.score>=55?"bad":ai.score>=30?"":"good";
-  const aiVerdict = ai.score>=55?"AI-generated signals present":ai.score>=30?"ambiguous signals":"no AI signals found";
+  const aiVerdict = ai.score>=55?"AI signals present":ai.score>=30?"ambiguous":"no AI signals";
   result.innerHTML = `
     <div class="ring-wrap">
       <div class="ring-holder">
@@ -750,7 +1454,7 @@ $("#btnCheck").addEventListener("click", async ()=>{
       </div>
       <div class="verdict">
         <h3>${vT}</h3><p>${vX}</p>
-        <p style="font-size:14px;color:var(--ink-faint);font-style:italic;margin-top:6px">Compared against a local corpus of ${CORPUS.length} sources</p>
+        <p style="font-size:13px;color:var(--ink-faint);font-style:italic;margin-top:6px">Corpus: ${CORPUS.length} sources</p>
       </div>
     </div>
     <div class="metrics">
@@ -763,14 +1467,11 @@ $("#btnCheck").addEventListener("click", async ()=>{
   loader.classList.remove("show"); result.classList.add("show");
 });
 
-/* ============================================================
-   9. GRAMMAR CHECK — LanguageTool public API
-   ============================================================ */
 $("#btnGrammar").addEventListener("click", async ()=>{
   const text = essayTextEl.value.trim();
   const block = $("#grammarBlock");
   if(text.length < 5){ block.innerHTML = `<p style="color:var(--wine);font-style:italic">Text is too short.</p>`; return; }
-  block.innerHTML = `<div style="text-align:center;padding:14px;color:var(--ink-soft);font-style:italic">Checking grammar via LanguageTool…</div>`;
+  block.innerHTML = `<div style="text-align:center;padding:14px;color:var(--ink-soft);font-style:italic">Checking grammar…</div>`;
   try{
     const body = new URLSearchParams();
     body.append("text", text.slice(0, 20000));
@@ -792,27 +1493,27 @@ $("#btnGrammar").addEventListener("click", async ()=>{
         </div>`;
       }).join("");
   } catch(err){
-    block.innerHTML = `<p style="color:var(--wine);font-style:italic">Grammar check failed: ${err.message}. Check your internet connection.</p>`;
+    block.innerHTML = `<p style="color:var(--wine);font-style:italic">Grammar check failed: ${err.message}.</p>`;
   }
 });
 
 /* ============================================================
-   10. ENT MODE — 20 questions, 30 minutes
+   ENT MODE
    ============================================================ */
 const ENT_TOTAL = 20;
-const ENT_TIME = 30*60; // seconds
+const ENT_TIME = 30*60;
+let entState = null;
+let entInterval = null;
 
 function buildEntPool(){
   const pool = [];
-  TOPICS.forEach(t=>t.q.forEach((_,i)=>pool.push({topicId:t.id, qIdx:i})));
+  TOPICS.forEach(t=>t.subtopics.forEach(s=>s.q.forEach((_,i)=>pool.push({subId:s.id, qIdx:i}))));
   for(let i=pool.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [pool[i],pool[j]]=[pool[j],pool[i]]; }
   return pool.slice(0, ENT_TOTAL);
 }
 function fmtTime(sec){
   sec = Math.max(0, Math.floor(sec));
-  const m = String(Math.floor(sec/60)).padStart(2,"0");
-  const s = String(sec%60).padStart(2,"0");
-  return `${m}:${s}`;
+  return String(Math.floor(sec/60)).padStart(2,"0") + ":" + String(sec%60).padStart(2,"0");
 }
 function startEnt(){
   hideAll();
@@ -821,7 +1522,7 @@ function startEnt(){
   $("#entTimer").textContent = "30:00";
   renderEntQuestion();
   entInterval = setInterval(tickEnt, 1000);
-  window.scrollTo({top:0,behavior:"smooth"});
+  scrollTop();
 }
 function tickEnt(){
   if(!entState || entState.ended) return;
@@ -836,14 +1537,14 @@ function tickEnt(){
 }
 function renderEntQuestion(){
   const { pool, idx, score } = entState;
-  const { topicId, qIdx } = pool[idx];
-  const topic = TOPICS.find(t=>t.id===topicId);
-  const q = topic.q[qIdx];
+  const found = findSubtopic(pool[idx].subId);
+  const q = found.sub.q[pool[idx].qIdx];
   const letters = ["A","B","C","D"];
   const pct = Math.round((idx/ENT_TOTAL)*100);
   $("#entBody").innerHTML = `
     <div class="q-meta"><span>Question ${idx+1} / ${ENT_TOTAL}</span><span>Score: ${score}</span></div>
     <div class="q-bar"><i style="width:${pct}%"></i></div>
+    <div style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px">${found.topic.title} · ${found.sub.title}</div>
     <p class="q-text">${q[0]}</p>
     <div class="options" id="entOptions"></div>
     <div id="entAfter"></div>`;
@@ -859,9 +1560,8 @@ function renderEntQuestion(){
 function answerEnt(choice){
   if(!entState || entState.answered || entState.ended) return;
   entState.answered = true;
-  const { topicId, qIdx } = entState.pool[entState.idx];
-  const topic = TOPICS.find(t=>t.id===topicId);
-  const q = topic.q[qIdx];
+  const found = findSubtopic(entState.pool[entState.idx].subId);
+  const q = found.sub.q[entState.pool[entState.idx].qIdx];
   const correct = q[2];
   document.querySelectorAll("#entOptions .opt").forEach((b,i)=>{
     b.disabled = true;
@@ -871,7 +1571,7 @@ function answerEnt(choice){
   if(choice===correct) entState.score++;
   const isLast = entState.idx + 1 >= ENT_TOTAL;
   $("#entAfter").innerHTML = `
-    <div class="explain">${choice===correct?"✔ Correct.":"✘ Incorrect."} Correct answer: <b>${q[1][correct]}</b></div>
+    <div class="explain">${choice===correct?"✔ Correct.":"✘ Incorrect."} Correct: <b>${q[1][correct]}</b></div>
     <div class="btn-row">${isLast?`<button class="btn solid" id="entFinish">Finish</button>`:`<button class="btn solid" id="entNext">Next →</button>`}</div>`;
   if(isLast) $("#entFinish").addEventListener("click", ()=>finishEnt(false));
   else $("#entNext").addEventListener("click", ()=>{ entState.idx++; entState.answered=false; renderEntQuestion(); });
@@ -885,11 +1585,11 @@ function finishEnt(timeOut){
   recordEntRun(entState.score, ENT_TOTAL, spent);
   $("#entTimer").textContent = timeOut ? "Time is up!" : "Finished";
   $("#entTimer").classList.remove("warn","crit");
-  const verdict = pct>=85?"Excellent — you're ready.":pct>=60?"Decent, but keep drilling the weak spots.":"Needs more work — revisit the topics and try again.";
+  const verdict = pct>=85?"Excellent — you're ready.":pct>=60?"Decent, but keep drilling.":"Needs more work — revisit the topics.";
   $("#entBody").innerHTML = `
     <div class="score-block">
       <div class="big">${entState.score} / ${ENT_TOTAL}</div>
-      <div class="pct">${pct}% correct · time spent: ${fmtTime(spent)}</div>
+      <div class="pct">${pct}% · time: ${fmtTime(spent)}</div>
       <p style="font-style:italic;color:var(--ink-soft);max-width:420px;margin:0 auto 22px">${verdict}</p>
       <div class="btn-row" style="justify-content:center">
         <button class="btn solid" id="entAgain">Try again</button>
@@ -901,57 +1601,62 @@ function finishEnt(timeOut){
 }
 
 /* ============================================================
-   11. PROGRESS VIEW
+   PROGRESS
    ============================================================ */
+$("#btnProgressBack").addEventListener("click", goHome);
+$("#btnResetProgress").addEventListener("click", ()=>{
+  if(confirm("Reset all saved progress?")){
+    STORE = {subs:{}, errors:[], entRuns:[]};
+    saveStore(STORE);
+    showProgress();
+  }
+});
 function showProgress(){
   hideAll();
   stageProgress.hidden = false;
   const body = $("#progressBody");
   const parts = [];
 
-  // Topics
-  parts.push(`<h3 style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 12px">By topic</h3>`);
+  parts.push(`<h3 style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 12px">By subtopic</h3>`);
   parts.push(`<div class="progress-list">`);
   TOPICS.forEach(t=>{
-    const rec = STORE.topics[t.id];
-    const best = rec ? rec.best : 0;
-    const cls = best>=85?"good":best>=60?"":"bad";
-    const label = rec ? `${best}%` : "not attempted";
-    const width = rec ? best : 0;
-    parts.push(`<div class="progress-item">
-      <div style="flex:1">
-        <div class="name">${t.title}</div>
-        <div class="progress-bar-mini"><i style="width:${width}%"></i></div>
-      </div>
-      <div class="val ${cls}" style="margin-left:16px">${label}</div>
-    </div>`);
+    t.subtopics.forEach(s=>{
+      const rec = STORE.subs[s.id];
+      const best = rec ? rec.best : 0;
+      const cls = best>=85?"good":best>=60?"":"bad";
+      const label = rec ? `${best}%` : "—";
+      parts.push(`<div class="progress-item">
+        <div style="flex:1">
+          <div class="name">${s.title}</div>
+          <div style="font-size:12px;color:var(--ink-faint)">${t.title}</div>
+          <div class="progress-bar-mini"><i style="width:${best}%"></i></div>
+        </div>
+        <div class="val ${cls}" style="margin-left:16px">${label}</div>
+      </div>`);
+    });
   });
   parts.push(`</div>`);
 
-  // Errors
   if(STORE.errors.length){
     parts.push(`<h3 style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin:28px 0 12px">Weak spots (${STORE.errors.length})</h3>`);
-    parts.push(`<p style="font-style:italic;color:var(--ink-faint);margin:0 0 10px">Questions you got wrong at least once.</p>`);
-    const list = STORE.errors.slice(0,12).map(k=>{
-      const [tid, qi] = k.split(":");
-      const topic = TOPICS.find(t=>t.id===tid);
-      if(!topic) return "";
-      const q = topic.q[Number(qi)];
-      return `<li style="margin-bottom:6px">${q?q[0]:""}<br><span style="font-size:13px;color:var(--ink-faint)">— ${topic.title}</span></li>`;
+    const list = STORE.errors.slice(0,10).map(k=>{
+      const [sid, qi] = k.split(":");
+      const found = findSubtopic(sid);
+      if(!found) return "";
+      const q = found.sub.q[Number(qi)];
+      return `<li style="margin-bottom:6px">${q?q[0]:""}<br><span style="font-size:13px;color:var(--ink-faint)">— ${found.sub.title}</span></li>`;
     }).join("");
     parts.push(`<ul style="padding-left:18px">${list}</ul>`);
   }
 
-  // ENT history
   if(STORE.entRuns.length){
-    parts.push(`<h3 style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin:28px 0 12px">ENT simulation history</h3>`);
+    parts.push(`<h3 style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin:28px 0 12px">ENT history</h3>`);
     parts.push(`<div class="progress-list">`);
     STORE.entRuns.slice().reverse().forEach(r=>{
       const pct = Math.round(r.score/r.total*100);
       const cls = pct>=85?"good":pct>=60?"":"bad";
-      const date = new Date(r.ts).toLocaleString();
       parts.push(`<div class="progress-item">
-        <div style="flex:1"><div class="name">${date}</div></div>
+        <div style="flex:1"><div class="name">${new Date(r.ts).toLocaleString()}</div></div>
         <div class="val ${cls}">${r.score}/${r.total} · ${pct}%</div>
       </div>`);
     });
@@ -959,7 +1664,7 @@ function showProgress(){
   }
 
   body.innerHTML = parts.join("");
-  window.scrollTo({top:0,behavior:"smooth"});
+  scrollTop();
 }
 </script>
 </body>
